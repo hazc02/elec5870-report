@@ -1,0 +1,27 @@
+# latexmk outdir
+**/build/
+
+# LaTeX aux files (catch-all)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# editor
+.vscode/
+.DS_Store
+
+# temp
+*~
