@@ -1,0 +1,29 @@
+\chapter{Plans for Semester 2}
+\label{ch:future}
+
+\section{Immediate Next Steps}
+Complete recessed-gate dataset analysis; derive an empirical relationship
+between threshold voltage and recess depth; fabricate final optimised devices.
+
+\section{Logic Demonstration Phase}
+Plan a DCFL inverter (and optional NAND) using measured device parameters.
+Outline simulation with extracted models, wire-bonding, and testing.
+
+\section{Time Plan}
+\begin{figure}[H]
+  \centering
+  % Simpler month-indexed Gantt to avoid pgfgantt key warnings
+  \begin{ganttchart}[hgrid,vgrid,bar height=0.6]{1}{5}
+    \gantttitle{Semester 2}{5} \\
+    \gantttitle{Months}{5} \\
+    \gantttitlelist{1,...,5}{1} \\
+    \ganttbar{Fabrication}{1}{2} \\
+    \ganttbar{Characterisation}{2}{3} \\
+    \ganttbar{Logic design}{3}{4} \\
+    \ganttbar{Testing}{4}{5} \\
+    \ganttbar{Report drafting}{3}{5}
+  \end{ganttchart}
+  \caption{Indicative Semester~2 plan; adjust dates and scope as milestones firm up.}
+  \label{fig:gantt}
+\end{figure}
+A high-level plan is shown in Figure~\ref{fig:gantt}.

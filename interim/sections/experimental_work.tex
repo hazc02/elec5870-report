@@ -1,0 +1,50 @@
+\chapter{Experimental Work to Date}
+\label{ch:experimental}
+
+\section{Depletion-Mode HEMT Fabrication and Testing}
+Summarise the training run and provide a succinct fabrication flow. Include one
+representative dataset (transfer and output characteristics) with captions that
+explain the key features and extracted parameters (e.g., $V_{\mathrm{th}} \approx
+-0.9\,\mathrm{V}$, $g_m \approx 3\,\mathrm{mS}$).
+
+\begin{figure}[H]
+  \centering
+  % Placeholder for IV plot
+  \fbox{\rule{0pt}{45mm}\rule{0.9\linewidth}{0pt}}
+  \caption{Representative transfer characteristic for d-mode HEMT. Replace with
+  plot from the Python pipeline.}
+  \label{fig:dmode-transfer}
+\end{figure}
+
+\section{Python Data-Processing Pipeline}
+Briefly describe the CSV parsing, plotting, and parameter-extraction stages.
+Justify the pipeline for reproducibility and efficiency. Add a figure generated
+by the tool once available.
+
+\section{Enhancement-Mode Development (pHEMT)}
+Describe etch-rate calibration (gas mixture, pressure, time) and summarise
+profilometer measurements.
+
+\begin{table}[H]
+  \centering
+  \caption{Example recess depth calibration (replace with measured data).}
+  \label{tab:recess-depths}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    Etch time (s) & Depth (nm) & Notes \\
+    \midrule
+    10 & -- & calibration \\
+    20 & -- & calibration \\
+    30 & -- & device batch \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Table~\ref{tab:recess-depths} will be replaced with the measured relationship
+between etch time and recess depth.
+Include representative I--V and transfer curves indicating threshold shift, and
+discuss trade-offs (surface roughness, leakage). Document any process
+adjustments (post-etch clean, passivation).
+
+\section{Discussion}
+Compare recessed devices with the d-mode baseline, explain the physical origin
+of threshold shifts, and comment on reproducibility and process sensitivity.

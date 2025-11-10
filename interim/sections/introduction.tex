@@ -1,0 +1,36 @@
+\chapter{Introduction and Technical Background}
+\label{ch:introduction}
+
+\section{Motivation and Context}
+This project investigates the feasibility of achieving enhancement-mode (e-mode)
+behaviour in GaAs-based pseudomorphic high-electron-mobility transistors
+(pHEMTs) using controlled gate recessing. While CMOS dominates general-purpose
+logic, III--V devices retain strong relevance in RF, mixed-signal, and
+radiation-hard domains owing to high carrier mobility and favourable
+transport. The central question is whether positive-threshold devices can be
+realised on GaAs without an explicit etch-stop layer---opening a pathway to
+logic topologies that leverage compound-semiconductor performance.
+
+\section{Device Physics Background}
+A pHEMT typically comprises a GaAs channel and an AlGaAs barrier that forms a
+two-dimensional electron gas (2DEG) at the heterointerface. A Schottky gate
+electrostatically modulates the channel. Depletion-mode (d-mode) operation
+arises when the channel is conductive at zero gate bias (negative threshold),
+whereas e-mode devices conduct only for positive gate bias. Gate recessing
+reduces gate-to-channel separation and can shift the threshold voltage, but is
+highly sensitive to surface states and processing chemistry.
+
+\begin{figure}[H]
+  \centering
+  % Placeholder cross-section schematic
+  \fbox{\rule{0pt}{40mm}\rule{0.9\linewidth}{0pt}}
+  \caption{Simplified pHEMT cross-section showing gate, barrier, channel, and
+  recess region. Replace with final schematic from your CAD/diagram tool.}
+  \label{fig:phemt-cross-section}
+\end{figure}
+
+\section{Relevance to Logic}
+GaAs logic families (e.g., DCFL and e/d-load logic) benefit from devices with a
+positive threshold voltage. The project aims to fabricate and characterise
+recessed-gate pHEMTs that enable such topologies, providing an empirical link
+between recess depth and threshold voltage.

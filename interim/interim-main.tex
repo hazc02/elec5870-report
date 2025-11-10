@@ -1,0 +1,44 @@
+\documentclass[10pt,twocolumn,a4paper]{report}
+
+% Include global settings
+\input{settings/packages}
+\input{settings/commands}
+
+\begin{document}
+
+% Title and abstract
+\input{settings/titlepage}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{sections/abstract}
+
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Main sections
+\input{sections/introduction}
+\input{sections/literature_review}
+\input{sections/experimental_work}
+\input{sections/reflection}
+\input{sections/future_work}
+
+% References (IEEE style)
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{IEEEtran}
+\bibliography{sections/references}
+
+% Appendices
+\cleardoublepage
+\appendix
+\input{appendices/appendix_a}
+\input{appendices/appendix_b}
+
+\end{document}
