@@ -1,9 +1,1 @@
 \chapter{Additional Figures}
-\label{app:additional-figures}
-
-% Placeholder for supplementary I--V graphs and microscopy images.
-\begin{figure}[H]
-  \centering
-  \fbox{\rule{0pt}{50mm}\rule{0.9\linewidth}{0pt}}
-  \caption{Supplementary plot. Replace with final figure.}
-\end{figure}
