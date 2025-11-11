@@ -1,36 +1,55 @@
 \chapter{Introduction and Technical Background}
-\label{ch:introduction}
 
 \section{Motivation and Context}
-This project investigates the feasibility of achieving enhancement-mode (e-mode)
-behaviour in GaAs-based pseudomorphic high-electron-mobility transistors
-(pHEMTs) using controlled gate recessing. While CMOS dominates general-purpose
-logic, III--V devices retain strong relevance in RF, mixed-signal, and
-radiation-hard domains owing to high carrier mobility and favourable
-transport. The central question is whether positive-threshold devices can be
-realised on GaAs without an explicit etch-stop layer---opening a pathway to
-logic topologies that leverage compound-semiconductor performance.
+
+High-electron-mobility transistors (HEMTs) and their pseudomorphic variants (pHEMTs) are fundamental to many modern high-frequency and high-performance electronic systems. 
+Their exceptional electron mobility and low parasitic capacitance make them indispensable in microwave amplifiers, radar receivers, satellite communications, and other circuits requiring high gain and low noise. 
+These advantages arise from the formation of a two-dimensional electron gas (2DEG) within a III–V heterostructure, typically gallium arsenide (GaAs) with an aluminium gallium arsenide (AlGaAs) barrier. 
+The resulting high carrier velocity and low scattering rates allow significantly faster operation than equivalent silicon-based devices.
+
+Although HEMTs dominate within analogue and radio-frequency domains, their use in digital logic has remained limited. 
+The majority of GaAs-based field-effect transistors operate in depletion mode (\textit{D}-mode), meaning that they conduct current at zero gate bias and must be driven negatively to turn off. 
+Logic circuits constructed solely from depletion-mode transistors suffer from high static power dissipation, incomplete switching, and restricted noise margins. 
+Enhancement-mode (\textit{E}-mode) devices, in contrast, remain non-conductive at zero bias and switch on only when a positive gate voltage is applied; these characteristics are desirable for logic implementation, providing defined logic levels and low static power.
+
+To realise efficient GaAs logic, both device types are required. Complementary operation between depletion and enhancement-mode transistors underpins logic families such as direct-coupled FET logic (DCFL) and enhancement/depletion-load logic. 
+The depletion device provides a passive load, while the enhancement device acts as the active pull-down element. 
+Together they enable rail-to-rail voltage swings and reduced power consumption. 
+However, achieving reliable enhancement-mode behaviour within standard GaAs fabrication processes remains challenging.
+
+\section{Rationale for Project Direction}
+
+During the early phase of this project, sixteen depletion-mode pHEMTs were fabricated and characterised in the Leeds Nanotechnology Cleanroom. 
+The devices exhibited threshold voltages of approximately \(-0.9~\mathrm{V}\) and peak transconductances of around \(3~\mathrm{mS}\), confirming that the existing process yields high-quality depletion-mode transistors. 
+While these results established a solid baseline, they also highlighted a key limitation: the absence of enhancement-mode devices restricts any exploration of complementary logic structures. 
+
+A review of existing literature on GaAs logic indicates that enhancement-mode behaviour can be induced through modification of the barrier region above the 2DEG. 
+Techniques reported include double-recess etching of the AlGaAs barrier\cite{hsieh2004}, platinum gate sinking to locally increase the Schottky barrier height\cite{chu2007}, and dielectric interface engineering.
+Many of these methods depend on epitaxial wafers containing dedicated etch-stop layers or require high-temperature processing beyond the capabilities of the Leeds cleanroom. 
+Consequently, a practical question arises: can enhancement-mode operation be achieved on a standard GaAs pHEMT wafer, without an etch-stop, through precise control of the gate recess process? 
+
+This question defines the central motivation of the project. 
+If successful, such a process would offer a low-cost and experimentally accessible route to complementary GaAs logic, broadening the capability of the cleanroom and contributing insight into the relationship between recess depth and threshold voltage. 
 
 \section{Device Physics Background}
-A pHEMT typically comprises a GaAs channel and an AlGaAs barrier that forms a
-two-dimensional electron gas (2DEG) at the heterointerface. A Schottky gate
-electrostatically modulates the channel. Depletion-mode (d-mode) operation
-arises when the channel is conductive at zero gate bias (negative threshold),
-whereas e-mode devices conduct only for positive gate bias. Gate recessing
-reduces gate-to-channel separation and can shift the threshold voltage, but is
-highly sensitive to surface states and processing chemistry.
 
-\begin{figure}[H]
-  \centering
-  % Placeholder cross-section schematic
-  \fbox{\rule{0pt}{40mm}\rule{0.9\linewidth}{0pt}}
-  \caption{Simplified pHEMT cross-section showing gate, barrier, channel, and
-  recess region. Replace with final schematic from your CAD/diagram tool.}
-  \label{fig:phemt-cross-section}
-\end{figure}
+A pseudomorphic HEMT consists of a GaAs channel beneath an AlGaAs donor layer. 
+Electrons transfer from the donor layer into the GaAs, forming a two-dimensional electron gas (2DEG) at the heterojunction. 
+The 2DEG provides a highly conductive channel whose carrier concentration is modulated by the Schottky gate potential. 
+The threshold voltage, \(V_{th}\), depends primarily on the gate–channel separation, barrier composition, and surface charge density. 
 
-\section{Relevance to Logic}
-GaAs logic families (e.g., DCFL and e/d-load logic) benefit from devices with a
-positive threshold voltage. The project aims to fabricate and characterise
-recessed-gate pHEMTs that enable such topologies, providing an empirical link
-between recess depth and threshold voltage.
+In depletion-mode devices, the 2DEG exists at zero gate bias, and a negative voltage is required to deplete the carriers and switch the device off. 
+In enhancement-mode devices, the 2DEG is fully depleted when \(V_G = 0\), and a positive voltage is required to induce conduction. 
+One of the most effective ways to shift the threshold voltage towards positive values is to recess the gate. By carefully etching away a controlled thickness of the AlGaAs barrier, the gate potential gains stronger electrostatic influence over the channel, resulting in a shallower depletion region and a positive shift in \(V_{th}\). Excessive etching, however, increases leakage and roughens the surface, whereas insufficient etching yields little or no threshold shift. The process therefore demands precise control at nanometre-scale depths.
+
+[\textit{A cross-section of a pHEMT structure to be included to illustrate the 2DEG formation and the effect of a recessed gate region on the electrostatic profile}]
+
+\section{Project Aim and Significance}
+
+The aim of this project is to investigate the feasibility of achieving enhancement-mode behaviour in GaAs-based pHEMTs through controlled gate recessing using the equipment available within the Leeds Nanotechnology Cleanroom. 
+The work involves calibrating etch rates, fabricating transistors with systematically varied recess depths, and evaluating the resulting electrical characteristics. From this, an empirical relationship between recess depth and threshold voltage will be derived. 
+
+The broader significance extends beyond the immediate fabrication results. 
+Establishing enhancement-mode operation without an etch-stop would demonstrate a viable route towards complementary GaAs logic using existing cleanroom infrastructure. 
+This would enable the future design and testing of logic cells such as inverters and NAND gates composed of both depletion- and enhancement-mode devices. 
+The findings will also contribute to a deeper understanding of threshold-voltage engineering, surface passivation, and process sensitivity in III–V semiconductor technology.

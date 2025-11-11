@@ -1,0 +1,28 @@
+{
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk (outdir)",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-file-line-error",
+        "-outdir=%DIR%/build",   // <<< force outputs next to the root .tex
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "latexmk (outdir)", "tools": ["latexmk (outdir)"] }
+  ],
+
+  "latex-workshop.latex.clean.method": "LaTeX Workshop",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux","*.bbl","*.bcf","*.blg","*.fdb_latexmk","*.fls",
+    "*.log","*.out","*.run.xml","*.toc","*.lof","*.lot","*.synctex.gz"
+  ]
+}

@@ -6,4 +6,6 @@ Brief outline of the analysis pipeline and key scripts. Include code snippets or
 links to the repository as appropriate.
 
 \section{Cleanroom Process Summary}
+\begin{sloppypar}
 Summarise lithography, metallisation, and etch steps with key parameters.
+\end{sloppypar}

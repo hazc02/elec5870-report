@@ -9,7 +9,7 @@
 \usepackage{pgfgantt}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{multicol}
+\usepackage{tabularx}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{setspace}
@@ -50,10 +50,12 @@
   {\titlerule\vspace{1ex}}
 \titlespacing*{\chapter}{0pt}{-8pt}{18pt}
 
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{0.8em}{}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\titleformat{\section}{\normalfont\large\bfseries\raggedright}{\thesection}{0.8em}{}
 \titlespacing*{\section}{0pt}{12pt}{6pt}
 
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsection}{0.6em}{}
 \titlespacing*{\subsection}{0pt}{10pt}{4pt}
 
 % Header and footer styling
