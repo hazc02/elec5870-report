@@ -1,0 +1,2 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QUniversity of Leeds School of Electronic and Electrical Engineering ELEC5870M Interim Report Gate-Recessed Enhancement-mode pHEMTs for Logic Student: Harry Carless Student ID: 201508537 Supervisor: Dr Christopher Wood Assessor: Mr Rob Farr\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QTo realise efficient GaAs logic, both device types are required.\\E$"}

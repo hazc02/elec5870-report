@@ -2,54 +2,123 @@
 
 \section{Motivation and Context}
 
-High-electron-mobility transistors (HEMTs) and their pseudomorphic variants (pHEMTs) are fundamental to many modern high-frequency and high-performance electronic systems. 
-Their exceptional electron mobility and low parasitic capacitance make them indispensable in microwave amplifiers, radar receivers, satellite communications, and other circuits requiring high gain and low noise. 
-These advantages arise from the formation of a two-dimensional electron gas (2DEG) within a III–V heterostructure, typically gallium arsenide (GaAs) with an aluminium gallium arsenide (AlGaAs) barrier. 
-The resulting high carrier velocity and low scattering rates allow significantly faster operation than equivalent silicon-based devices.
+High-electron-mobility transistors (HEMTs) and their pseudomorphic variants 
+(pHEMTs) are central to many modern high-frequency and high-performance 
+electronic systems. Their exceptional electron mobility and low parasitic 
+capacitance make them indispensable in microwave amplifiers, radar receivers, 
+satellite communications, and other applications where high gain and low noise 
+are required. These advantages arise from the formation of a two-dimensional 
+electron gas (2DEG) within a III–V heterostructure, where the material pairing 
+can vary depending on the application. Systems based on gallium nitride (GaN), 
+indium phosphide (InP), and gallium arsenide (GaAs) are among the most common. 
+In this project, GaAs has been selected due to its maturity, availability 
+within the Leeds cleanroom, and well-characterised processing behaviour.
 
-Although HEMTs dominate within analogue and radio-frequency domains, their use in digital logic has remained limited. 
-The majority of GaAs-based field-effect transistors operate in depletion mode (\textit{D}-mode), meaning that they conduct current at zero gate bias and must be driven negatively to turn off. 
-Logic circuits constructed solely from depletion-mode transistors suffer from high static power dissipation, incomplete switching, and restricted noise margins. 
-Enhancement-mode (\textit{E}-mode) devices, in contrast, remain non-conductive at zero bias and switch on only when a positive gate voltage is applied; these characteristics are desirable for logic implementation, providing defined logic levels and low static power.
+In contrast to conventional silicon metal–oxide–semiconductor field-effect 
+transistors (MOSFETs), which rely on carrier inversion within a doped substrate, 
+HEMTs achieve conduction through modulation of a 2DEG confined at a 
+heterojunction interface. This separation between the carrier channel and dopant 
+impurities yields far higher mobility; as a result, HEMTs can operate in the 
+tens to hundreds of gigahertz range. The heterostructure design, however, makes 
+control over channel depletion and threshold voltage more complex than in 
+conventional transistors, as these parameters depend sensitively on epitaxial 
+structure, surface condition, and gate geometry. This complexity has limited the 
+widespread use of HEMTs in digital applications, where consistent and 
+well-defined switching characteristics are essential.
 
-To realise efficient GaAs logic, both device types are required. Complementary operation between depletion and enhancement-mode transistors underpins logic families such as direct-coupled FET logic (DCFL) and enhancement/depletion-load logic. 
-The depletion device provides a passive load, while the enhancement device acts as the active pull-down element. 
-Together they enable rail-to-rail voltage swings and reduced power consumption. 
-However, achieving reliable enhancement-mode behaviour within standard GaAs fabrication processes remains challenging.
+Although HEMTs dominate within analogue and radio-frequency domains, their use 
+in digital logic has remained limited. Most GaAs-based field-effect transistors 
+operate in depletion mode, meaning that they conduct current at zero gate bias 
+and must be driven negatively to turn off. Logic circuits constructed solely 
+from depletion-mode transistors suffer from high static power dissipation, 
+incomplete switching, and restricted noise margins. Enhancement-mode devices, 
+in contrast, remain non-conductive at zero bias and switch on only when a 
+positive gate voltage is applied; these characteristics are desirable for logic 
+implementation, providing defined logic levels and low static power.
+
+To realise efficient GaAs logic, both device types are required. Complementary 
+operation between depletion- and enhancement-mode transistors underpins logic 
+families such as direct-coupled FET logic (DCFL) and enhancement/depletion-load 
+logic. The depletion device provides a passive load, while the enhancement 
+device acts as the active pull-down element. Together they enable rail-to-rail 
+voltage swings and reduced power consumption. Achieving reliable 
+enhancement-mode behaviour within standard GaAs fabrication processes, however, 
+remains a significant challenge, particularly in facilities without etch-stop 
+layers or advanced epitaxial control.
 
 \section{Rationale for Project Direction}
 
-During the early phase of this project, sixteen depletion-mode pHEMTs were fabricated and characterised in the Leeds Nanotechnology Cleanroom. 
-The devices exhibited threshold voltages of approximately \(-0.9~\mathrm{V}\) and peak transconductances of around \(3~\mathrm{mS}\), confirming that the existing process yields high-quality depletion-mode transistors. 
-While these results established a solid baseline, they also highlighted a key limitation: the absence of enhancement-mode devices restricts any exploration of complementary logic structures. 
+During the early phase of this project, sixteen depletion-mode pHEMTs were 
+fabricated and characterised in the Leeds Nanotechnology Cleanroom. The devices 
+exhibited threshold voltages around \(-0.9~\mathrm{V}\) and peak 
+transconductance near \(3~\mathrm{mS}\), confirming that the existing process 
+produces high-quality depletion-mode transistors. While these results 
+established a strong foundation, they also revealed a key limitation: the 
+absence of enhancement-mode devices prevents the exploration of complementary 
+logic behaviour.
 
-A review of existing literature on GaAs logic indicates that enhancement-mode behaviour can be induced through modification of the barrier region above the 2DEG. 
-Techniques reported include double-recess etching of the AlGaAs barrier\cite{hsieh2004}, platinum gate sinking to locally increase the Schottky barrier height\cite{chu2007}, and dielectric interface engineering.
-Many of these methods depend on epitaxial wafers containing dedicated etch-stop layers or require high-temperature processing beyond the capabilities of the Leeds cleanroom. 
-Consequently, a practical question arises: can enhancement-mode operation be achieved on a standard GaAs pHEMT wafer, without an etch-stop, through precise control of the gate recess process? 
+This limitation defines the central direction of the project. Achieving 
+enhancement-mode operation would enable the construction of logic families that 
+combine depletion- and enhancement-mode devices on the same substrate, improving 
+switching efficiency and enabling more complex circuit design. To pursue this 
+goal, the project focuses on whether controlled gate-recess etching can be used 
+to shift the threshold voltage of GaAs pHEMTs into the positive region, without 
+altering the wafer’s epitaxial structure or relying on etch-stop layers.
 
-This question defines the central motivation of the project. 
-If successful, such a process would offer a low-cost and experimentally accessible route to complementary GaAs logic, broadening the capability of the cleanroom and contributing insight into the relationship between recess depth and threshold voltage. 
+The approach is motivated by both practical and academic considerations. From a 
+practical standpoint, demonstrating enhancement-mode behaviour using only the 
+processes available within the Leeds cleanroom would represent a significant 
+extension of current fabrication capability. From an academic perspective, it 
+offers an opportunity to investigate how nanoscale recess depth influences 
+electrostatic control, surface morphology, and threshold stability. Together, 
+these aims provide a focused route towards developing complementary GaAs logic 
+within an accessible and resource-constrained environment.
 
-\section{Device Physics Background}
+\section{pHEMT Device Physics Background}
 
 A pseudomorphic HEMT consists of a GaAs channel beneath an AlGaAs donor layer. 
-Electrons transfer from the donor layer into the GaAs, forming a two-dimensional electron gas (2DEG) at the heterojunction. 
-The 2DEG provides a highly conductive channel whose carrier concentration is modulated by the Schottky gate potential. 
-The threshold voltage, \(V_{th}\), depends primarily on the gate–channel separation, barrier composition, and surface charge density. 
+Electrons transfer from the donor layer into the GaAs, forming a two-dimensional 
+electron gas at the heterojunction. The 2DEG provides a highly conductive channel 
+whose carrier concentration is modulated by the Schottky gate potential. The 
+threshold voltage depends primarily on the gate–channel separation, barrier 
+composition, and surface charge density.
 
-In depletion-mode devices, the 2DEG exists at zero gate bias, and a negative voltage is required to deplete the carriers and switch the device off. 
-In enhancement-mode devices, the 2DEG is fully depleted when \(V_G = 0\), and a positive voltage is required to induce conduction. 
-One of the most effective ways to shift the threshold voltage towards positive values is to recess the gate. By carefully etching away a controlled thickness of the AlGaAs barrier, the gate potential gains stronger electrostatic influence over the channel, resulting in a shallower depletion region and a positive shift in \(V_{th}\). Excessive etching, however, increases leakage and roughens the surface, whereas insufficient etching yields little or no threshold shift. The process therefore demands precise control at nanometre-scale depths.
+In depletion-mode devices, the 2DEG exists at zero gate bias, and a negative 
+voltage is required to deplete the carriers and switch the device off. In 
+enhancement-mode devices, the 2DEG is fully depleted when the gate voltage is 
+zero, and a positive voltage is required to induce conduction. One of the most 
+effective methods of shifting the threshold voltage towards positive values is 
+to recess the gate. By carefully etching away a controlled thickness of the 
+AlGaAs barrier, the gate potential gains stronger electrostatic influence over 
+the channel, resulting in a shallower depletion region and a positive shift in 
+threshold voltage.
 
-[\textit{A cross-section of a pHEMT structure to be included to illustrate the 2DEG formation and the effect of a recessed gate region on the electrostatic profile}]
+Excessive etching increases leakage and roughens the surface, whereas 
+insufficient etching yields little or no threshold shift. The process therefore 
+demands precise control at nanometre-scale depths. A schematic cross-section of 
+a pHEMT structure will be included to illustrate the formation of the 2DEG and 
+the influence of the recessed gate region on the electrostatic potential profile.
 
 \section{Project Aim and Significance}
 
-The aim of this project is to investigate the feasibility of achieving enhancement-mode behaviour in GaAs-based pHEMTs through controlled gate recessing using the equipment available within the Leeds Nanotechnology Cleanroom. 
-The work involves calibrating etch rates, fabricating transistors with systematically varied recess depths, and evaluating the resulting electrical characteristics. From this, an empirical relationship between recess depth and threshold voltage will be derived. 
+This project aims to develop and experimentally validate a controllable 
+gate-recess process capable of inducing enhancement-mode behaviour in GaAs-based 
+pHEMTs using only the equipment available within the Leeds Nanotechnology 
+Cleanroom. The work involves calibrating etch rates, fabricating transistors with 
+systematically varied recess depths, and evaluating the resulting electrical 
+characteristics. From this, an empirical relationship between recess depth and 
+threshold voltage will be established.
 
-The broader significance extends beyond the immediate fabrication results. 
-Establishing enhancement-mode operation without an etch-stop would demonstrate a viable route towards complementary GaAs logic using existing cleanroom infrastructure. 
-This would enable the future design and testing of logic cells such as inverters and NAND gates composed of both depletion- and enhancement-mode devices. 
-The findings will also contribute to a deeper understanding of threshold-voltage engineering, surface passivation, and process sensitivity in III–V semiconductor technology.
+Beyond the immediate fabrication results, the broader significance lies in 
+demonstrating enhancement-mode operation without dedicated epitaxial or 
+etch-stop structures. Achieving this would show that complementary GaAs logic 
+could be realised using existing, low-cost infrastructure. Such a process would 
+also offer energy-efficiency benefits in high-speed electronics, supporting 
+sustainable design principles by reducing static power dissipation in compound 
+semiconductor logic.
+
+The findings are expected to contribute to a deeper understanding of 
+threshold-voltage engineering, surface passivation, and process sensitivity in 
+III–V semiconductor technology, while providing a foundation for future logic 
+circuit demonstrations, such as DCFL inverters and NAND gates, constructed from 
+both depletion- and enhancement-mode devices.
