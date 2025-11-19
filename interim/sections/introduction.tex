@@ -1,124 +1,89 @@
-\chapter{Introduction and Technical Background}
+\chapter{Introduction}
 
-\section{Motivation and Context}
+\section{Context and Motivation}
 
-High-electron-mobility transistors (HEMTs) and their pseudomorphic variants 
-(pHEMTs) are central to many modern high-frequency and high-performance 
-electronic systems. Their exceptional electron mobility and low parasitic 
-capacitance make them indispensable in microwave amplifiers, radar receivers, 
-satellite communications, and other applications where high gain and low noise 
-are required. These advantages arise from the formation of a two-dimensional 
-electron gas (2DEG) within a III–V heterostructure, where the material pairing 
-can vary depending on the application. Systems based on gallium nitride (GaN), 
-indium phosphide (InP), and gallium arsenide (GaAs) are among the most common. 
-In this project, GaAs has been selected due to its maturity, availability 
-within the Leeds cleanroom, and well-characterised processing behaviour.
+Modern electronic and communication systems impose increasingly demanding
+requirements on the devices that form their signal paths. Higher carrier
+frequencies, lower permissible noise levels, stricter linearity constraints
+and improved power efficiency are now expected. At the device level, these
+system requirements manifest as targets for cut-off frequency, noise figure,
+gain and power handling that conventional silicon technologies cannot always
+achieve.
 
-In contrast to conventional silicon metal–oxide–semiconductor field-effect 
-transistors (MOSFETs), which rely on carrier inversion within a doped substrate, 
-HEMTs achieve conduction through modulation of a 2DEG confined at a 
-heterojunction interface. This separation between the carrier channel and dopant 
-impurities yields far higher mobility; as a result, HEMTs can operate in the 
-tens to hundreds of gigahertz range. The heterostructure design, however, makes 
-control over channel depletion and threshold voltage more complex than in 
-conventional transistors, as these parameters depend sensitively on epitaxial 
-structure, surface condition, and gate geometry. This complexity has limited the 
-widespread use of HEMTs in digital applications, where consistent and 
-well-defined switching characteristics are essential.
+High-electron-mobility transistors meet many of these system requirements 
+through the use of a carefully engineered heterojunction, which is the 
+interface between two semiconductor materials with different band structures.
+This band discontinuity causes electrons to collect in a very thin region 
+at the heterojunction, creating a highly mobile sheet of charge carriers known as a 
+two-dimensional electron gas (2DEG). The key advantage of this arrangement
+is that the 2DEG forms without the need to place donor atoms directly in the 
+conduction path. In contrast to MESFETs, where electrons move through a doped 
+channel, the absence of ionised impurities in a HEMT channel greatly reduces 
+Coulomb scattering \cite{ali1991}. As a result, electrons can move more freely,
+giving the device high mobility, high transconductance and predictable behaviour
+at high frequencies. These characteristics allow HEMTs to operate reliably 
+across a broad frequency range, typically from around 1 GHz to beyond 100 GHz \cite{liu1999},
+making them well suited to low-noise amplifiers, receiver front ends and other high-frequency subsystems.
 
-Although HEMTs dominate within analogue and radio-frequency domains, their use 
-in digital logic has remained limited. Most GaAs-based field-effect transistors 
-operate in depletion mode, meaning that they conduct current at zero gate bias 
-and must be driven negatively to turn off. Logic circuits constructed solely 
-from depletion-mode transistors suffer from high static power dissipation, 
-incomplete switching, and restricted noise margins. Enhancement-mode devices, 
-in contrast, remain non-conductive at zero bias and switch on only when a 
-positive gate voltage is applied; these characteristics are desirable for logic 
-implementation, providing defined logic levels and low static power.
+Within this context, it is necessary to understand how the structure and
+processing of III–V HEMTs influence their electrical behaviour. Practical
+device performance is shaped not only by the underlying material system,
+but also by the fabrication steps used to define the channel, contacts and
+gate. Engaging directly with these processes provides a clearer view of how
+device characteristics emerge from both design and implementation. This
+interim report therefore introduces the key principles that underpin HEMT
+operation and presents the fabrication and analysis of GaAs-based
+pseudomorphic III–V HEMT devices produced during the first phase of the
+project.
 
-To realise efficient GaAs logic, both device types are required. Complementary 
-operation between depletion- and enhancement-mode transistors underpins logic 
-families such as direct-coupled FET logic (DCFL) and enhancement/depletion-load 
-logic. The depletion device provides a passive load, while the enhancement 
-device acts as the active pull-down element. Together they enable rail-to-rail 
-voltage swings and reduced power consumption. Achieving reliable 
-enhancement-mode behaviour within standard GaAs fabrication processes, however, 
-remains a significant challenge, particularly in facilities without etch-stop 
-layers or advanced epitaxial control.
 
-\section{Rationale for Project Direction}
+\section{Importance of III--V HEMTs}
 
-During the early phase of this project, sixteen depletion-mode pHEMTs were 
-fabricated and characterised in the Leeds Nanotechnology Cleanroom. The devices 
-exhibited threshold voltages around \(-0.9~\mathrm{V}\) and peak 
-transconductance near \(3~\mathrm{mS}\), confirming that the existing process 
-produces high-quality depletion-mode transistors. While these results 
-established a strong foundation, they also revealed a key limitation: the 
-absence of enhancement-mode devices prevents the exploration of complementary 
-logic behaviour.
+III--V compound semiconductors play a central role in enabling the
+performance characteristics associated with HEMT devices. Materials such as
+GaAs, InP and GaN possess band structures and carrier transport properties
+that support high-frequency operation, low noise and, in some cases, high
+power density. \cite{liu1999} Their relatively low effective electron mass and favourable
+mobility characteristics provide a foundation for transistor behaviour that
+is difficult to achieve with silicon CMOS or SiGe bipolar processes over the
+same frequency range. \cite{}
 
-This limitation defines the central direction of the project. Achieving 
-enhancement-mode operation would enable the construction of logic families that 
-combine depletion- and enhancement-mode devices on the same substrate, improving 
-switching efficiency and enabling more complex circuit design. To pursue this 
-goal, the project focuses on whether controlled gate-recess etching can be used 
-to shift the threshold voltage of GaAs pHEMTs into the positive region, without 
-altering the wafer’s epitaxial structure or relying on etch-stop layers.
+The heterostructure engineering available within III--V systems allows
+precise control over carrier confinement, channel composition and interface
+quality. By separating charge carriers from their parent dopants, these
+structures sustain mobility values that directly translate into high
+transconductance and improved gain at microwave frequencies. As a result,
+III--V HEMTs continue to serve key functions in low-noise receivers,
+high-frequency amplifiers and specialist instrumentation.
 
-The approach is motivated by both practical and academic considerations. From a 
-practical standpoint, demonstrating enhancement-mode behaviour using only the 
-processes available within the Leeds cleanroom would represent a significant 
-extension of current fabrication capability. From an academic perspective, it 
-offers an opportunity to investigate how nanoscale recess depth influences 
-electrostatic control, surface morphology, and threshold stability. Together, 
-these aims provide a focused route towards developing complementary GaAs logic 
-within an accessible and resource-constrained environment.
+\section{Current Landscape and Relevance}
 
-\section{pHEMT Device Physics Background}
+Although silicon RF technologies have progressed significantly, particularly
+in CMOS and SiGe BiCMOS platforms, III--V HEMTs remain important in domains
+where the highest noise performance, highest frequency operation or highest
+power density are required. Their continued use in satellite communication
+payloads, microwave backhaul links, scientific instrumentation and radar
+receivers reflects the practical advantages of III--V material systems in
+these regimes.
 
-A pseudomorphic HEMT consists of a GaAs channel beneath an AlGaAs donor layer. 
-Electrons transfer from the donor layer into the GaAs, forming a two-dimensional 
-electron gas at the heterojunction. The 2DEG provides a highly conductive channel 
-whose carrier concentration is modulated by the Schottky gate potential. The 
-threshold voltage depends primarily on the gate–channel separation, barrier 
-composition, and surface charge density.
+Contemporary research and industry practice continue to refine III--V device
+structures, epitaxial growth methods and fabrication processes to improve
+linearity, noise behaviour and frequency response. Even where silicon-based
+technologies dominate large-volume commercial applications, III--V HEMTs
+retain a critical role in performance-driven systems that cannot rely solely
+on silicon.
 
-In depletion-mode devices, the 2DEG exists at zero gate bias, and a negative 
-voltage is required to deplete the carriers and switch the device off. In 
-enhancement-mode devices, the 2DEG is fully depleted when the gate voltage is 
-zero, and a positive voltage is required to induce conduction. One of the most 
-effective methods of shifting the threshold voltage towards positive values is 
-to recess the gate. By carefully etching away a controlled thickness of the 
-AlGaAs barrier, the gate potential gains stronger electrostatic influence over 
-the channel, resulting in a shallower depletion region and a positive shift in 
-threshold voltage.
+\section{Scope and Structure of the Report}
 
-Excessive etching increases leakage and roughens the surface, whereas 
-insufficient etching yields little or no threshold shift. The process therefore 
-demands precise control at nanometre-scale depths. A schematic cross-section of 
-a pHEMT structure will be included to illustrate the formation of the 2DEG and 
-the influence of the recessed gate region on the electrostatic potential profile.
+This interim report introduces the fundamental operating principles of
+III--V HEMT devices and describes the fabrication and characterisation work
+completed during the first phase of the project. The report begins with the
+physical structure and behaviour of pseudomorphic HEMTs, followed by a
+summary of the cleanroom fabrication processes used to produce the devices
+analysed here. Their electrical characteristics are then examined through
+transfer behaviour, output curves, transconductance and threshold voltage
+extraction.
 
-\section{Project Aim and Significance}
-
-This project aims to develop and experimentally validate a controllable 
-gate-recess process capable of inducing enhancement-mode behaviour in GaAs-based 
-pHEMTs using only the equipment available within the Leeds Nanotechnology 
-Cleanroom. The work involves calibrating etch rates, fabricating transistors with 
-systematically varied recess depths, and evaluating the resulting electrical 
-characteristics. From this, an empirical relationship between recess depth and 
-threshold voltage will be established.
-
-Beyond the immediate fabrication results, the broader significance lies in 
-demonstrating enhancement-mode operation without dedicated epitaxial or 
-etch-stop structures. Achieving this would show that complementary GaAs logic 
-could be realised using existing, low-cost infrastructure. Such a process would 
-also offer energy-efficiency benefits in high-speed electronics, supporting 
-sustainable design principles by reducing static power dissipation in compound 
-semiconductor logic.
-
-The findings are expected to contribute to a deeper understanding of 
-threshold-voltage engineering, surface passivation, and process sensitivity in 
-III–V semiconductor technology, while providing a foundation for future logic 
-circuit demonstrations, such as DCFL inverters and NAND gates, constructed from 
-both depletion- and enhancement-mode devices.
+The final sections provide a reflection on project management and skills
+development, before outlining the planned technical work for the second
+semester.
