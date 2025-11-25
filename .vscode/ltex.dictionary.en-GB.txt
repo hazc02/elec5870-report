@@ -18,3 +18,4 @@ InGaAs
 PHEMT
 MOSFET
 MESFET
+undoped
