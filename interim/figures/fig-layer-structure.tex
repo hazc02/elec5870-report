@@ -1,0 +1,94 @@
+% ------------------------------------------------------------
+% File: figures/fig-layer-structure.tex
+% GaAs/AlGaAs HEMT Layer Structure (Cross-Section)
+% ------------------------------------------------------------
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[x=1.05cm, y=0.48cm, >=Stealth, font=\footnotesize]
+
+        % Layer thicknesses
+        \def\w{6}
+        \def\hcap{0.75}
+        \def\hdonor{2}
+        \def\hspacer{0.75}
+        \def\hchan{2}
+        \def\hsub{1.5}
+
+        % Coordinates
+        \coordinate (subB) at (0,0);
+        \coordinate (subT) at (0,\hsub);
+        \coordinate (chanT) at (0,\hsub+\hchan);
+        \coordinate (spacerT) at (0,\hsub+\hchan+\hspacer);
+        \coordinate (donorT) at (0,\hsub+\hchan+\hspacer+\hdonor);
+        \coordinate (capT) at (0,\hsub+\hchan+\hspacer+\hdonor+\hcap);
+
+        % Bounding box
+        \path[use as bounding box]
+        (-2.4,0) rectangle
+        (\w+2.4,\hsub+\hchan+\hspacer+\hdonor+\hcap+1);
+
+        % Substrate
+        \fill[gray!15] (subB) rectangle ++(\w,\hsub);
+        \draw (subB) rectangle ++(\w,\hsub);
+        \node at (\w/2,\hsub/2)
+            {Semi-insulating GaAs substrate};
+
+        % Channel
+        \fill[blue!8] (subT) rectangle ++(\w,\hchan);
+        \draw (subT) rectangle ++(\w,\hchan);
+        \node at (\w/2,\hsub+\hchan/2)
+            {Undoped GaAs channel};
+
+        % Spacer
+        \fill[green!8] (chanT) rectangle ++(\w,\hspacer);
+        \draw (chanT) rectangle ++(\w,\hspacer);
+        \node at (\w/2,\hsub+\hchan+\hspacer/2)
+            {Undoped AlGaAs spacer};
+
+        % Donor Layer
+        \fill[yellow!20] (spacerT) rectangle ++(\w,\hdonor);
+        \draw (spacerT) rectangle ++(\w,\hdonor);
+        \node at (\w/2,\hsub+\hchan+\hspacer+\hdonor/2)
+            {Si-doped AlGaAs donor layer};
+
+        % Cap Layer
+        \fill[red!15] (donorT) rectangle ++(\w,\hcap);
+        \draw (donorT) rectangle ++(\w,\hcap);
+        \node at (\w/2,\hsub+\hchan+\hspacer+\hdonor+\hcap/2)
+            {n$^{+}$ GaAs cap layer};
+
+        % 2DEG line
+        \draw[line width=1pt, blue]
+            (chanT) -- ++(\w,0);
+        \node[blue, anchor=west] at (\w+0.2,\hsub+\hchan)
+            {2DEG at interface};
+
+        % Contacts
+        \fill[black!30]
+            (0.7,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle ++(0.7,0.55);
+        \node[anchor=south] at
+            (1.05,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.55)
+            {Source};
+
+        \fill[black!30]
+            (\w-1.4,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle ++(0.7,0.55);
+        \node[anchor=south] at
+            (\w-1.05,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.55)
+            {Drain};
+
+        % Gate
+        \fill[black]
+            ({\w/2-0.58},\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle ++(1.16,0.75);
+        \node[anchor=south] at
+            (\w/2,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75)
+            {Gate};
+
+    \end{tikzpicture}
+
+    \caption{Cross-section of the GaAs/AlGaAs HEMT used in this project (not to scale).}
+    \label{fig:layer_structure}
+\end{figure}

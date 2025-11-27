@@ -1,283 +1,85 @@
 \chapter{Technical Background}
 \label{chap:technical_background}
 
-\section{Overview of GaAs/AlGaAs High Electron Mobility Transistors}
+\section{Overview of GaAs/AlGaAs HEMTs}
 
-High electron mobility transistors (HEMTs) utilise a semiconductor
-heterojunction to create a conducting channel with markedly improved electron
-transport compared with uniformly doped structures. In the GaAs/AlGaAs system
-employed in this project, the difference in bandgap between the two materials
-establishes a potential well at their interface. Electrons supplied from the
-wider-bandgap AlGaAs layer transfer into the narrower-bandgap GaAs, forming a
-highly mobile sheet of charge known as a two-dimensional electron gas (2DEG).
-This confined channel supports rapid carrier transport, enabling high
-transconductance and excellent high-frequency behaviour, as described in
-standard texts on III--V devices\cite{liu1999,ali1991}.
+High-electron-mobility transistors employ a semiconductor heterojunction to
+create a confined, low-scattering electron channel. In the GaAs/AlGaAs material
+system used in this project, a discontinuity in the conduction band establishes
+a potential well at the interface. Electrons supplied by the doped AlGaAs layer
+accumulate within this well and form a two-dimensional electron gas (2DEG).
+Because the GaAs channel is undoped, the absence of ionised impurities suppresses
+Coulomb scattering, leading to high electron mobility and predictable
+high-frequency behaviour \cite{liu1999}.
 
-The devices studied and fabricated in this project are based on this
-GaAs/AlGaAs heterostructure. The epitaxial stack comprises an undoped GaAs
-channel, an undoped AlGaAs spacer separating the channel from ionised donors,
-and a silicon-doped AlGaAs barrier which supplies electrons. Above these
-layers sits a highly doped GaAs cap that enables practical device fabrication,
-providing a clean, conductive surface for ohmic metallisation and gate
-definition. A schematic cross-section is provided in
-Figure~\ref{fig:hemt_xsec}, and the subsequent sections expand on the
-structure's electronic function and its relevance to device operation.
+The epitaxial structure used in this project is a standard, lattice-matched
+GaAs/AlGaAs heterostructure. Unlike pseudomorphic devices that rely on strained
+InGaAs channels, this system achieves confinement purely through band offsets,
+ensuring stable material behaviour without the additional complexity of strain
+engineering.
 
-\begin{figure*}[t]
-  \centering
-  \begin{tikzpicture}[x=1.08cm,y=0.5cm,>=Stealth,font=\footnotesize]
-
-    % Layer thicknesses (in arbitrary units)
-    \def\w{6}      % wafer width
-    \def\hcap{0.75}   % n+ GaAs cap
-    \def\hdonor{2} % Si-doped AlGaAs
-    \def\hspacer{0.75}% undoped AlGaAs spacer
-    \def\hchan{2}  % undoped GaAs channel
-    \def\hsub{1.5}   % semi-insulating substrate
-
-    % y positions (bottom to top)
-    \coordinate (subB) at (0,0);
-    \coordinate (subT) at (0,\hsub);
-    \coordinate (chanT) at (0,\hsub+\hchan);
-    \coordinate (spacerT) at (0,\hsub+\hchan+\hspacer);
-    \coordinate (donorT) at (0,\hsub+\hchan+\hspacer+\hdonor);
-    \coordinate (capT) at (0,\hsub+\hchan+\hspacer+\hdonor+\hcap);
-
-    % Symmetric bounding box so side labels do not shift centering
-    \path[use as bounding box]
-      (-2.5,0) rectangle (\w+2.5,\hsub+\hchan+\hspacer+\hdonor+\hcap+1);
-
-    % Semi-insulating GaAs substrate
-    \fill[gray!15]
-      (subB) rectangle ++(\w,\hsub);
-    \draw (subB) rectangle ++(\w,\hsub);
-    \node[white,opacity=0] at (\w/2,\hsub/2) {};
-    \node[align=center] at (\w/2,\hsub/2)
-      {Semi-insulating GaAs substrate};
-
-    % Undoped GaAs channel
-    \fill[blue!8]
-      (subT) rectangle ++(\w,\hchan);
-    \draw (subT) rectangle ++(\w,\hchan);
-    \node[align=center] at (\w/2,\hsub+\hchan/2)
-      {Undoped GaAs channel};
-
-    % Undoped AlGaAs spacer
-    \fill[green!8]
-      (chanT) rectangle ++(\w,\hspacer);
-    \draw (chanT) rectangle ++(\w,\hspacer);
-    \node[align=center] at (\w/2,\hsub+\hchan+\hspacer/2)
-      {Undoped AlGaAs spacer};
-
-    % Si-doped AlGaAs donor layer
-    \fill[yellow!20]
-      (spacerT) rectangle ++(\w,\hdonor);
-    \draw (spacerT) rectangle ++(\w,\hdonor);
-    \node[align=center] at (\w/2,\hsub+\hchan+\hspacer+\hdonor/2)
-      {Si-doped AlGaAs donor layer};
-
-    % n+ GaAs cap
-    \fill[red!15]
-      (donorT) rectangle ++(\w,\hcap);
-    \draw (donorT) rectangle ++(\w,\hcap);
-    \node[align=center] at (\w/2,\hsub+\hchan+\hspacer+\hdonor+\hcap/2)
-      {n$^{+}$ GaAs cap layer};
-
-    % 2DEG at the GaAs/AlGaAs interface
-    \draw[line width=1pt,blue]
-      (chanT) -- ++(\w,0);
-    \draw[line width=1pt,blue]
-      (\w,\hsub+\hchan) -- (\w,\hsub+\hchan);
-    \node[blue,align=left,anchor=west] at (\w+0.2,\hsub+\hchan)
-      {2DEG at GaAs/AlGaAs interface};
-
-    % Source and drain ohmic metal (simplified)
-    \fill[black!30]
-      (0.6,\hsub+\hchan+\hspacer+\hdonor+\hcap)
-      rectangle ++(0.7,0.6);
-    \fill[black!30]
-      (\w-1.3,\hsub+\hchan+\hspacer+\hdonor+\hcap)
-      rectangle ++(0.7,0.6);
-    \node[anchor=south] at
-      (0.95,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.6)
-      {Source};
-    \node[anchor=south] at
-      (\w-0.95,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.6)
-      {Drain};
-
-    % Gate metal (Schottky)
-    \fill[black]
-      ({\w/2-0.6},\hsub+\hchan+\hspacer+\hdonor+\hcap)
-      rectangle ++(1.2,0.8);
-    \node[anchor=south] at
-      (\w/2,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.8)
-      {Gate};
-
-  \end{tikzpicture}
-  \caption[GaAs/AlGaAs HEMT cross-section]%
-  {GaAs/AlGaAs HEMT cross-section (not to scale). Labels are inset to reduce
-  clutter; the two-dimensional electron gas (2DEG) forms at the GaAs/AlGaAs
-  interface.}
-  \label{fig:hemt_xsec}
-\end{figure*}
+\input{figures/fig-band-bending.tex}
 
 \section{The GaAs/AlGaAs Heterostructure}
-\label{sec:heterostructure}
 
-The electronic behaviour of the HEMT derives from its carefully engineered
-epitaxial heterostructure. The arrangement of the GaAs and AlGaAs layers
-dictates how electrons are distributed, confined and subsequently modulated by
-the gate. Only three layers form the active electronic structure responsible
-for the formation of the high-mobility channel: the undoped GaAs channel, the
-undoped AlGaAs spacer, and the Si-doped AlGaAs donor layer. These layers
-determine the depth and population of the two-dimensional electron gas and
-therefore underpin the device characteristics measured later in the report.
+The heterostructure consists of three active layers.  
+The undoped GaAs channel forms the conduction path for the 2DEG. Its crystalline
+uniformity and lack of intentional impurities suppress scattering and enable
+high mobility.  
+Above the channel lies the undoped AlGaAs spacer, which physically separates the
+electrons from the ionised donors in the doped barrier. Its thickness
+determines the balance between mobility and electrostatic coupling.  
+The Si-doped AlGaAs donor layer then supplies electrons and establishes the
+conduction band offset needed to form the potential well at the interface.
 
-\subsection{Undoped GaAs Channel}
-
-The lowest active layer in the structure is an undoped GaAs region, which
-serves as the host material for the two-dimensional electron gas. Its absence
-of intentional doping ensures that electrons do not encounter ionised
-impurities within the conduction path; this greatly reduces scattering. The
-uniformity and crystalline quality of this GaAs layer are essential, as the
-electronic properties of the device depend sensitively on the interface
-quality at the GaAs/AlGaAs boundary. The thickness of the channel is chosen
-so that electrons remain tightly confined near the interface without
-introducing strain or dislocations.
-
-\subsection{Undoped AlGaAs Spacer}
-
-Directly above the GaAs channel lies a thin undoped AlGaAs spacer. Although
-only a few nanometres thick, its role is critical. The spacer physically
-separates the conduction channel from the doped barrier layer above it. This
-separation prevents ionised donor atoms from residing within the channel
-region, significantly suppressing Coulomb scattering. At the same time, the
-spacer remains thin enough to maintain strong electrostatic coupling between
-the donor layer and the channel. The balance between these requirements is
-central to achieving both high sheet density and high mobility.
-
-\subsection{Si-Doped AlGaAs Donor Layer}
-
-The Si-doped AlGaAs layer provides the electrons that populate the channel.
-Its larger bandgap, compared with GaAs, places its conduction band edge at a
-higher energy. Electrons therefore diffuse into the GaAs channel until
-equilibrium is reached, leaving behind positively charged ionised donors in
-the AlGaAs. The aluminium composition determines the magnitude of the
-conduction band offset, while the doping concentration sets the density of
-available electrons. Together, these parameters determine the depth of the
-potential well at the interface and the resulting sheet electron density in
-the two-dimensional electron gas.
-
-\subsection{Summary of Heterostructure Behaviour}
-
-These three layers act together to create a structure in which electrons are
-supplied by the AlGaAs donor layer, confined within the GaAs channel, and
-shielded from ionised impurities by the spacer. The resulting electronic
-environment enables high carrier mobility, strong gate control and the
-characteristic performance advantages associated with GaAs/AlGaAs HEMTs. This
-foundation supports the device operation described in the following sections
-and informs many of the fabrication decisions discussed later in the report.
+Together, these layers determine the electron density, mobility and confinement
+properties that underpin HEMT behaviour.
 
 \section{Formation and Properties of the Two-Dimensional Electron Gas}
-\label{sec:2deg}
 
-Electron transfer from the doped AlGaAs barrier into the undoped GaAs results
-in the formation of a two-dimensional electron gas at their interface. This
-occurs because the conduction band in GaAs lies at a lower energy than in
-AlGaAs; a potential well is therefore formed at the heterojunction. Electrons
-spill over from the AlGaAs into this well and accumulate in a very thin region
-close to the interface. The channel thickness is much smaller than in a
-conventionally doped epilayer, which enhances carrier mobility by reducing the
-probability of scattering within the conducting layer.
+Electrons diffuse from the doped AlGaAs barrier into the undoped GaAs channel
+until equilibrium is established. The conduction band offset forms a narrow,
+triangular potential well that confines the carriers to the interface. Because
+the channel contains no ionised donors, scattering from charged impurities is
+largely eliminated \cite{ali1991}. Mobility is therefore limited primarily by
+phonon interactions and interface roughness, both of which are less severe
+mechanisms.  
+This combination of strong confinement and reduced scattering results in a
+high-mobility electron sheet that supports strong transconductance and
+predictable current–voltage behaviour.
 
-The absence of intentional doping in the GaAs channel eliminates ionised
-impurity scattering, which is typically one of the dominant mechanisms
-limiting mobility in standard GaAs transistors\cite{liu1999,ali1991}. Instead,
-carriers in the two-dimensional electron gas experience primarily phonon
-scattering at room temperature and, to a lesser extent, interface roughness.
-These mechanisms still influence mobility, but their combined effect is
-significantly weaker than the impurity-driven scattering present in a
-uniformly doped channel. The resulting electron sheet density is typically
-high, since the doped AlGaAs layer supplies a substantial reservoir of
-electrons. This high density, combined with the improved mobility, produces a
-channel with strong conductivity and excellent transconductance potential.
+\section{Practical Device Layers and Gate Structure}
 
-The characteristics of the two-dimensional electron gas therefore underpin the
-performance of GaAs/AlGaAs HEMTs and explain their widespread use in
-high-frequency and low-noise applications. In the context of this project,
-they also provide the link between the epitaxial design and the measured drain
-current, threshold and transconductance obtained from the fabricated devices.
+Above the active heterostructure sits the heavily doped GaAs cap. Its high
+doping level enables reliable formation of low-resistance ohmic contacts when
+the AuGe/Ni/Au metallisation stack is alloyed, while also providing a uniform,
+conductive surface for lithographic patterning.
 
-\section{Practical Device Layers: n$^{+}$ GaAs Cap and Schottky Gate Interface}
-\label{sec:practical_layers}
+The Ti/Au Schottky gate controls the depletion region within the AlGaAs
+barrier. Adjusting the gate bias modifies the electric field beneath the gate
+and therefore the electron density in the 2DEG. The effective
+gate-to-channel separation plays a critical role in determining the threshold
+voltage, transconductance and linearity of the device.  
+Unlike MOSFETs, HEMTs do not employ an insulating oxide; control is achieved
+purely through depletion of the channel.
 
-Above the active heterostructure sits a highly doped GaAs cap layer. This cap
-is central to achieving reliable ohmic contacts, as its heavy doping allows
-metal alloys such as AuGe/Ni/Au to penetrate and form a low-resistance
-connection to the underlying two-dimensional electron gas during the annealing
-process. The cap also defines the surface on which lithography is performed,
-providing a uniform, conductive layer that facilitates consistent gate
-formation across the wafer.
+\input{figures/fig-layer-structure.tex}
 
-The gate electrode forms a Schottky contact with the underlying material. When
-a gate metal such as Ti/Au is deposited onto the GaAs or AlGaAs surface, a
-rectifying junction is created. This junction is responsible for controlling
-the depletion region within the AlGaAs barrier; by adjusting the gate--source
-voltage, the electric field in the barrier is modified, which in turn changes
-the electron density at the heterointerface. The Schottky barrier therefore
-replaces the oxide--semiconductor interface used in MOSFETs, and its behaviour
-directly determines the degree of control the gate has over the channel.
+\section{HEMT Operation}
 
-These layers do not contribute to the formation of the two-dimensional electron
-gas itself, but they make the device physically realisable. Their thickness,
-doping level and processing quality influence the final device characteristics,
-particularly contact resistance and the efficiency with which the gate can
-modulate the channel.
-
-\section{Operation of the GaAs/AlGaAs HEMT}
-\label{sec:hemt_operation}
-
-The operation of the GaAs/AlGaAs HEMT relies on the ability of the gate
-electrode to modulate the electron density within the two-dimensional electron
-gas. By applying a voltage to the Schottky gate, the depletion region in the
-AlGaAs barrier can be expanded or contracted. When the gate potential becomes
-sufficiently negative relative to the source, this depletion region approaches
-the channel and begins to reduce the available sheet charge. As the electron
-density beneath the gate falls, the drain current correspondingly decreases.
-
-In the output characteristics, the device behaves resistively at low
-drain--source voltages, where the two-dimensional electron gas is uniformly
-populated along the channel. As the drain voltage increases, the potential
-near the drain end of the gate reduces the local electron density, leading to
-pinch-off and the onset of current saturation. This transition marks the point
-at which an increase in electric field no longer produces a proportional
-increase in carrier velocity, as velocity saturation in GaAs becomes
-significant.
-
-The gate voltage also strongly influences the transconductance, as the
-relationship between the applied bias and the resulting change in sheet charge
-is highly sensitive. Changes in electron density translate directly into
-changes in conductivity, and therefore into changes in drain current. The high
-mobility of the two-dimensional electron gas and the relatively small distance
-between the gate and the conducting channel enable strong electrostatic
-control, giving the HEMT its characteristic high transconductance and
-excellent amplification capability.
+HEMT operation is governed by the modulation of the 2DEG by the Schottky gate.
+A negative gate bias expands the depletion region and reduces channel
+conductivity. As the drain–source voltage increases, the electric field at the
+drain side causes local depletion, eventually leading to pinch-off and current
+saturation.  
+The combination of high channel mobility and strong electrostatic coupling
+between the gate and channel results in high transconductance, efficient
+current modulation and favourable high-frequency behaviour.
 
 \section{Summary}
-\label{sec:tb_summary}
 
-The GaAs/AlGaAs HEMT achieves its performance through a carefully engineered
-heterostructure in which electrons donated from a doped AlGaAs layer populate
-an undoped GaAs channel, forming a high-mobility two-dimensional electron gas.
-A thin AlGaAs spacer separates the channel from the donors, suppressing
-impurity scattering while maintaining strong electrostatic coupling. A highly
-doped GaAs cap and a Schottky gate interface make the structure practically
-usable, enabling low-resistance ohmic contacts and effective gate control of
-the channel.
-
-Together, these features yield a transistor with high carrier mobility, strong
-gate modulation and favourable current--voltage characteristics. This
-technical background provides the basis for understanding the fabrication
-sequence and electrical measurements presented in the subsequent chapters of
-this report.
+The GaAs/AlGaAs HEMT derives its performance from engineered carrier
+confinement, spatial separation from ionised donors and the electrostatic
+control provided by the Schottky gate. These characteristics form the
+technical foundation for the fabrication and characterisation work presented in
+the subsequent chapters.

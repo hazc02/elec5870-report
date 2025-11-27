@@ -2,88 +2,55 @@
 
 \section{Context and Motivation}
 
-Modern electronic and communication systems impose increasingly demanding
-requirements on the devices that form their signal paths. Higher carrier
-frequencies, lower permissible noise levels, stricter linearity constraints
-and improved power efficiency are now expected. At the device level, these
-system requirements manifest as targets for cut-off frequency, noise figure,
-gain and power handling that conventional silicon technologies cannot always
-achieve.
+Modern communication, sensing and microwave systems place increasing demands on
+the semiconductor devices that form their front-end signal paths. Higher
+operating frequencies, lower permissible noise figures and stricter linearity
+requirements all intensify the performance constraints on transistor
+technologies. Although silicon-based RF platforms have progressed considerably, they do not always
+deliver the mobility, noise performance or gain required in
+performance-driven microwave applications.
 
-High-electron-mobility transistors meet many of these system requirements 
-through the use of a carefully engineered heterojunction, which is the 
-interface between two semiconductor materials with different band structures.
-This band discontinuity causes electrons to collect in a very thin region 
-at the heterojunction, creating a highly mobile sheet of charge carriers known as a 
-two-dimensional electron gas (2DEG). The key advantage of this arrangement
-is that the 2DEG forms without the need to place donor atoms directly in the 
-conduction path. In contrast to MESFETs, where electrons move through a doped 
-channel, the absence of ionised impurities in a HEMT channel greatly reduces 
-Coulomb scattering \cite{ali1991}. As a result, electrons can move more freely,
-giving the device high mobility, high transconductance and predictable behaviour
-at high frequencies. These characteristics allow HEMTs to operate reliably 
-across a broad frequency range, typically from around 1 GHz to beyond 100 GHz \cite{liu1999},
-making them well suited to low-noise amplifiers, receiver front ends and other high-frequency subsystems.
+III--V high-electron-mobility transistors (HEMTs) continue to address this gap.
+Their favourable material properties, including high electron mobility and low
+intrinsic noise, support predictable and efficient operation at microwave and
+millimetre-wave frequencies \cite{ali1991}. As a result, HEMTs remain essential 
+in systems such as satellite communication payloads, radar receivers, 
+millimetre-wave backhaul links and scientific instrumentation, where stringent 
+noise and frequency requirements cannot be met by silicon alone.
 
-Within this context, it is necessary to understand how the structure and
-processing of III–V HEMTs influence their electrical behaviour. Practical
-device performance is shaped not only by the underlying material system,
-but also by the fabrication steps used to define the channel, contacts and
-gate. Engaging directly with these processes provides a clearer view of how
-device characteristics emerge from both design and implementation. This
-interim report therefore introduces the key principles that underpin HEMT
-operation and presents the fabrication and analysis of GaAs-based
-pseudomorphic III–V HEMT devices produced during the first phase of the
-project.
+\section{Relevance of GaAs/AlGaAs HEMTs to This Project}
 
+The GaAs/AlGaAs HEMT is one of the most established III--V transistor
+architectures. Its behaviour is strongly influenced by the quality of the
+heterostructure and the precision of the fabrication sequence, making it
+well-suited to a project that aims to evaluate how material properties and
+process decisions shape device performance. In this work, GaAs/AlGaAs HEMTs are
+fabricated within the Leeds Nanotechnology Cleanroom to gain practical
+experience with device definition, assess process reproducibility and examine
+the electrical characteristics that emerge from the epitaxial structure.
 
-\section{Importance of III--V HEMTs}
+A central motivation is the transition from the depletion-mode operation
+inherent to the supplied wafer structure toward enhancement-mode behaviour
+through controlled gate recessing. Achieving enhancement mode requires reducing
+the effective gate-to-channel separation while maintaining interface quality.
+This places strict demands on etch controllability, surface integrity and
+uniformity across devices. Establishing the relationship between recess depth
+and threshold voltage therefore represents a key technical objective.
 
-III--V compound semiconductors play a central role in enabling the
-performance characteristics associated with HEMT devices. Materials such as
-GaAs, InP and GaN possess band structures and carrier transport properties
-that support high-frequency operation, low noise and, in some cases, high
-power density. \cite{liu1999} Their relatively low effective electron mass and favourable
-mobility characteristics provide a foundation for transistor behaviour that
-is difficult to achieve with silicon CMOS or SiGe bipolar processes over the
-same frequency range. \cite{}
+\section{Project Motivation and Aims}
 
-The heterostructure engineering available within III--V systems allows
-precise control over carrier confinement, channel composition and interface
-quality. By separating charge carriers from their parent dopants, these
-structures sustain mobility values that directly translate into high
-transconductance and improved gain at microwave frequencies. As a result,
-III--V HEMTs continue to serve key functions in low-noise receivers,
-high-frequency amplifiers and specialist instrumentation.
+The first stage of the project focuses on fabricating and characterising
+baseline depletion-mode GaAs/AlGaAs HEMTs. These devices provide the necessary
+framework for assessing the heterostructure, validating the fabrication
+workflow and establishing the electrical measurement setup. A major aim is to
+understand how threshold voltage, transconductance and gate leakage relate to
+the epitaxial design and the process conditions used to form the contacts and
+gate.
 
-\section{Current Landscape and Relevance}
-
-Although silicon RF technologies have progressed significantly, particularly
-in CMOS and SiGe BiCMOS platforms, III--V HEMTs remain important in domains
-where the highest noise performance, highest frequency operation or highest
-power density are required. Their continued use in satellite communication
-payloads, microwave backhaul links, scientific instrumentation and radar
-receivers reflects the practical advantages of III--V material systems in
-these regimes.
-
-Contemporary research and industry practice continue to refine III--V device
-structures, epitaxial growth methods and fabrication processes to improve
-linearity, noise behaviour and frequency response. Even where silicon-based
-technologies dominate large-volume commercial applications, III--V HEMTs
-retain a critical role in performance-driven systems that cannot rely solely
-on silicon.
-
-\section{Scope and Structure of the Report}
-
-This interim report introduces the fundamental operating principles of
-III--V HEMT devices and describes the fabrication and characterisation work
-completed during the first phase of the project. The report begins with the
-physical structure and behaviour of pseudomorphic HEMTs, followed by a
-summary of the cleanroom fabrication processes used to produce the devices
-analysed here. Their electrical characteristics are then examined through
-transfer behaviour, output curves, transconductance and threshold voltage
-extraction.
-
-The final sections provide a reflection on project management and skills
-development, before outlining the planned technical work for the second
-semester.
+Building on this foundation, the project then seeks to develop a controlled
+gate-recess process capable of shifting the threshold voltage into the
+enhancement regime. This requires a systematic study of etch depth, surface
+behaviour and process reproducibility. A longer-term motivation is the eventual
+construction of simple logic elements using enhancement-mode GaAs-based
+devices, since enhancement-mode operation provides defined switching thresholds
+and more flexible circuit behaviour appropriate for digital logic.
