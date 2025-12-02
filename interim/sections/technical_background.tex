@@ -3,83 +3,27 @@
 
 \section{Overview of GaAs/AlGaAs HEMTs}
 
-High-electron-mobility transistors employ a semiconductor heterojunction to
-create a confined, low-scattering electron channel. In the GaAs/AlGaAs material
-system used in this project, a discontinuity in the conduction band establishes
-a potential well at the interface. Electrons supplied by the doped AlGaAs layer
-accumulate within this well and form a two-dimensional electron gas (2DEG).
-Because the GaAs channel is undoped, the absence of ionised impurities suppresses
-Coulomb scattering, leading to high electron mobility and predictable
-high-frequency behaviour \cite{liu1999}.
-
-The epitaxial structure used in this project is a standard, lattice-matched
-GaAs/AlGaAs heterostructure. Unlike pseudomorphic devices that rely on strained
-InGaAs channels, this system achieves confinement purely through band offsets,
-ensuring stable material behaviour without the additional complexity of strain
-engineering.
+In the GaAs/AlGaAs HEMTs used in this project, the interface between the 
+GaAs channel layer and the overlying AlGaAs barrier produces a 
+discontinuity in the conduction band because the two materials have 
+different bandgaps. This offset creates a potential well on the GaAs side 
+of the junction. Electrons supplied by silicon donors in the modulation--doped 
+AlGaAs layer transfer into this well and accumulate to form the 
+2DEG that serves as the conducting channel. This interfacial 2DEG is the 
+defining feature of the GaAs/AlGaAs HEMT structure \cite{liu1999}.
 
 \input{figures/fig-band-bending.tex}
 
 \section{The GaAs/AlGaAs Heterostructure}
 
-The heterostructure consists of three active layers.  
-The undoped GaAs channel forms the conduction path for the 2DEG. Its crystalline
-uniformity and lack of intentional impurities suppress scattering and enable
-high mobility.  
-Above the channel lies the undoped AlGaAs spacer, which physically separates the
-electrons from the ionised donors in the doped barrier. Its thickness
-determines the balance between mobility and electrostatic coupling.  
-The Si-doped AlGaAs donor layer then supplies electrons and establishes the
-conduction band offset needed to form the potential well at the interface.
-
-Together, these layers determine the electron density, mobility and confinement
-properties that underpin HEMT behaviour.
-
-\section{Formation and Properties of the Two-Dimensional Electron Gas}
-
-Electrons diffuse from the doped AlGaAs barrier into the undoped GaAs channel
-until equilibrium is established. The conduction band offset forms a narrow,
-triangular potential well that confines the carriers to the interface. Because
-the channel contains no ionised donors, scattering from charged impurities is
-largely eliminated \cite{ali1991}. Mobility is therefore limited primarily by
-phonon interactions and interface roughness, both of which are less severe
-mechanisms.  
-This combination of strong confinement and reduced scattering results in a
-high-mobility electron sheet that supports strong transconductance and
-predictable current–voltage behaviour.
 
 \section{Practical Device Layers and Gate Structure}
 
-Above the active heterostructure sits the heavily doped GaAs cap. Its high
-doping level enables reliable formation of low-resistance ohmic contacts when
-the AuGe/Ni/Au metallisation stack is alloyed, while also providing a uniform,
-conductive surface for lithographic patterning.
-
-The Ti/Au Schottky gate controls the depletion region within the AlGaAs
-barrier. Adjusting the gate bias modifies the electric field beneath the gate
-and therefore the electron density in the 2DEG. The effective
-gate-to-channel separation plays a critical role in determining the threshold
-voltage, transconductance and linearity of the device.  
-Unlike MOSFETs, HEMTs do not employ an insulating oxide; control is achieved
-purely through depletion of the channel.
 
 \input{figures/fig-layer-structure.tex}
 
 \section{HEMT Operation}
 
-HEMT operation is governed by the modulation of the 2DEG by the Schottky gate.
-A negative gate bias expands the depletion region and reduces channel
-conductivity. As the drain–source voltage increases, the electric field at the
-drain side causes local depletion, eventually leading to pinch-off and current
-saturation.  
-The combination of high channel mobility and strong electrostatic coupling
-between the gate and channel results in high transconductance, efficient
-current modulation and favourable high-frequency behaviour.
 
 \section{Summary}
 
-The GaAs/AlGaAs HEMT derives its performance from engineered carrier
-confinement, spatial separation from ionised donors and the electrostatic
-control provided by the Schottky gate. These characteristics form the
-technical foundation for the fabrication and characterisation work presented in
-the subsequent chapters.
