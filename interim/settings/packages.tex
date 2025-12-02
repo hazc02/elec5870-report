@@ -6,6 +6,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathreplacing}
+\usepackage{placeins} % allow FloatBarrier to flush queued floats
 \usepackage{amsmath,amssymb}
 \usepackage{siunitx}
 \usepackage{hyperref}
@@ -43,8 +44,13 @@
 \setlist[itemize]{topsep=4pt,itemsep=2pt,parsep=0pt}
 \setlist[enumerate]{topsep=4pt,itemsep=2pt,parsep=0pt}
 
-% Figure and table caption style
+% Figure and table caption style and tighter float spacing
 \captionsetup{font=small,labelfont=bf}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt} % text to top/bottom floats
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}    % float to float
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}   % inline (e.g., [H]) floats
+\setlength{\abovecaptionskip}{4pt}               % space above caption
+\setlength{\belowcaptionskip}{4pt}               % space below caption
 
 % Chapter and section heading layout
 \titleformat{\chapter}[display]

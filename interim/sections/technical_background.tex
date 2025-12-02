@@ -7,23 +7,115 @@ In the GaAs/AlGaAs HEMTs used in this project, the interface between the
 GaAs channel layer and the overlying AlGaAs barrier produces a 
 discontinuity in the conduction band because the two materials have 
 different bandgaps. This offset creates a potential well on the GaAs side 
-of the junction. Electrons supplied by silicon donors in the modulation--doped 
+of the junction, as demonstrated in \ref{fig:band_bending}. Electrons supplied by silicon donors in the modulation--doped 
 AlGaAs layer transfer into this well and accumulate to form the 
-2DEG that serves as the conducting channel. This interfacial 2DEG is the 
-defining feature of the GaAs/AlGaAs HEMT structure \cite{liu1999}.
+2DEG that serves as the conducting channel. This 2DEG forming at the interface is the 
+defining feature of the HEMT structure \cite{liu1999}.
 
 \input{figures/fig-band-bending.tex}
 
 \section{The GaAs/AlGaAs Heterostructure}
 
+The HEMTs used in this project are based on a conventional GaAs/AlGaAs
+heterostructure in which a sequence of epitaxial layers is engineered to
+create and control a two--dimensional electron gas (2DEG). A schematic
+cross--section of the structure is shown in Figure~\ref{fig:layer_structure},
+highlighting the cap, donor, spacer and channel layers that together
+define the electrical behaviour of the device.
 
-\section{Practical Device Layers and Gate Structure}
-
-
+\vspace{2mm}
 \input{figures/fig-layer-structure.tex}
+\vspace{5mm}
 
-\section{HEMT Operation}
+At the top of the structure lies a thin, highly doped GaAs cap layer.
+This cap provides a stable surface for forming the Schottky gate contact
+and prevents oxidation of the underlying AlGaAs. Its high conductivity
+also assists charge access to the regions adjoining the source and drain
+contacts.
 
+\vspace{2mm}
 
-\section{Summary}
+Beneath the cap is the Si--doped AlGaAs donor layer. Silicon donors in
+AlGaAs supply electrons that preferentially transfer into the GaAs
+channel due to the conduction--band discontinuity at the heterointerface.
+This arrangement is known as modulation doping, as the dopants are placed
+in the barrier rather than in the channel. The donor concentration and
+its distance from the interface set the available carrier population for
+the 2DEG.
 
+\vspace{2mm}
+
+A thin undoped AlGaAs spacer layer separates the donor layer from the
+GaAs channel. Although only a few nanometres thick, it plays a crucial
+role in determining device performance. By physically separating the
+2DEG from the ionised silicon donors, the spacer suppresses Coulomb
+scattering and allows carriers to move through the channel with
+significantly higher mobility. This benefit becomes particularly
+pronounced at cryogenic temperatures, where phonon scattering is reduced,
+ and impurity scattering would otherwise dominate. The spacer thickness
+therefore influences both the electrostatic coupling to the gate and the
+mobility of carriers within the 2DEG.
+
+\vspace{2mm}
+
+The GaAs channel beneath the spacer hosts the 2DEG. Electrons accumulate
+at the AlGaAs/GaAs interface, where the conduction--band offset creates
+a quantum--well--like potential that confines carriers to a narrow region
+within the GaAs. This interfacial channel is responsible for the
+high-mobility transport behaviour characteristic of GaAs/AlGaAs HEMTs.
+
+\vspace{2mm}
+
+Together, these layers define the depth, density and confinement of the
+2DEG, providing the structural basis for the electrical behaviour
+analysed later in this report.
+
+\section{HEMT Operating Principles}
+
+The electrical behaviour of the GaAs/AlGaAs HEMTs used in this project is
+governed by the interaction between the Schottky gate contact and the
+two--dimensional electron gas (2DEG) formed within the heterostructure.
+When a metal is deposited on the GaAs surface, a Schottky barrier is
+formed, giving rise to a depletion region beneath the gate. Applying a
+gate voltage modulates this depletion region and enables electrostatic
+control of the 2DEG at the AlGaAs/GaAs interface.
+
+\vspace{2mm}
+
+A negative gate voltage widens the depletion region and reduces the
+electron density within the underlying 2DEG. As the voltage becomes more
+negative, the carrier concentration continues to fall until the 2DEG is
+fully depleted; the corresponding gate voltage defines the threshold
+voltage of the device.
+
+\vspace{2mm}
+
+When a drain voltage is applied, electrons flow laterally through the
+2DEG from source to drain. At low drain voltages the channel remains
+uniformly accumulated, resulting in a linear relationship between
+drain current and drain voltage. As the drain voltage increases, the
+channel near the drain becomes progressively depleted, leading to
+pinch--off. Beyond this point the drain current saturates, with the
+saturation level determined primarily by the gate voltage.
+
+\vspace{2mm}
+
+The sensitivity of the drain current to changes in gate voltage is
+expressed through the transconductance, $g_{m} = \partial I_{D} /
+\partial V_{G}$. High values of $g_{m}$ arise from strong electrostatic
+coupling between the gate and the 2DEG, together with the high intrinsic
+mobility of carriers within the channel.
+
+\vspace{2mm}
+
+The Schottky gate introduces a finite leakage current, particularly at
+large negative gate biases where thermionic emission and tunnelling
+processes become more significant. The magnitude of this leakage depends
+on the quality of the gate interface, the barrier height and the
+condition of the semiconductor surface.
+
+\vspace{2mm}
+
+Together, these electrostatic and transport processes describe how a
+GaAs/AlGaAs HEMT functions as a field--effect transistor and provide the
+basis for the electrical characterisation presented later in this report.

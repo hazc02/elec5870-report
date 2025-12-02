@@ -1,16 +1,150 @@
-\chapter{Fabrication of Depletion-Mode pHEMT Devices}
+\chapter{Fabrication of Depletion-Mode HEMT Devices}
 
 \section{Overview of the Fabrication Workflow}
 
-\section{Mesa Definition}
+The depletion--mode HEMTs characterised in this report were fabricated
+using the standard III--V device process established within the Leeds
+Nanotechnology Cleanroom. The workflow follows the routine sequence used
+for GaAs/AlGaAs transistors in this facility, comprising mesa definition,
+ohmic contact formation, contact annealing and Schottky--gate
+metallisation. This well-established procedure was followed without
+modification and carried out over four laboratory sessions. The devices
+produced through this workflow provide a reliable baseline against which
+the behaviour of devices with different structures and dimensions can be compared.
+
+\vspace{3mm}
+
+% FIGURE: Cleanroom process overview (optional)
+
+
+\section{Mesa Definition and Isolation Etch}
+
+The fabrication process began with the electrical isolation of individual device
+regions through mesa etching. Prior to lithography, the GaAs wafer was
+cleaned sequentially in acetone, isopropanol and deionised water to
+remove organic residues and ensure good resist adhesion. A positive
+ photoresist was then spun onto the sample at 3000rpm, soft-baked at
+ approximately 115\,$^{\circ}$C and patterned using MLA exposure (Figure~\ref{fig:mesa_mask}).
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\linewidth]{figures/fabrication_images/mesa_mask.jpg}
+  \caption{Mesa lithography mask used for defining isolated device regions. (Post-Development)}
+  \label{fig:mesa_mask}
+\end{figure}
+
+Following development, the mesa pattern was transferred into the wafer
+using a sulphuric acid, hydrogen peroxide and water wet-etch solution.
+This mixture provides an isotropic etch suitable for the shallow
+$\approx 200\,$nm recess required to isolate the active GaAs/AlGaAs
+region from the surrounding substrate. The etched depth was measured as
+178\,nm using the Alpha-Step profilometer, close to the intended value.
+After etching, the remaining photoresist was stripped to leave sharply
+defined mesas ready for ohmic contact formation.
+
+\vspace{3mm}
+
+
 
 \section{Ohmic Contact Formation}
 
-\section{Gate Metallisation}
+Low-resistance ohmic contacts were formed using a dual-layer resist stack
+consisting of LOR and S1803. This combination creates a controlled
+undercut profile that ensures clean metal lift-off. The source and drain
+regions were patterned by photolithography and developed to reveal the
+contact openings.
+\input{figures/fig-lift-off-stack.tex}
 
-\section{Final Device Completion and Inspection}
 
-\section{Summary of Fabricated Devices}
+\vspace{2mm}
 
-\section{Key Technical Lessons Learned}
+A AuGe/Ni/Au metallisation stack was deposited by thermal evaporation.
+This alloy system is standard for $n$-type ohmic contacts to GaAs, as the
+AuGe layer forms a heavily doped region upon subsequent annealing. After
+deposition, the sample underwent solvent-based lift-off to remove excess
+metal, leaving well-defined pads with smooth edges and good adhesion as
+confirmed by optical microscopy.
 
+\vspace{3mm}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
+    \caption{Ohmic Contacts (Post Lift-Off)}
+    \label{fig:ohmic_contacts}  
+\end{figure}
+
+% FIGURE: Ohmic lithography, metal deposition, lift-off images
+
+
+\section{Contact Annealing and Gate Patterning}
+
+The sample was annealed to activate the AuGe/Ni/Au contacts and form a
+low-resistance alloyed interface with the GaAs surface. The annealing
+process promotes the diffusion of germanium into the GaAs, increasing the
+local doping concentration and thereby reducing the contact resistance.
+
+\vspace{2mm}
+
+With the ohmic contacts established, a second lithography step was
+performed to define the gate electrode. As before, a dual-layer resist
+stack was used to ensure reliable lift-off. The gate was aligned
+centrally between the source and drain to modulate the 2DEG formed at
+the AlGaAs/GaAs interface. Following development, Ti/Au was evaporated to
+form the Schottky gate metal stack, with titanium acting as an adhesion
+layer and gold providing a stable Schottky barrier and low-resistance
+gate conductor.
+
+\vspace{3mm}
+
+% FIGURE: Annealed ohmics, gate lithography, gate deposition images
+
+
+\section{Final Lift-Off, Cleaning and Inspection}
+
+After gate metallisation, the resist was removed using solvent lift-off
+to reveal the final device structure. A small number of lift-off defects,
+primarily isolated metallic particles, were observed under the microscope
+and removed using brief, gentle ultrasonic cleaning. These artefacts can
+cause electrical short circuits, particularly around the gate edges, so
+their removal was essential for device reliability.
+
+\vspace{2mm}
+
+The completed devices were inspected using optical microscopy. The mesas
+exhibited clean sidewalls, ohmic pads were well defined and the gate
+electrodes showed sharp, uninterrupted edges with no bridging or
+residual flakes. The overall process yielded a high-quality array of
+depletion-mode HEMTs suitable for electrical testing.
+
+\vspace{3mm}
+
+% FIGURE: Final lift-off, completed devices, microscope images
+
+
+\section{Initial Electrical Verification}
+
+Electrical characterisation was performed using the Keysight
+Semiconductor Device Parameter Analyser. For each device, output
+characteristics ($I_{D}$--$V_{D}$), transfer characteristics
+($I_{D}$--$V_{G}$) and gate-leakage ($I_{G}$--$V_{G}$) curves were
+recorded. Channel resistance was extracted from the low-bias linear
+region of the output characteristics.
+
+\vspace{2mm}
+
+Of the 15 planar transistors in the array, 14 exhibited strong
+depletion-mode behaviour with clear pinch-off, monotonic current
+increase with less negative gate voltage and well-defined threshold
+voltages. This confirmed that the ohmic contacts, gate metallisation and
+mesa isolation were all functioning as intended. Two of the four
+Corbino-type devices did not operate correctly; inspection suggested that
+this was due to short circuits caused by small metallic residues remaining
+after gate lift-off. Their failure highlighted the sensitivity of
+circular devices to surface debris, underscoring the importance of careful
+cleaning following metallisation.
+
+\vspace{3mm}
+
+% FIGURE: Electrical testing photos, ID-VD curves, ID-VG curves

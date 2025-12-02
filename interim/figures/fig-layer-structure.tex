@@ -3,16 +3,17 @@
 % GaAs/AlGaAs HEMT Layer Structure (Cross-Section)
 % ------------------------------------------------------------
 
-\begin{figure}[t]
+\begin{figure}[htbp]
+    \vspace{2mm}
     \centering
     \begin{tikzpicture}[x=1.05cm, y=0.48cm, >=Stealth, font=\footnotesize]
 
         % Layer thicknesses
-        \def\w{6}
-        \def\hcap{0.75}
+        \def\w{8}
+        \def\hcap{1}
         \def\hdonor{2}
-        \def\hspacer{0.75}
-        \def\hchan{2}
+        \def\hspacer{1}
+        \def\hchan{1.5}
         \def\hsub{1.5}
 
         % Coordinates
@@ -45,18 +46,22 @@
         \draw (chanT) rectangle ++(\w,\hspacer);
         \node at (\w/2,\hsub+\hchan+\hspacer/2)
             {Undoped AlGaAs spacer};
+        \node at (-0.6,\hsub+\hchan+\hspacer/2) {$\approx$ 5nm};
 
         % Donor Layer
         \fill[yellow!20] (spacerT) rectangle ++(\w,\hdonor);
         \draw (spacerT) rectangle ++(\w,\hdonor);
         \node at (\w/2,\hsub+\hchan+\hspacer+\hdonor/2)
             {Si-doped AlGaAs donor layer};
+        \node at (-0.5,\hsub+\hchan+\hspacer+\hdonor/2) {40nm};
 
         % Cap Layer
         \fill[red!15] (donorT) rectangle ++(\w,\hcap);
         \draw (donorT) rectangle ++(\w,\hcap);
         \node at (\w/2,\hsub+\hchan+\hspacer+\hdonor+\hcap/2)
             {n$^{+}$ GaAs cap layer};
+        \node at (-0.5,\hsub+\hchan+\hspacer+\hdonor+\hcap/2) {10nm};
+
 
         % 2DEG line
         \draw[line width=1pt, blue]
@@ -88,6 +93,8 @@
             {Gate};
 
     \end{tikzpicture}
+
+    \vspace{5mm}
 
     \caption{Cross-section of the GaAs/AlGaAs HEMT used in this project (not to scale).}
     \label{fig:layer_structure}

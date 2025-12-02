@@ -1,11 +1,12 @@
 % figures/fig-band-bending.tex
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[x=1cm,y=0.9cm,>=Stealth,font=\footnotesize]
+  \vspace{-0.75cm} % lift drawing to reduce apparent whitespace
+  \begin{tikzpicture}[x=1.2cm,y=0.7cm,>=Stealth,font=\footnotesize]
 
     % Axes labels
-    \node[anchor=north] at (1.5,0) {AlGaAs};
-    \node[anchor=north] at (6,0) {GaAs};
+    \node[anchor=north] at (2.2,0) {AlGaAs};
+    \node[anchor=north] at (5.7,0) {GaAs};
 
     % Fermi level reference
     \draw[red, dashed] (0.2,3) -- (6.8,3);
@@ -37,6 +38,7 @@
     \node[blue,anchor=south west] at (6.4,2.25) {2DEG};
 
   \end{tikzpicture}
-  \caption{Conduction and valence band alignment at the AlGaAs/GaAs interface showing band bending and the resulting two-dimensional electron gas (2DEG) in a quantum well.}
+  \vspace{5mm}
+  \caption{Band Structure Diagram of the AlGaAs/GaAs interface demonstrating the resulting Two-Dimensional Electron Gas (2DEG) formed in a Potential Well.}
   \label{fig:band_bending}
 \end{figure}
