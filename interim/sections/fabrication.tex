@@ -69,9 +69,9 @@ enter the 2DEG with low resistance.
 
 \vspace{2mm}
 
-To pattern these contacts cleanly, a dual-layer resist stack of LOR beneath S1803 was used.
-A single resist layer develops near-vertical sidewalls, causing the evaporated metal to form a
-continuous film across both the wafer surface and the resist edges. This continuity makes lift-off
+To pattern these contacts cleanly, a dual-layer photoresist stack of LOR beneath S1803 was used.
+A single photoresist layer develops near-vertical sidewalls, causing the evaporated metal to form a
+continuous film across both the wafer surface and the photoresist edges. This continuity makes lift-off
 unreliable and often leaves metallic flakes or fences around the contact perimeter.
 
 \vspace{2mm}
@@ -79,8 +79,8 @@ unreliable and often leaves metallic flakes or fences around the contact perimet
 The dual-layer stack overcomes this by exploiting the higher developer solubility of LOR.
 During development, the LOR recedes laterally more than the S1803 above it, producing the
 undercut profile shown in Figure~3.2. This undercut breaks the continuity of the deposited
-metal so the film on top of the resist is physically separated from the metal inside the opening.
-When the LOR dissolves during lift-off, the unwanted metal lifts away cleanly, leaving sharply
+metal so the film on top of the photoresist is physically separated from the metal inside the opening.
+When the layers of photoresist dissolve during lift-off, the unwanted metal lifts away cleanly, leaving sharply
 defined contact openings ready for metallisation.
 
 \vspace{2mm}
@@ -89,7 +89,7 @@ defined contact openings ready for metallisation.
 
 \vspace{2mm}
 
-A AuGe/Ni/Au metallisation stack was then deposited by thermal evaporation to form the
+A AuGe/Ni/Au metallisation stack was then deposited via thermal evaporation to form the
 ohmic contacts. During the subsequent anneal the AuGe alloys with the GaAs to create the
 heavily doped contact region required for a linear, low-resistance interface. After deposition,
 solvent-based lift-off removed the excess metal, leaving well defined pads with smooth edges
@@ -105,73 +105,49 @@ and good adhesion, as shown in Figure~\ref{fig:ohmic_contacts}.
 \end{figure}
 
 
-\section{Contact Annealing and Gate Patterning}
+\section{Contact Annealing, Gate Formation and Final Inspection}
 
 The sample was annealed to activate the AuGe/Ni/Au contacts and form a
-low-resistance alloyed interface with the GaAs surface. The annealing
-process promotes the diffusion of germanium into the GaAs, increasing the
-local doping concentration and thereby reducing the contact resistance.
+low-resistance alloyed interface with the GaAs surface. During annealing
+germanium diffuses into the GaAs, locally increasing the doping
+concentration beneath the contacts and thereby reducing the contact
+resistance.
 
 \vspace{2mm}
 
-With the ohmic contacts established, a second lithography step was
-performed to define the gate electrode. As before, a dual-layer resist
-stack was used to ensure reliable lift-off. The gate was aligned
-centrally between the source and drain to modulate the 2DEG formed at
-the AlGaAs/GaAs interface. Following development, Ti/Au was evaporated to
-form the Schottky gate metal stack, with titanium acting as an adhesion
-layer and gold providing a stable Schottky barrier and low-resistance
-gate conductor.
-
-\vspace{3mm}
-
-% FIGURE: Annealed ohmics, gate lithography, gate deposition images
-
-
-\section{Final Lift-Off, Cleaning and Inspection}
-
-After gate metallisation, the resist was removed using solvent lift-off
-to reveal the final device structure. A small number of lift-off defects,
-primarily isolated metallic particles, were observed under the microscope
-and removed using brief, gentle ultrasonic cleaning. These artefacts can
-cause electrical short circuits, particularly around the gate edges, so
-their removal was essential for device reliability.
+With the ohmic contacts established, a third photolithography step defined
+the gate region. As before, a dual-layer resist stack was used to ensure
+reliable lift-off. The gate electrode was aligned centrally between the
+source and drain to modulate the 2DEG formed at the AlGaAs/GaAs
+interface. Following development, Ti/Au was evaporated to form the
+Schottky gate metal stack, with titanium acting as an adhesion layer and
+gold providing a stable Schottky barrier and a low-resistance gate
+conductor.
 
 \vspace{2mm}
 
-The completed devices were inspected using optical microscopy. The mesas
-exhibited clean sidewalls, ohmic pads were well defined and the gate
-electrodes showed sharp, uninterrupted edges with no bridging or
-residual flakes. The overall process yielded a high-quality array of
-depletion-mode HEMTs suitable for electrical testing.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
+    \caption{Gate contacts after lift-off.}
+    \label{fig:gate_contacts}  
+\end{figure}
 
 \vspace{3mm}
 
-% FIGURE: Final lift-off, completed devices, microscope images
-
-
-\section{Initial Electrical Verification}
-
-Electrical characterisation was performed using the Keysight
-Semiconductor Device Parameter Analyser. For each device, output
-characteristics ($I_{D}$--$V_{D}$), transfer characteristics
-($I_{D}$--$V_{G}$) and gate-leakage ($I_{G}$--$V_{G}$) curves were
-recorded. Channel resistance was extracted from the low-bias linear
-region of the output characteristics.
+After gate metallisation, the resist was removed using solvent lift-off,
+revealing the final device structure. A small number of lift-off
+defects, primarily isolated metallic particles, were observed under the
+microscope and removed using brief, gentle ultrasonic cleaning. These
+artefacts can cause electrical short circuits, particularly around the
+gate edges, so their removal was essential for device reliability.
 
 \vspace{2mm}
 
-Of the 15 planar transistors in the array, 14 exhibited strong
-depletion-mode behaviour with clear pinch-off, monotonic current
-increase with less negative gate voltage and well-defined threshold
-voltages. This confirmed that the ohmic contacts, gate metallisation and
-mesa isolation were all functioning as intended. Two of the four
-Corbino-type devices did not operate correctly; inspection suggested that
-this was due to short circuits caused by small metallic residues remaining
-after gate lift-off. Their failure highlighted the sensitivity of
-circular devices to surface debris, underscoring the importance of careful
-cleaning following metallisation.
+The completed devices were examined using optical microscopy. The mesas
+exhibited clean sidewalls, the ohmic pads were well defined, and the
+gate electrodes showed sharp, uninterrupted edges with no bridging or
+residual flakes. Overall, the process yielded a high-quality array of
+depletion-mode HEMTs suitable for subsequent electrical characterisation.
 
-\vspace{3mm}
 
-% FIGURE: Electrical testing photos, ID-VD curves, ID-VG curves
