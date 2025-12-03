@@ -8,7 +8,7 @@ Nanotechnology Cleanroom. The workflow follows the routine sequence used
 for GaAs/AlGaAs transistors in this facility, comprising mesa definition,
 ohmic contact formation, contact annealing and Schottky--gate
 metallisation. This well-established procedure was followed without
-modification and carried out over four laboratory sessions. The devices
+modification and carried out over four full-day laboratory sessions. The devices
 produced through this workflow provide a reliable baseline against which
 the behaviour of devices with different structures and dimensions can be compared.
 
@@ -21,10 +21,11 @@ the behaviour of devices with different structures and dimensions can be compare
 
 The fabrication process began with the electrical isolation of individual device
 regions through mesa etching. Prior to lithography, the GaAs wafer was
-cleaned sequentially in acetone, isopropanol and deionised water to
-remove organic residues and ensure good resist adhesion. A positive
- photoresist was then spun onto the sample at 3000rpm, soft-baked at
- approximately 115\,$^{\circ}$C and patterned using MLA exposure (Figure~\ref{fig:mesa_mask}).
+cleaned sequentially in acetone, isopropanol (IPA) and deionised water (DI) to
+remove organic residues and ensure good photoresist adhesion. A positive
+ photoresist (S1803) was then spun onto the sample at 3000rpm, soft-baked at
+ approximately 115\,$^{\circ}$C, and then patterned with exposure from the Heidelberg MLA 150 
+ - Maskless Aligner (MLA).
 
 \vspace{2mm}
 \begin{figure}[htbp]
@@ -34,48 +35,74 @@ remove organic residues and ensure good resist adhesion. A positive
   \label{fig:mesa_mask}
 \end{figure}
 
-Following development, the mesa pattern was transferred into the wafer
-using a sulphuric acid, hydrogen peroxide and water wet-etch solution.
-This mixture provides an isotropic etch suitable for the shallow
-$\approx 200\,$nm recess required to isolate the active GaAs/AlGaAs
-region from the surrounding substrate. The etched depth was measured as
-178\,nm using the Alpha-Step profilometer, close to the intended value.
-After etching, the remaining photoresist was stripped to leave sharply
-defined mesas ready for ohmic contact formation.
-
-\vspace{3mm}
-
-
-
-\section{Ohmic Contact Formation}
-
-Low-resistance ohmic contacts were formed using a dual-layer resist stack
-consisting of LOR and S1803. This combination creates a controlled
-undercut profile that ensures clean metal lift-off. The source and drain
-regions were patterned by photolithography and developed to reveal the
-contact openings.
-\input{figures/fig-lift-off-stack.tex}
-
+Following development, the mesa pattern was transferred into the wafer using a sulphuric
+acid, hydrogen peroxide and water wet-etch solution (160:8:1 ratio). This etchant is well suited
+to GaAs/AlGaAs mesa formation because it produces a controllable, moderately fast isotropic
+etch (typically a few nanometres per second) that removes the active layers uniformly. Its rate is
+slow enough to time accurately for a shallow $\approx 200\,\text{nm}$ recess, yet fast enough to
+be practical for routine device isolation.
 
 \vspace{2mm}
 
-A AuGe/Ni/Au metallisation stack was deposited by thermal evaporation.
-This alloy system is standard for $n$-type ohmic contacts to GaAs, as the
-AuGe layer forms a heavily doped region upon subsequent annealing. After
-deposition, the sample underwent solvent-based lift-off to remove excess
-metal, leaving well-defined pads with smooth edges and good adhesion as
-confirmed by optical microscopy.
+To calibrate the process, a 30\,s pilot etch was performed, and the depth measured using the
+Alpha-Step profilometer, giving an initial etch rate of approximately $3.8\,\text{nm\,s}^{-1}$.
+Using this value, the main mesa etch was timed to reach the target recess. During the second
+etch, the measured rate decreased to around $2.9\,\text{nm\,s}^{-1}$, most likely due to cooling of
+the etchant after mixing. Since the reaction rate of this chemistry is temperature dependent, a
+lower solution temperature reduces its reactivity and therefore slows the etch.
+
+\vspace{2mm}
+
+This variation highlighted the sensitivity of the process to temperature and timing. For
+future wet-etching, the etchant temperature will be monitored before and during
+etching, and the solution will be used promptly after mixing to ensure consistent reactivity.
+
+\vspace{3mm}
+
+\section{Ohmic Contact Formation}
+
+When a metal is deposited directly onto the GaAs cap, the interface would naturally forms a Schottky
+barrier, which behaves like a diode and restricts carrier injection into the channel. Ohmic
+contacts are used to avoid this; during annealing the AuGe layer alloys with the GaAs and
+creates a heavily doped region beneath the metal, thinning the barrier sufficiently for current to
+enter the 2DEG with low resistance.
+
+\vspace{2mm}
+
+To pattern these contacts cleanly, a dual-layer resist stack of LOR beneath S1803 was used.
+A single resist layer develops near-vertical sidewalls, causing the evaporated metal to form a
+continuous film across both the wafer surface and the resist edges. This continuity makes lift-off
+unreliable and often leaves metallic flakes or fences around the contact perimeter.
+
+\vspace{2mm}
+
+The dual-layer stack overcomes this by exploiting the higher developer solubility of LOR.
+During development, the LOR recedes laterally more than the S1803 above it, producing the
+undercut profile shown in Figure~3.2. This undercut breaks the continuity of the deposited
+metal so the film on top of the resist is physically separated from the metal inside the opening.
+When the LOR dissolves during lift-off, the unwanted metal lifts away cleanly, leaving sharply
+defined contact openings ready for metallisation.
+
+\vspace{2mm}
+
+\input{figures/fig-lift-off-stack.tex}
+
+\vspace{2mm}
+
+A AuGe/Ni/Au metallisation stack was then deposited by thermal evaporation to form the
+ohmic contacts. During the subsequent anneal the AuGe alloys with the GaAs to create the
+heavily doped contact region required for a linear, low-resistance interface. After deposition,
+solvent-based lift-off removed the excess metal, leaving well defined pads with smooth edges
+and good adhesion, as shown in Figure~\ref{fig:ohmic_contacts}.
 
 \vspace{3mm}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
-    \caption{Ohmic Contacts (Post Lift-Off)}
+    \caption{Ohmic contacts after lift-off.}
     \label{fig:ohmic_contacts}  
 \end{figure}
-
-% FIGURE: Ohmic lithography, metal deposition, lift-off images
 
 
 \section{Contact Annealing and Gate Patterning}

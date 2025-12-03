@@ -36,12 +36,22 @@
     \fill[white] (\xL,\hsub+\hlor) rectangle (\xR,\hsub+\hlor+\hs1803);
     \node[anchor=east] at (-0.2,\hsub+\hlor+0.5*\hs1803) {S1803};
 
-    % Metal deposition (wider, under the S1803 opening)
-    \fill[gray!60] (\xL-0.05,\hsub) rectangle (\xR+0.05,\hsub+0.65);
-    \draw (\xL+-0.05,\hsub) rectangle (\xR+0.05,\hsub+0.65);
+    % Metal deposition: recessed metal aligned with S1803 edges
+    \fill[gray!60] (\xL,\hsub) rectangle (\xR,\hsub+0.65);
+    \draw (\xL,\hsub) rectangle (\xR,\hsub+0.65);
     \node at (3.5,\hsub+0.32) {AuGe/Ni/Au};
 
+    % Metal atop resist (separate pieces to show broken continuity)
+    \def\mtop{0.2}
+    \fill[gray!60] (0.3,\hsub+\hlor+\hs1803) rectangle (\xL,\hsub+\hlor+\hs1803+\mtop);
+    \draw (0.3,\hsub+\hlor+\hs1803) rectangle (\xL,\hsub+\hlor+\hs1803+\mtop);
+    \fill[gray!60] (\xR,\hsub+\hlor+\hs1803) rectangle (\w-0.3,\hsub+\hlor+\hs1803+\mtop);
+    \draw (\xR,\hsub+\hlor+\hs1803) rectangle (\w-0.3,\hsub+\hlor+\hs1803+\mtop);
+
   \end{tikzpicture}
+
+  \vspace{5mm}
+
   \caption{Dual-layer LOR/S1803 resist stack after development showing the wider LOR opening that creates an undercut for clean metal lift-off.}
   \label{fig:lift_off_stack}
 \end{figure}
