@@ -2,86 +2,111 @@
 
 \section{Overview of the Fabrication Workflow}
 
-The depletion--mode HEMTs characterised in this report were fabricated
-using the standard III--V device process established within the Leeds
-Nanotechnology Cleanroom. The workflow follows the routine sequence used
-for GaAs/AlGaAs transistors in this facility, comprising mesa definition,
-ohmic contact formation, contact annealing and Schottky--gate
-metallisation. This well-established procedure was followed without
-modification and carried out over four full-day laboratory sessions. The devices
-produced through this workflow provide a reliable baseline against which
-the behaviour of devices with different structures and dimensions can be compared.
+The depletion-mode HEMTs characterised in this report were fabricated using 
+the standard III-V device process established within the Leeds Nanotechnology 
+Cleanroom. This workflow follows the routine sequence used for 
+GaAs/AlGaAs transistors in this facility: it comprises mesa definition, Ohmic 
+contact formation, contact annealing, and Schottky-gate metallisation. 
+This well-established procedure was followed without modification and carried 
+out over four full-day laboratory sessions. The devices produced 
+through this workflow provide a necessary baseline; they allow for a reliable 
+comparison against which the behaviour of devices with different structures 
+and dimensions can be evaluated later in this project.
 
 \vspace{3mm}
 
-% FIGURE: Cleanroom process overview (optional)
-
-
 \section{Mesa Definition and Isolation Etch}
 
-The fabrication process began with the electrical isolation of individual device
-regions through mesa etching. Prior to lithography, the GaAs wafer was
-cleaned sequentially in acetone, isopropanol (IPA) and deionised water (DI) to
-remove organic residues and ensure good photoresist adhesion. A positive
- photoresist (S1803) was then spun onto the sample at 3000rpm, soft-baked at
- approximately 115\,$^{\circ}$C, and then patterned with exposure from the Heidelberg MLA 150 
- - Maskless Aligner (MLA).
+The fabrication process began with the electrical isolation of individual 
+device regions through mesa etching. Prior to lithography, the 
+GaAs wafer was cleaned sequentially in acetone, isopropanol (IPA), and 
+deionised water (DI) to remove organic residues and ensure sufficient 
+photoresist adhesion. To further enhance the bonding interface 
+between the substrate and the resist, a Surpass primer was spun onto the 
+wafer. This priming step is critical for wet-etching applications: it 
+modifies the surface tension to prevent the etchant from penetrating under 
+the resist edges (an effect known as undercutting) which would otherwise 
+lead to the delamination of the mask. A positive photoresist (S1803) was 
+then spun onto the sample at 3000\,rpm, soft-baked at approximately 115\,$^{\circ}$C, 
+and subsequently patterned with exposure from the Heidelberg MLA 150 
+Maskless Aligner (MLA).
 
 \vspace{2mm}
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\linewidth]{figures/fabrication_images/mesa_mask.jpg}
-  \caption{Mesa lithography mask used for defining isolated device regions. (Post-Development)}
+  \caption{Mesa lithography mask used for defining isolated device regions (Post-Development).}
   \label{fig:mesa_mask}
 \end{figure}
 
-Following development, the mesa pattern was transferred into the wafer using a sulphuric
-acid, hydrogen peroxide and water wet-etch solution (160:8:1 ratio). This etchant is well suited
-to GaAs/AlGaAs mesa formation because it produces a controllable, moderately fast isotropic
-etch (typically a few nanometres per second) that removes the active layers uniformly. Its rate is
-slow enough to time accurately for a shallow $\approx 200\,\text{nm}$ recess, yet fast enough to
-be practical for routine device isolation.
+Following exposure, the sample was immersed in a caustic Microposit developer 
+solution for 45 seconds, followed by a thorough 2 stage DI water rinse and a nitrogen 
+blow-dry to reveal the mesa patterns. The mesa pattern was then transferred 
+into the wafer using a sulphuric acid, hydrogen peroxide, and water wet-etch 
+solution ($H_{2}SO_{4}:H_{2}O_{2}:H_{2}O$ in a 160:8:1 ratio). 
+This etchant is highly suited to GaAs/AlGaAs mesa formation: it produces a 
+controllable, moderately fast isotropic etch that removes the active layers 
+uniformly. The rate is sufficiently slow to allow for an 
+accurate timed etch of a shallow $\approx 200\,\text{nm}$ recess, yet it 
+remains fast enough to be practical for routine device isolation.
 
 \vspace{2mm}
 
-To calibrate the process, a 30\,s pilot etch was performed, and the depth measured using the
-Alpha-Step profilometer, giving an initial etch rate of approximately $3.8\,\text{nm\,s}^{-1}$.
-Using this value, the main mesa etch was timed to reach the target recess. During the second
-etch, the measured rate decreased to around $2.9\,\text{nm\,s}^{-1}$, most likely due to cooling of
-the etchant after mixing. Since the reaction rate of this chemistry is temperature dependent, a
-lower solution temperature reduces its reactivity and therefore slows the etch.
+To calibrate the process, an initial 30\,s pilot etch was performed; subsequent 
+measurement using an Alpha-Step profilometer revealed an etch depth of 114\,nm, 
+corresponding to an initial etch rate of $3.8\,\text{nm\,s}^{-1}$. 
+To reach the target depth of 200\,nm, a further 86\,nm of material required 
+removal. Assuming a constant etch rate, a second etch duration of 22\,s was 
+calculated and performed; however, the final measured depth 
+reached only 177\,nm. This indicates that the second etch only 
+removed an additional 63\,nm at a reduced effective rate of approximately 
+$2.9\,\text{nm\,s}^{-1}$. While a total depth of 177\,nm is 
+sufficient for device isolation (as it successfully penetrates the active 
+GaAs/AlGaAs heterostructure layers), the discrepancy in rates highlights 
+the intrinsic sensitivity of the wet-etch chemistry. 
 
-\vspace{2mm}
-
-This variation highlighted the sensitivity of the process to temperature and timing. For
-future wet-etching, the etchant temperature will be monitored before and during
-etching, and the solution will be used promptly after mixing to ensure consistent reactivity.
+A theory for the observed reduction in the mean etch rate during the second step is 
+attributed to the formation of a native oxide layer on the GaAs surface 
+during the interval in which the sample was removed for profilometry. This 
+oxide layer creates an "incubation period" at the start of the second 
+etch: sample etching is delayed while the etchant penetrates the oxide before 
+reaching the underlying semiconductor. Because the second etch (22\,s) was 
+shorter than the first (30\,s), this non-productive period represented a 
+larger percentage of the total etch time; consequently, the average rate for 
+that specific step was significantly lowered.
 
 \vspace{3mm}
 
 \section{Ohmic Contact Formation}
 
-When a metal is deposited directly onto the GaAs cap, the interface would naturally forms a Schottky
-barrier, which behaves like a diode and restricts carrier injection into the channel. Ohmic
-contacts are used to avoid this; during annealing the AuGe layer alloys with the GaAs and
-creates a heavily doped region beneath the metal, thinning the barrier sufficiently for current to
-enter the 2DEG with low resistance.
+The formation of low-resistance Ohmic contacts is a critical prerequisite for 
+accessing the two-dimensional electron gas (2DEG) within the heterostructure. 
+When metal is deposited directly onto the GaAs cap, the interface naturally 
+forms a Schottky barrier due to Fermi-level pinning at the surface states: 
+this creates a rectifying junction that restricts carrier injection. To 
+overcome this, a specific metallisation scheme and thermal processing step are 
+required to facilitate field-emission (tunnelling) conduction. The objective 
+is to create a heavily doped $n^{+}$ region beneath the contact pads that 
+extends down towards the channel; this high doping density significantly 
+narrows the depletion width of the barrier, allowing electrons to tunnel 
+freely between the metal and the semiconductor with linear $I-V$ 
+characteristics.
 
 \vspace{2mm}
 
-To pattern these contacts cleanly, a dual-layer photoresist stack of LOR beneath S1803 was used.
-A single photoresist layer develops near-vertical sidewalls, causing the evaporated metal to form a
-continuous film across both the wafer surface and the photoresist edges. This continuity makes lift-off
-unreliable and often leaves metallic flakes or fences around the contact perimeter.
-
-\vspace{2mm}
-
-The dual-layer stack overcomes this by exploiting the higher developer solubility of LOR.
-During development, the LOR recedes laterally more than the S1803 above it, producing the
-undercut profile shown in Figure~3.2. This undercut breaks the continuity of the deposited
-metal so the film on top of the photoresist is physically separated from the metal inside the opening.
-When the layers of photoresist dissolve during lift-off, the unwanted metal lifts away cleanly, leaving sharply
-defined contact openings ready for metallisation.
+To define these contacts, a dual-layer photoresist stack comprising 
+Lift-Off-Resist (LOR) beneath S1803 was employed. A single photoresist 
+layer typically develops near-vertical sidewalls: this causes the evaporated 
+metal to form a continuous film across both the wafer surface and the 
+photoresist edges, making lift-off unreliable and often leaving metallic 
+"fences" around the contact perimeter. The dual-layer stack mitigates this by 
+exploiting the higher developer solubility of the LOR base layer. During 
+development, the LOR recedes laterally more than the S1803 above it, 
+producing a distinct undercut profile. This physical overhang breaks the 
+continuity of the deposited metal film, ensuring that the metal on top of 
+the photoresist is electrically and mechanically separated from the device 
+contacts. Consequently, solvent-based lift-off yields sharply defined 
+openings free of edge defects.
 
 \vspace{2mm}
 
@@ -89,65 +114,76 @@ defined contact openings ready for metallisation.
 
 \vspace{2mm}
 
-A AuGe/Ni/Au metallisation stack was then deposited via thermal evaporation to form the
-ohmic contacts. During the subsequent anneal the AuGe alloys with the GaAs to create the
-heavily doped contact region required for a linear, low-resistance interface. After deposition,
-solvent-based lift-off removed the excess metal, leaving well defined pads with smooth edges
-and good adhesion, as shown in Figure~\ref{fig:ohmic_contacts}.
-
-\vspace{3mm}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
-    \caption{Ohmic contacts after lift-off.}
-    \label{fig:ohmic_contacts}  
-\end{figure}
-
-
-\section{Contact Annealing, Gate Formation and Final Inspection}
-
-The sample was annealed to activate the AuGe/Ni/Au contacts and form a
-low-resistance alloyed interface with the GaAs surface. During annealing
-germanium diffuses into the GaAs, locally increasing the doping
-concentration beneath the contacts and thereby reducing the contact
-resistance.
+Following lithography, the metallisation was performed by the thermal 
+evaporation of a AuGeNi eutectic pellet. The composition of this alloy is 
+functionally specific: Germanium (Ge) serves as the amphoteric dopant which, 
+upon substituting into Gallium sites, acts as a donor; Nickel (Ni) acts as a 
+wetting agent to prevent the Gold-Germanium from "balling up" during the 
+melt and assists in the diffusion process; and Gold (Au) provides the 
+necessary low-resistance conductivity. 
 
 \vspace{2mm}
 
-With the ohmic contacts established, a third photolithography step defined
-the gate region. As before, a dual-layer resist stack was used to ensure
-reliable lift-off. The gate electrode was aligned centrally between the
-source and drain to modulate the 2DEG formed at the AlGaAs/GaAs
-interface. Following development, Ti/Au was evaporated to form the
-Schottky gate metal stack, with titanium acting as an adhesion layer and
-gold providing a stable Schottky barrier and a low-resistance gate
-conductor.
+To activate the contacts, the sample underwent Rapid Thermal Annealing (RTA). 
+It is during this thermal cycle that the transition from rectifying to Ohmic 
+behaviour occurs. The heat drives the Germanium atoms to diffuse through the 
+AlGaAs layers and into the GaAs lattice, locally creating the requisite 
+$n^{+}$ doping profile. This effectively "thins" the potential barrier at 
+the interface, establishing a low-resistance tunnelling path that connects 
+the surface metallisation electrically to the buried 2DEG.
 
 \vspace{2mm}
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
-    \caption{Gate contacts after lift-off.}
-    \label{fig:gate_contacts}  
+  \centering
+  \includegraphics[width=0.5\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
+  \caption{Ohmic contacts after lift-off.}
+  \label{fig:ohmic_contacts}
+\end{figure}
+
+\section{Gate Formation and Final Inspection}
+
+With the Ohmic contacts established and annealed, a third photolithography 
+step was performed to define the Schottky gate. As with the previous stage, a 
+dual-layer resist stack was utilised to ensure a clean lift-off. The gate 
+electrode was aligned centrally between the source and drain contacts; its 
+placement is critical, as it provides the electrostatic control required to 
+modulate the carrier density within the channel.
+
+\vspace{2mm}
+
+Following development, a Ti/Au stack was evaporated to form the gate 
+electrode. In this configuration, the Titanium (Ti) layer serves as a vital 
+adhesion layer to the semiconductor surface, while the thick Gold (Au) layer 
+provides a stable Schottky barrier and minimises gate resistance. Unlike the 
+Ohmic contacts, the gate metallisation is not annealed; preserving the 
+Schottky barrier height is essential for minimising leakage current and 
+maintaining effective depletion control over the channel.
+
+\vspace{2mm}
+
+After metallisation, the resist was removed using solvent lift-off to reveal 
+the final device structure. A small number of lift-off defects (primarily 
+isolated metallic particles) were observed under the microscope and 
+subsequently removed using brief, gentle ultrasonic cleaning. The removal of 
+these artefacts is essential for device reliability: they can otherwise cause 
+electrical short circuits, particularly around the sensitive gate edges.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
+  \caption{Gate contacts after lift-off.}
+  \label{fig:gate_contacts}
 \end{figure}
 
 \vspace{3mm}
 
-After gate metallisation, the resist was removed using solvent lift-off,
-revealing the final device structure. A small number of lift-off
-defects, primarily isolated metallic particles, were observed under the
-microscope and removed using brief, gentle ultrasonic cleaning. These
-artefacts can cause electrical short circuits, particularly around the
-gate edges, so their removal was essential for device reliability.
-
-\vspace{2mm}
-
-The completed devices were examined using optical microscopy. The mesas
-exhibited clean sidewalls, the ohmic pads were well defined, and the
-gate electrodes showed sharp, uninterrupted edges with no bridging or
-residual flakes. Overall, the process yielded a high-quality array of
-depletion-mode HEMTs suitable for subsequent electrical characterisation.
-
+The completed devices were examined using optical microscopy to ensure process 
+integrity. The mesas exhibited clean, well-defined sidewalls; the Ohmic pads 
+were properly positioned; and the gate electrodes showed sharp, uninterrupted 
+edges with no evidence of bridging or residual flakes. Overall, the 
+fabrication process yielded a high-quality array of depletion-mode HEMTs 
+suitable for subsequent electrical characterisation.
 
