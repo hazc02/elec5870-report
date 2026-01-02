@@ -3,12 +3,14 @@
 Modern communication, sensing, and microwave systems impose increasingly 
 demanding requirements on the semiconductor devices that form their 
 front-end signal paths. Higher operating frequencies, tighter noise 
-constraints and strict linearity targets continue to push transistor 
-technologies beyond the capabilities of many silicon-based platforms. \todobib
+constraints, and strict linearity targets continue to push transistor 
+technologies beyond the capabilities of many silicon-based platforms. \cite{chaturvedi2021}
 Although silicon processes have made notable progress in recent years, 
-they do not always provide the carrier mobility, noise performance or 
-high-frequency gain required in performance-critical microwave and 
-millimetre-wave applications. \todobib
+they often fall short in providing the necessary electron mobility,
+ noise performance, or high-frequency gain required for performance-critical 
+microwave and millimetre-wave applications. 
+(e.g. silicon's 1200 cm\textsuperscript{2}/Vs compared to GaAs's 6500 cm\textsuperscript{2}/Vs 
+in transistors for MMICs) \cite{chaturvedi2021}
 
 \vspace{2mm}
 
@@ -19,7 +21,7 @@ with different bandgaps. At this interface a two--dimensional electron gas (2DEG
 forms, supporting exceptionally high carrier mobility. The resulting strong 
 transconductance, stable high--frequency behaviour and low--noise performance 
 have firmly established HEMTs as core devices throughout microwave and 
-millimetre--wave circuit design. \todobib
+millimetre--wave circuit design. \cite{mishra2002}
 
 \vspace{2mm}
 
@@ -28,12 +30,12 @@ gallium nitride (GaN) HEMTs, driven by the material properties enabled
 by its wide bandgap. GaN supports high breakdown voltages, strong 
 power--handling capability and robust operation under large electric 
 fields, making it the preferred choice for many high--power and 
-high--linearity applications \todobib. Despite this growing dominance, 
+high--linearity applications \cite{mishra2008}. Despite this growing dominance, 
 gallium arsenide (GaAs) HEMTs remain one of the most mature and well 
 characterised III--V transistor platforms. Their stability, extensive 
 documentation and long industrial history continue to make them an 
 invaluable system for studying the relationships between heterostructure 
-design, device architecture and electrical behaviour.
+design, device architecture and electrical behaviour.\cite{Mimura2002,Mimura1980} 
 
 \vspace{2mm}
 
@@ -47,15 +49,17 @@ quality \cite{leedscleanroom}.
 
 Standard GaAs/AlGaAs HEMTs are inherently depletion-mode devices; 
 they naturally conduct current at zero gate bias and require a negative 
-voltage to switch off. This 'normally-on' behaviour is often undesirable 
-as it necessitates complex negative polarity power supplies and complicates 
-the design of direct-coupled logic circuits. \todobib Consequently, there is 
+voltage to switch off. \cite{mishra2002} This 'normally-on' behaviour is often undesirable 
+as it necessitates complex negative polarity power supplies \cite{st_d_mode} and complicates 
+the design of direct-coupled logic circuits. \cite{Xie2011}  Consequently, there is 
 significant interest in developing enhancement-mode devices that are 
 'normally-off' and offer reduced power consumption. 
 
+\vspace{8mm} 
+
 One common approach to achieving enhancement-mode operation is to recess the 
 gate into the AlGaAs donor layer, thereby reducing the amount of charge carriers available 
-to form the channel and shifting the threshold voltage in the positive direction. 
+to form the channel and shifting the threshold voltage in the positive direction. \todobib
 However, achieving enhancement-mode operation through gate recessing is inherently non-trivial, as 
 it requires precise and repeatable removal of only a few nanometres of material, 
 with small variations in etch depth leading to significant changes in 
@@ -68,14 +72,15 @@ between gate recess depth and threshold voltage in GaAs HEMTs, with a focus
 on understanding the practical limitations and repeatability of the 
 fabrication process. This is achieved through the development of a gate 
 recession process in which the gate contact is recessed into the AlGaAs 
-donor layer to shift the threshold voltage into the positive region. \todobib
+donor layer to shift the threshold voltage into the positive region.
 
 \vspace{2mm}
 
-To provide a rigorous comparison, this interim report first focuses on the 
-fabrication and characterisation of a non-recessed depletion-mode baseline 
+To provide a rigorous comparison between depletion-mode and enhancement-mode devices,
+this interim report first focuses on the 
+fabrication and characterisation of a series of non-recessed depletion-mode devices, achieved in first semester.
 (Chapters 3 and 4). These standard depletion-mode devices serve as a control 
-to validate the HEMT fabrication process and establish reference parameters. 
+to validate the HEMT fabrication process and establish reference parameters throughout this project. 
 Finally, Chapter 5 outlines the theory and proposed process strategy 
 required to implement the precise donor layer etch needed to achieve 
 enhancement-mode operation in the second phase of this work.
