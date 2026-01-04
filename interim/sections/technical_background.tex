@@ -93,7 +93,7 @@ device.
 \vspace{2mm}
 
 The HEMTs fabricated during the first semester of this project operate in
-depletion mode. In the conventional heterostructure described above, the
+d-mode. In the conventional heterostructure described above, the
 combined thickness of the GaAs cap and the AlGaAs donor layer, totalling
 approximately 50~nm, exceeds the zero bias depletion width of the
 Schottky gate. As a result, the 2DEG remains populated at zero gate bias,
@@ -106,35 +106,43 @@ To terminate conduction, a negative gate voltage must be applied to
 extend the depletion region until it physically intersects the GaAs
 channel. The specific gate voltage at which the carrier concentration in
 the channel is fully depleted defines the threshold voltage,
-$V_{th}$. In depletion mode devices, this threshold voltage lies in the
+$V_{th}$. In d-mode devices, this threshold voltage lies in the
 negative bias region, a characteristic that directly motivates the
-transition towards enhancement mode operation explored in this project.
+transition towards e-mode operation explored in this project.
 
 \subsection{Enhancement Mode Operation}
+In a modulation-doped GaAs/AlGaAs HEMT, the transition from d-mode to
+e-mode operation is governed primarily by electrostatic charge
+balance beneath the gate. Gate recession removes the GaAs cap layer and 
+a controlled thickness of the Si-doped AlGaAs donor layer under the gate region, thereby reducing the
+ionised donor charge available to supply electrons to the
+two-dimensional electron gas (2DEG) and modifying the built-in depletion
+associated with the Schottky contact at zero bias.
 
-Enhancement mode operation is achieved when the device is normally off,
-requiring a positive gate voltage to initiate conduction. Fundamentally,
-the transition from depletion mode to enhancement mode corresponds to a
-reduction in the effective gate to channel separation distance, $d$.
-One widely adopted method for achieving this is gate recession, in which
-the GaAs cap layer and a controlled thickness of the AlGaAs donor layer
-are selectively etched beneath the gate region.
-
-By reducing $d$, the built-in potential of the Schottky contact becomes
-sufficient to fully deplete the 2DEG at zero gate bias, shifting the
-threshold voltage into the positive region \cite{Saitto2006}. Under these
-conditions, conduction occurs only when a positive gate voltage is
-applied, pulling the depletion region back towards the surface and
-allowing electrons to accumulate at the heterointerface.
+When the remaining donor supply beneath the recessed gate is
+insufficient to sustain the 2DEG at $V_G = 0$, the channel becomes fully
+depleted and the threshold voltage shifts into the positive region
+\cite{Saitto2006}. Under these conditions, conduction occurs only when a
+positive gate voltage is applied, which reduces the depletion width and
+allows electrons to accumulate again at the AlGaAs/GaAs heterointerface.
+Gate recession also reduces the effective gate-to-channel separation
+distance, $d$, strengthening electrostatic coupling and influencing
+transconductance; however, this enhanced coupling is a secondary effect
+and is not, by itself, the principal mechanism responsible for normally
+off behaviour.
 
 \vspace{2mm}
 
-Alternative enhancement mode strategies, including fluorine ion
-implantation and heterostructure redesign, have been demonstrated in the
-literature; however, these approaches introduce additional complexity,
-irreversibility, or reliance on modified epitaxial growth. Gate
-recession is therefore particularly well suited to this project, as it
-enables systematic investigation of the relationship between recess
-depth and threshold voltage using a fixed heterostructure. The
-development, control and limitations of this approach form the focus of
-Chapter~5.
+Alternative enhancement-mode strategies, including ion
+implantation  and heterostructure redesign, have been demonstrated in the
+literature \cite{chen2005fluorine, meneghini2017}; however, these approaches introduce additional
+process complexity, or reliance on modified epitaxial
+growth that is not compatible with the facilities available or the
+timeline of this project.
+
+Gate recession is therefore particularly well suited to the present
+study, as it enables systematic investigation of the relationship
+between recess depth and threshold voltage using a fixed
+heterostructure. The physical background, along with the process
+development, control, and limitations of this approach, forms the focus
+of Chapter~5.
