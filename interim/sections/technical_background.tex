@@ -66,83 +66,84 @@ fundamental design trade off; increasing the spacer thickness improves
 mobility but weakens electrostatic coupling between the gate and the
 channel, reducing transconductance.
 
-\vspace{2mm}
-
-The GaAs channel beneath the spacer hosts the 2DEG itself. Electrons are
-confined at the AlGaAs/GaAs interface by the conduction band offset,
-forming a narrow quantum well in which transport occurs. The depth,
-density and confinement of this interfacial channel collectively govern
-the electrical behaviour of the device and form the physical basis for
-the threshold voltage extraction and transfer characteristics analysed
-later in this report.
-
 \section{HEMT Operating Principles}
 
-The electrical operation of GaAs/AlGaAs HEMTs is governed by the
-interaction between the Schottky gate contact and the 2DEG within the
-heterostructure. When the gate metal is deposited onto the GaAs surface,
-a Schottky barrier is formed, producing a depletion region beneath the
-gate. Application of a gate voltage modulates the width of this
-depletion region, enabling electrostatic control over the carrier
-density in the 2DEG at the AlGaAs/GaAs interface \cite{sze2021}. This
-gate induced modulation underpins the field effect behaviour of the
-device.
+The electrical behaviour of the GaAs/AlGaAs HEMT is governed by the field-effect
+interaction between the Schottky gate and the 2DEG. When a metal gate is
+deposited onto the semiconductor surface, a depletion region forms beneath it,
+the depth of which is modulated by the applied gate voltage ($V_G$). This
+modulation controls the sheet carrier density ($n_s$) in the channel and,
+consequently, the drain current \cite{sze2021}.
 
-\subsection{Depletion Mode Operation}
+To accurately describe this behaviour, particularly for the thin
+heterostructures required for enhancement-mode operation, a refined
+charge-control model is necessary. As derived by Lee et al. \cite{ivcv-hemt},
+the relationship between the gate voltage and the channel charge is not solely
+a function of the physical dielectric thickness, but must account for the
+quantum mechanical distribution of electrons within the potential well.
 
-\vspace{2mm}
+\subsection{Transconductance and the Quantum Correction}
 
-The HEMTs fabricated during the first semester of this project operate in
-d-mode. In the conventional heterostructure described above, the
-combined thickness of the GaAs cap and the AlGaAs donor layer, totalling
-approximately 50~nm, exceeds the zero bias depletion width of the
-Schottky gate. As a result, the 2DEG remains populated at zero gate bias,
-and the device naturally conducts when $V_G = 0$
-\cite{Mimura1980}.
+The device's transconductance ($g_m$)---its ability to convert a change in gate
+voltage into a change in drain current---is fundamentally determined by the
+gate-to-channel capacitance. In a classical parallel-plate model, this is
+inversely proportional to the physical barrier thickness, $d$. However, the
+electrons in the 2DEG do not reside strictly at the heterointerface; they are
+distributed within the quantum well with a charge centroid located at a finite
+distance from the interface.
 
-\vspace{2mm}
+Lee et al. introduce an "effective" gate-to-channel separation, defined as
+$d + \Delta d$, where $\Delta d$ represents a quantum correction factor of
+approximately $80~\text{\AA}$ ($8~\text{nm}$) \cite{ivcv-hemt}. This correction
+modifies the transconductance parameter $\beta$ as follows:
 
-To terminate conduction, a negative gate voltage must be applied to
-extend the depletion region until it physically intersects the GaAs
-channel. The specific gate voltage at which the carrier concentration in
-the channel is fully depleted defines the threshold voltage,
-$V_{th}$. In d-mode devices, this threshold voltage lies in the
-negative bias region, a characteristic that directly motivates the
-transition towards e-mode operation explored in this project.
+\begin{equation}
+    \beta = \frac{\epsilon \mu W}{(d + \Delta d)L}
+\end{equation}
 
-\subsection{Enhancement Mode Operation}
-In a modulation-doped GaAs/AlGaAs HEMT, the transition from d-mode to
-e-mode operation is governed primarily by electrostatic charge
-balance beneath the gate. Gate recession removes the GaAs cap layer and 
-a controlled thickness of the Si-doped AlGaAs donor layer under the gate region, thereby reducing the
-ionised donor charge available to supply electrons to the
-two-dimensional electron gas (2DEG) and modifying the built-in depletion
-associated with the Schottky contact at zero bias.
+This relationship highlights a critical design trade-off for this project. While
+recessing the gate (reducing $d$) significantly enhances electrostatic coupling,
+the intrinsic separation $\Delta d$ imposes a fundamental limit on the
+achievable transconductance. For the thick depletion-mode devices fabricated in
+Semester 1 ($d \approx 50~\text{nm}$), the $8~\text{nm}$ correction is a minor
+component. However, as the gate is recessed towards the target depth for
+enhancement-mode operation ($\approx 25~\text{nm}$), $\Delta d$ becomes a
+significant fraction of the total separation, limiting the extent to which $g_m$
+can be scaled by thinning the barrier alone.
 
-When the remaining donor supply beneath the recessed gate is
-insufficient to sustain the 2DEG at $V_G = 0$, the channel becomes fully
-depleted and the threshold voltage shifts into the positive region
-\cite{Saitto2006}. Under these conditions, conduction occurs only when a
-positive gate voltage is applied, which reduces the depletion width and
-allows electrons to accumulate again at the AlGaAs/GaAs heterointerface.
-Gate recession also reduces the effective gate-to-channel separation
-distance, $d$, strengthening electrostatic coupling and influencing
-transconductance; however, this enhanced coupling is a secondary effect
-and is not, by itself, the principal mechanism responsible for normally
-off behaviour.
+\subsection{Threshold Voltage and Mode Determination}
 
-\vspace{2mm}
+The distinction between depletion-mode (D-mode) and enhancement-mode (E-mode)
+operation is determined by the balance between the built-in potential of the
+Schottky gate and the thickness of the doped AlGaAs donor layer. According to
+the analytical model \cite{ivcv-hemt}, the threshold voltage ($V_{off}$) is
+dependent on the square of the donor layer thickness ($d_d$):
 
-Alternative enhancement-mode strategies, including ion
-implantation  and heterostructure redesign, have been demonstrated in the
-literature \cite{chen2005fluorine, meneghini2017}; however, these approaches introduce additional
-process complexity, or reliance on modified epitaxial
-growth that is not compatible with the facilities available or the
-timeline of this project.
+\begin{equation}
+    V_{off} = \phi_b - \Delta E_c - \frac{q N_d d_d^2}{2\epsilon}
+\end{equation}
 
-Gate recession is therefore particularly well suited to the present
-study, as it enables systematic investigation of the relationship
-between recess depth and threshold voltage using a fixed
-heterostructure. The physical background, along with the process
-development, control, and limitations of this approach, forms the focus
-of Chapter~5.
+
+
+This quadratic dependence ($V_{off} \propto d_d^2$) underscores the sensitivity
+of the fabrication process; small variations in the recess etch depth result in
+significant shifts in the threshold voltage. This physical relationship governs
+the two distinct operational modes explored in this project:
+
+\textbf{Depletion Mode (Semester 1):} The baseline devices fabricated in
+Semester 1 utilised the full epitaxial structure, comprising the 10~nm GaAs cap
+and the 40~nm AlGaAs donor layer. With a total thickness of
+$d \approx 50~\text{nm}$, the depletion region from the Schottky gate does not
+extend to the heterointerface at zero bias. Consequently, the 2DEG remains
+populated ($V_{off} < 0$), and the device is "normally-on," requiring a negative
+gate voltage to pinch off the channel \cite{Mimura1980}.
+
+\textbf{Enhancement Mode (Semester 2 Goal):} To achieve normally-off behaviour
+($V_{off} > 0$), the donor layer thickness must be reduced until the zero-bias
+depletion region fully intersects the 2DEG. Based on the doping concentration of
+$1 \times 10^{18}~\text{cm}^{-3}$ used in these wafers, Lee et al. suggest a
+critical target thickness of approximately $25~\text{nm}$ ($250~\text{\AA}$)
+\cite{ivcv-hemt}. By precisely recessing the gate to this depth, the built-in
+potential is sufficient to deplete the channel at $V_G = 0$, requiring a
+positive gate bias to re-populate the 2DEG and initiate conduction
+\cite{Saitto2006}.
