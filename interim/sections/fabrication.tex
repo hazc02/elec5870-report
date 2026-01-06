@@ -118,37 +118,39 @@ openings free of edge defects.
 
 \vspace{2mm}
 
-Following lithography, the metallisation was performed by the thermal 
-evaporation of a AuGeNi eutectic pellet. The composition of this alloy is 
-functionally specific: Germanium (Ge) serves as the amphoteric dopant which, 
-upon substituting into Gallium sites, acts as a donor; Nickel (Ni) acts as a 
-wetting agent to prevent the Gold-Germanium from "balling up" during the 
-melt and assists in the diffusion process; and Gold (Au) provides the 
-necessary low-resistance conductivity. 
+Following lithography, the Ohmic contacts were formed by thermally evaporating 
+a AuGeNi eutectic pellet. This alloy is commonly used for n-type 
+GaAs Ohmic contacts because each element plays a specific role during annealing. 
+Germanium diffuses into the GaAs and acts as a donor, creating a highly doped 
+region beneath the contact. Nickel improves the uniformity and adhesion of the 
+metal film and supports the diffusion process, whilst gold provides a low-resistance 
+conduction path between the contact pad and the semiconductor.
 
 \vspace{2mm}
 
 To activate the contacts, the sample underwent Rapid Thermal Annealing (RTA). 
 It is during this thermal cycle that the transition from rectifying to Ohmic 
 behaviour occurs. The heat drives the Germanium atoms to diffuse through the 
-AlGaAs layers and into the GaAs lattice, locally creating the requisite 
-$n^{+}$ doping profile. This effectively "thins" the potential barrier at 
+AlGaAs layers and into the GaAs lattice, locally creating the 
+$n^{+}$ doped region. This effectively "thins" the potential barrier at 
 the interface, establishing a low-resistance tunnelling path that connects 
-the surface metallisation electrically to the buried 2DEG.
+the drain and source electrically to the 2DEG.
 
 \vspace{2mm}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
-  \caption{Ohmic contacts after lift-off.}
+  \caption{Ohmic contacts under x5 microscopy following lift-off.}
   \label{fig:ohmic_contacts}
 \end{figure}
+
+\FloatBarrier
 
 \section{Gate Formation and Final Inspection}
 
 With the Ohmic contacts established and annealed, a third photolithography 
-step was performed to define the Schottky gate. As with the previous stage, a 
+step was performed to define the Schottky gate region. As with the previous stage, a 
 dual-layer resist stack was utilised to ensure a clean lift-off. The gate 
 electrode was aligned centrally between the source and drain contacts; its 
 placement is critical, as it provides the electrostatic control required to 
@@ -167,7 +169,7 @@ maintaining effective depletion control over the channel.
 \vspace{2mm}
 
 After metallisation, the resist was removed using solvent lift-off to reveal 
-the final device structure. A small number of lift-off defects (primarily 
+the final device structure. A small-number of lift-off defects (primarily 
 isolated metallic particles) were observed under the microscope and 
 subsequently removed using brief, gentle ultrasonic cleaning. The removal of 
 these artefacts is essential for device reliability: they can otherwise cause 
@@ -190,4 +192,3 @@ were properly positioned; and the gate electrodes showed sharp, uninterrupted
 edges with no evidence of bridging or residual flakes. Overall, the 
 fabrication process yielded a high-quality array of depletion-mode HEMTs 
 suitable for subsequent electrical characterisation.
-

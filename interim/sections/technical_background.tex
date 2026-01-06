@@ -3,33 +3,33 @@
 
 \section{Overview of GaAs/AlGaAs HEMTs}
 
-In the GaAs/AlGaAs HEMTs used in this project, the interface between the
-GaAs channel layer and the overlying AlGaAs barrier produces a
-discontinuity in the conduction band due to the differing bandgaps of
-the two materials. This offset creates a potential well on the GaAs
-side of the junction, as illustrated in
-Figure~\ref{fig:band_bending}, which is responsible for carrier
-confinement and the formation of a two-dimensional electron gas
-(2DEG) at the heterointerface.
+In GaAs/AlGaAs high-electron-mobility transistors (HEMTs), the interface
+between the GaAs channel layer and the overlying AlGaAs barrier produces
+a discontinuity in the conduction band due to the differing bandgaps of
+the two materials. This offset creates a potential well on the GaAs side
+of the junction, as illustrated in Figure~\ref{fig:band_bending}, which
+confines electrons to the heterointerface and enables the formation of a
+two-dimensional electron gas (2DEG).
+
 Electrons supplied by silicon donors in the modulation-doped AlGaAs
-layer transfer into this well and accumulate to form the 2DEG, which
-serves as the conducting channel of the device.
-The formation of this spatially confined, high-mobility channel is the
-defining feature of the HEMT structure and underpins its superior
-high-frequency and low-noise performance compared to bulk-channel
-transistors \cite{liu1999}.
+layer transfer into this potential well and accumulate to form the
+2DEG, which serves as the conducting channel of the device. The spatial
+separation of carriers from ionised dopants results in exceptionally
+high electron mobility, underpinning the strong transconductance,
+low-noise performance, and high-frequency capability that distinguish
+HEMTs from bulk-channel field-effect transistors \cite{liu1999}.
 
 \input{figures/fig-band-bending.tex}
 
 \section{The GaAs/AlGaAs Heterostructure}
 
-The HEMTs investigated in this project are based on a conventional
+The devices investigated in this project employ a conventional
 GaAs/AlGaAs heterostructure in which a sequence of epitaxial layers is
-engineered to create and control a 2DEG.
-A schematic cross-section of the structure is shown in
-Figure~\ref{fig:layer_structure}, highlighting the cap, donor, spacer,
-and channel layers whose thicknesses and compositions govern the
-electrostatic control and transport behaviour of the device.
+engineered to create and control a 2DEG. A schematic cross-section of
+the structure is shown in Figure~\ref{fig:layer_structure}, highlighting
+the cap, donor, spacer, and channel layers whose thicknesses and
+compositions govern the electrostatic control and transport behaviour of
+the device.
 
 \vspace{2mm}
 \input{figures/fig-layer-structure.tex}
@@ -37,43 +37,43 @@ electrostatic control and transport behaviour of the device.
 
 At the surface of the structure lies a $10~\text{nm}$ thick, highly doped
 GaAs cap layer. This cap provides a chemically stable surface for
-forming the Schottky gate contact whilst also protecting the underlying
-AlGaAs from oxidation. Its high conductivity reduces series resistance
-in the access regions beneath the source and drain contacts,
-improving current injection into the channel.
+forming the Schottky gate contact whilst protecting the underlying
+AlGaAs. Its high conductivity reduces series resistance in the access
+regions adjacent to the source and drain contacts, improving carrier
+injection into the channel.
 
 \vspace{2mm}
 
 Beneath the cap layer is a $40~\text{nm}$ thick silicon-doped AlGaAs
 donor layer. Silicon donors act as electron suppliers, with carriers
 transferring into the GaAs channel as a result of the conduction band
-discontinuity at the heterointerface. This approach, known as
-modulation doping, spatially separates the ionised dopants from the
-conducting channel. Both the donor concentration and the layer thickness
-strongly influence the resulting 2DEG sheet density and therefore the
-threshold voltage and maximum drain current of the device.
+discontinuity at the heterointerface. This modulation-doping strategy
+spatially separates the ionised dopants from the conducting channel.
+Both the donor concentration and its thickness strongly influence the
+resulting sheet carrier density of the 2DEG and therefore the threshold
+voltage and maximum drain current of the device.
 
 \vspace{2mm}
 
 A $15~\text{nm}$ thick undoped AlGaAs spacer layer separates the donor
-layer from the GaAs channel. This spacer plays a critical role in device
-performance by physically isolating the 2DEG from ionised dopants,
-thereby suppressing Coulomb scattering \cite{Hirakawa1986}. This
-separation enables exceptionally high electron mobility, particularly
-at cryogenic temperatures where phonon scattering is reduced and
-impurity scattering would otherwise dominate transport behaviour
+layer from the GaAs channel. This spacer suppresses Coulomb scattering
+by physically isolating the 2DEG from ionised impurities, enabling
+exceptionally high electron mobility \cite{Hirakawa1986}. The benefit is
+particularly pronounced in HEMT devices operating at cryogenic
+temperatures, where phonon scattering is reduced and impurity
+scattering would otherwise dominate transport behaviour
 \cite{Pfeiffer1989}. Increasing the spacer thickness improves mobility
 but weakens electrostatic coupling between the gate and the channel;
-this trade-off is a central consideration in heterostructure design.
+this trade-off is a fundamental consideration in heterostructure
+design.
 
 \vspace{2mm}
 
-In this project, the donor layer thickness and the resulting effective
-separation between the gate and the channel represent the primary
-controllable parameters through which the threshold voltage may be
-engineered. The following section therefore focuses specifically on how
-gate bias modulates channel charge and determines the operational mode
-of the device.
+In this project, the thickness of the doped AlGaAs donor layer beneath
+the gate represents the primary controllable parameter through which
+the threshold voltage may be engineered. The following section therefore
+examines how gate bias modulates channel charge and determines the
+operational mode of the device.
 
 \section{Gate Control of Channel Charge and Threshold Voltage}
 
@@ -85,50 +85,58 @@ applied gate voltage ($V_G$). This modulation controls the sheet carrier
 density ($n_s$) in the channel and, consequently, the drain current
 \cite{sze2021}.
 
-For conventional depletion-mode devices with relatively thick barrier
-layers, this behaviour can be approximated using a classical
-parallel-plate charge-control model. However, as the gate-to-channel
+\subsection{Charge Distribution and Effective Gate Separation}
+
+In a simple charge-control description of GaAs/AlGaAs HEMTs, the 2DEG is
+treated as an infinitesimally thin sheet of charge located at the
+GaAs/AlGaAs heterointerface, analogous to a parallel-plate capacitor; 
+with the gate and channel acting as plates and the AlGaAs donor layer acting as a 'dielectric'. \cite{ivcv-hemt}
+This approximation is adequate for devices with relatively thick
+barrier layers. As the gate is recessed and the gate-to-channel
 separation is reduced towards the nanometre scale required for
-enhancement-mode operation, additional physical effects must be
-considered. In particular, the finite spatial extent of the 2DEG within
-the quantum well modifies the effective electrostatic coupling between
-the gate and the channel, motivating the refined charge-control
-treatment introduced by Lee \textit{et al.} \cite{ivcv-hemt}.
+enhancement-mode operation, however, the assumption of a sheet-like
+charge distribution becomes increasingly inaccurate.
 
-\subsection{Finite Charge Distribution and Effective Gate Separation}
+\vspace{2mm}
 
-In an idealised classical model, the 2DEG is assumed to reside at an
-infinitesimally thin sheet located precisely at the GaAs/AlGaAs
-interface. In reality, electrons occupy a quantised triangular
+In practice, electrons forming the 2DEG occupy a quantised triangular
 potential well on the GaAs side of the heterointerface, resulting in a
-finite charge distribution whose centroid is displaced from the
-interface.
+charge distribution of finite thickness. The centre of this
+distribution is displaced from the interface, increasing the effective
+electrostatic separation between the gate and the channel.
 
-Lee \textit{et al.} account for this effect by introducing an effective
-gate-to-channel separation of $d + \Delta d$, where $\Delta d$
-represents a quantum-mechanical correction associated with the finite
-extent of the electron wavefunction. For GaAs/AlGaAs HEMTs, this
-correction is of order $80~\text{\AA}$ ($8~\text{nm}$) \cite{ivcv-hemt}.
-Incorporating this correction modifies the effective gate capacitance
-and may be expressed through the transconductance parameter $\beta$ as
+\vspace{2mm}
+
+Lee \textit{et al.} account for this behaviour by introducing an
+effective gate-to-channel separation of $d + \Delta d$, where
+$\Delta d$ represents a quantum-mechanical correction associated with
+the finite spatial extent of the electron wavefunction. For
+GaAs/AlGaAs HEMTs, $\Delta d$ is of order $80~\text{\AA}$
+\cite{ivcv-hemt}. This correction may be incorporated into the
+transconductance parameter $\beta$, which relates changes in gate
+voltage to changes in drain current through the gate-controlled channel
+capacitance:
 
 \begin{equation}
     \beta = \frac{\epsilon \mu W}{(d + \Delta d)L}
 \end{equation}
 
-In the context of this project, $\Delta d$ does not represent a
-fundamental performance limit; rather, it acts as an effective offset
-that becomes increasingly relevant as the physical barrier thickness
-$d$ is reduced through gate recessing. For the baseline depletion-mode
-devices fabricated in Semester~1 ($d \approx 50~\text{nm}$), the quantum
-correction constitutes a relatively small fraction of the total
-separation. However, as the donor layer is thinned towards the
-$\sim 25~\text{nm}$ regime required for enhancement-mode operation,
-$\Delta d$ becomes a non-negligible contribution to the overall
-electrostatic spacing. Its primary significance at this stage lies in
-informing the practical target recess depth required to achieve a
-positive threshold voltage, rather than in limiting transconductance
-scaling.
+\begin{quote}
+    \footnotesize
+    \textit{$\epsilon$ : Permittivity of the barrier; $\mu$ : Electron mobility; 
+    $W, L$ : Gate width and length; $d$ : Physical gate-to-channel separation; 
+    $\Delta d$ : Effective charge-centroid offset.}
+\end{quote}
+
+For the depletion-mode devices fabricated in Semester~1, the total
+electrostatic separation between the gate and the 2DEG is sufficiently
+large that this quantum correction represents a small fraction of the
+overall spacing. As the donor layer is thinned towards the dimensions
+required for enhancement-mode operation, the correction becomes a more
+significant contribution. Its relevance in this project lies in
+informing the practical recess depth required to shift the threshold
+voltage to positive values, and an important consideration to the 
+transconductance of the HEMT.
 
 \subsection{Threshold Voltage and Mode Determination}
 
@@ -143,41 +151,46 @@ be expressed as
     V_{off} = \phi_b - \Delta E_c - \frac{q N_d d_d^2}{2\epsilon}
 \end{equation}
 
-where $\phi_b$ is the Schottky barrier height, $\Delta E_c$ is the
-conduction band offset, $N_d$ is the donor concentration, and $d_d$ is
-the donor layer thickness.
+\begin{quote}
+    \footnotesize
+    \textit{$\phi_b$ : Schottky barrier height; $\Delta E_c$ : Conduction band offset; 
+    $q$ : Elementary charge; $N_d$ : Donor concentration; $d_d$ : Donor thickness; 
+    $\epsilon$ : Permittivity of the AlGaAs barrier.}
+\end{quote}
 
-The quadratic dependence of $V_{off}$ on $d_d$ highlights the extreme
-sensitivity of the threshold voltage to small variations in etched
-depth. This relationship directly underpins the two operational modes
-explored in this project:
+\vspace{2mm}
+
+This quadratic dependence of $V_{off}$ on donor layer thickness
+highlights the strong sensitivity of the threshold voltage to small
+variations in etched depth. This relationship directly underpins the two
+operational modes explored in this project.
+
+\vspace{2mm}
 
 \textbf{Depletion Mode (Semester~1):}  
 The baseline devices fabricated in Semester~1 employed the full
-epitaxial structure, comprising the $10~\text{nm}$ GaAs cap and the
-$40~\text{nm}$ AlGaAs donor layer. With a total gate-to-channel
-separation of approximately $50~\text{nm}$, the depletion region does
-not intersect the 2DEG at zero gate bias. As a result, the channel
-remains populated ($V_{off} < 0$), and the device is normally on,
-requiring a negative gate voltage to achieve pinch-off
+epitaxial structure beneath the gate. Under these conditions, the
+zero-bias depletion region does not extend to the heterointerface,
+leaving the 2DEG populated ($V_{off} < 0$) and the device normally on,
+such that a negative gate voltage is required to pinch off the channel
 \cite{Mimura1980}.
+
+\vspace{2mm}
 
 \textbf{Enhancement Mode (Semester~2 Objective):}  
 To achieve normally-off behaviour ($V_{off} > 0$), the donor layer must
-be thinned until the zero-bias depletion region fully depletes the
-2DEG. For the donor concentration of
-$1 \times 10^{18}~\text{cm}^{-3}$ used in this project, Lee
-\textit{et al.} identify a critical donor thickness of approximately
-$25~\text{nm}$ ($250~\text{\AA}$) \cite{ivcv-hemt}. Recessing the gate to
-this depth shifts the threshold voltage into the positive regime, such
-that a positive gate bias is required to re-populate the channel and
-initiate conduction \cite{Saitto2006}.
+be thinned until the depletion region fully intersects the 2DEG at zero
+gate bias. For a donor concentration of \(1\times 10^{18}~\text{cm}^{-3}\), 
+the critical donor thickness is approximately \(25~\text{nm}\) \cite{ivcv-hemt}; 
+this finding by Lee \textit{et al.} serves as a well-grounded guide for the similar 
+GaAs/AlGaAs material structure employed in this project. Recessing the gate to this depth shifts
+the threshold voltage, such that a positive
+gate bias is required to re-populate the channel and initiate
+conduction \cite{Saitto2006}.
 
-This strong dependence of threshold voltage on etched depth implies
-that fabrication non-idealities affecting the effective recess depth,
-such as surface oxidation and etch incubation effects, will directly
-translate into device-to-device variability. These considerations
-motivate the detailed examination of wet-etch behaviour and oxide
-control strategies presented in the following fabrication chapter and
-form a central focus of the enhancement-mode process development
-outlined in Chapter~5.
+\vspace{2mm}
+
+Together, these relationships demonstrate that achieving
+enhancement-mode operation in GaAs/AlGaAs HEMTs depends critically on
+precise control of the donor layer thickness beneath the gate, forming
+the physical basis for the fabrication strategy developed in Chapter 5. 

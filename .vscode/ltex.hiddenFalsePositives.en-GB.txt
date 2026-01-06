@@ -1,0 +1,1 @@
+{"rule":"THE_NN_AND_THE_NN","sentence":"^\\QAs a result, the effective distance between the gate and the channel is increased, motivating the refined charge-control model proposed by Lee et al. \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
