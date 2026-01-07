@@ -21,3 +21,6 @@ MESFET
 undoped
 heterointerface
 Maskless
+AuGeNi
+unrecessed
+Keysight

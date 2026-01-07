@@ -5,7 +5,7 @@
 The depletion-mode HEMTs characterised in this report were fabricated using 
 the standard III-V device process established within the Leeds Nanotechnology 
 Cleanroom. This workflow follows the routine sequence used for 
-GaAs/AlGaAs transistors in this facility: it comprises of 3 main stages: mesa definition, 
+GaAs/AlGaAs transistors in this facility: it consists of 3 main stages: mesa definition, 
 ohmic contact formation, and gate formation. 
 This well-established procedure was followed without modification and carried 
 out over four full-day laboratory sessions. The devices produced 
@@ -27,60 +27,79 @@ photoresist adhesion. To further enhance the bonding interface
 between the substrate and the resist, a Surpass primer was spun onto the 
 wafer. This priming step is critical for wet-etching applications: it 
 modifies the surface tension to prevent the etchant from penetrating under 
-the resist edges (an effect known as undercutting) which would otherwise 
+the resist edges which would otherwise 
 lead to the delamination of the mask. A positive photoresist (S1803) was 
 then spun onto the sample at 3000\,rpm, soft-baked on a hot-plate at 115\,$^{\circ}$C, 
 and subsequently patterned with exposure from the Heidelberg MLA 150 
-Maskless Aligner (MLA).
+Maskless Aligner (MLA) \cite{leedscleanroom_equipment}.
 
 \vspace{2mm}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.5\linewidth]{figures/fabrication_images/mesa_mask.jpg}
+  \includegraphics[width=0.3\linewidth]{figures/fabrication_images/mesa_mask.jpg}
+  \vspace{5pt}
   \caption{Mesa lithography mask used for defining isolated device regions (Post-Development).}
   \label{fig:mesa_mask}
 \end{figure}
 
 Following exposure, the sample was immersed in a caustic Microposit developer 
-solution for 45 seconds, followed by a thorough 2 stage DI water rinse and a nitrogen 
-blow-dry to reveal the mesa patterns. The mesa pattern was then transferred 
-into the wafer using a sulphuric acid, hydrogen peroxide, and water wet-etch 
-solution ($H_{2}SO_{4}:H_{2}O_{2}:H_{2}O$ in a 1:8:160 ratio). 
-This etchant is highly suited to GaAs/AlGaAs mesa formation: it produces a 
-controllable, moderately fast isotropic etch that removes the active layers 
-uniformly. The rate is sufficiently slow to allow for an 
-accurate timed etch of a shallow $\approx 200\,\text{nm}$ recess, yet it 
-remains fast enough to be practical for routine device isolation.
+solution for 45 seconds, followed by a thorough two-stage deionised (DI) water 
+rinse and nitrogen blow-dry to reveal the mesa patterns. The mesa pattern was 
+then transferred into the wafer using a wet-etch solution of sulfuric acid, 
+hydrogen peroxide, and water ($H_2SO_4$:$H_2O_2$:$H_2O$ in a 1:8:160 ratio).
 
 \vspace{2mm}
 
-To calibrate the process, an initial 30\,s pilot etch was performed; subsequent 
-measurement using an Alpha-Step profilometer revealed an etch depth of 114\,nm, 
-corresponding to an initial etch rate of $3.8\,\text{nm\,s}^{-1}$. 
-To reach the target depth of 200\,nm, a further 86\,nm of material required 
-removal. Assuming a constant etch rate, a second etch duration of 22\,s was 
-calculated and performed; however, the final measured depth 
-reached only 177\,nm. This indicates that the second etch only 
-removed an additional 63\,nm at a reduced effective rate of approximately 
-$2.9\,\text{nm\,s}^{-1}$. While a total depth of 177\,nm is 
-sufficient for device isolation (as it successfully penetrates the active 
-GaAs/AlGaAs heterostructure layers), the discrepancy in rates highlights 
-the intrinsic sensitivity of the wet-etch chemistry. 
+This etchant is well-suited for GaAs/AlGaAs mesa formation, as it provides a 
+controllable, moderately fast isotropic etch that removes the active layers 
+uniformly~\cite{notten1991mechanism}. The etch rate is slow enough for precise 
+timing of a shallow $\approx$200 nm recess, yet fast enough for routine device 
+isolation.
 
-A theory for the observed reduction in the mean etch rate during the second step is 
-attributed to the formation of a native oxide layer on the GaAs surface 
-during the interval in which the sample was removed for profilometry. This 
-oxide layer creates an "incubation period" at the start of the second 
-etch: sample etching is delayed while the etchant penetrates the oxide before 
-reaching the underlying semiconductor. Because the second etch (22\,s) was 
-shorter than the first (30\,s), this non-productive period represented a 
-larger percentage of the total etch time; consequently, the average rate for 
-that specific step was significantly lowered.
+\vspace{2mm}
 
-\textbf{[PROVIDE LITERATURE BACKUP TO THIS THEORY SUGGEST MITIGATION]}
+To calibrate the process, an initial 30-second pilot etch was performed. 
+Subsequent measurement with an Alpha-Step profilometer showed an etch depth of 
+114 nm, indicating an initial rate of 3.8 nm/s. To achieve the target depth of 
+200 nm, an additional 86 nm of material needed removal. Assuming a constant 
+etch rate, a second etch of 22 seconds was calculated and carried out. However, 
+the final measured depth was only 177 nm, meaning the second etch removed just 
+63 nm at a reduced effective rate of approximately 2.9 nm/s. Although 177 nm is 
+adequate for device isolation, successfully penetrating the active GaAs/AlGaAs 
+heterostructure layers, the rate discrepancy underscores the sensitivity of the 
+wet-etch chemistry.
 
-\vspace{3mm}
+\vspace{2mm}
 
+The main hypothesis for the reduced average etch rate in the second step is the 
+formation of a native oxide layer on the GaAs surface during the interval when 
+the sample was removed for profilometry. This oxide creates an ``incubation 
+period'' at the start of the second etch, delaying material removal while the 
+etchant penetrates the oxide to reach the underlying semiconductor. Since the 
+second etch (22 seconds) was shorter than the first (30 seconds), this 
+non-productive period accounted for a larger fraction of the total time, 
+lowering the overall average rate.
+
+\vspace{2mm}
+
+A more specific attribution points to rapid oxidation of the AlGaAs donor layer 
+surface during the profilometry interval. Unlike pure GaAs, which forms 
+relatively unstable oxides, AlGaAs reacts with atmospheric oxygen to create a 
+robust native oxide layer primarily composed of thermodynamically stable 
+aluminium oxide (Al$_2$O$_3$), along with Ga$_2$O$_3$ and 
+As$_2$O$_3$~\cite{passlack1997thermodynamic, bessolov1998chalcogenide}.
+
+\vspace{2mm}
+
+The $H_2SO_4$:$H_2O_2$:$H_2O$ wet-etch mechanism involves a continuous cycle: 
+surface oxidation by the peroxide, followed by acid dissolution of the resulting 
+oxide~\cite{notten1991mechanism}. However, the air-grown, Al-rich passivation 
+layer dissolves much more slowly than the transient, Al-poor oxides formed in 
+situ during steady-state etching~\cite{bessolov1998chalcogenide}. As a result, 
+the second etch step includes a substantial incubation period to breach this 
+stable Al$_2$O$_3$ cap before resuming the intrinsic etch rate of 3.8 nm/s. In 
+a brief 22-second etch, this nonlinear delay constitutes a significant portion 
+of the process, reducing the calculated average rate.
 \section{Ohmic Contact Formation}
 
 The formation of low-resistance Ohmic contacts is a critical prerequisite for 
@@ -141,6 +160,7 @@ the drain and source electrically to the 2DEG.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
+   \vspace{5pt}
   \caption{Ohmic contacts under x5 microscopy following lift-off.}
   \label{fig:ohmic_contacts}
 \end{figure}
@@ -169,22 +189,22 @@ maintaining effective depletion control over the channel.
 \vspace{2mm}
 
 After metallisation, the resist was removed using solvent lift-off to reveal 
-the final device structure. A small-number of lift-off defects (primarily 
-isolated metallic particles) were observed under the microscope and 
+the final device structure. A small-number of lift-off defects were observed under the microscope (Figure~\ref{fig:poor_lift_off}) and 
 subsequently removed using brief, gentle ultrasonic cleaning. The removal of 
 these artefacts is essential for device reliability: they can otherwise cause 
 electrical short circuits, particularly around the sensitive gate edges.
 
-\vspace{2mm}
+\vspace{3mm}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.5\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
-  \caption{Gate contacts after lift-off.}
-  \label{fig:gate_contacts}
+  \includegraphics[width=0.5\linewidth]{figures/fabrication_images/poor_lift_off.jpg}
+   \vspace{5pt}
+  \caption{Lift-off defects (circled) observed on completed devices prior to ultrasonic cleaning.}
+  \label{fig:poor_lift_off}
 \end{figure}
 
-\vspace{3mm}
+\vspace{2mm}
 
 The completed devices were examined using optical microscopy to ensure process 
 integrity. The mesas exhibited clean, well-defined sidewalls; the Ohmic pads 
@@ -192,3 +212,57 @@ were properly positioned; and the gate electrodes showed sharp, uninterrupted
 edges with no evidence of bridging or residual flakes. Overall, the 
 fabrication process yielded a high-quality array of depletion-mode HEMTs 
 suitable for subsequent electrical characterisation.
+
+\vspace{2mm}
+
+\section{Summary of Fabricated Device Set}
+
+The fabrication process described in this chapter yielded a structured array
+of depletion-mode GaAs/AlGaAs HEMT devices. Devices were arranged in a regular grid across the wafer,
+allowing multiple transistors with differing geometries to be fabricated
+simultaneously under identical process conditions.
+
+\vspace{2mm}
+
+In total, fifteen HEMT devices were produced and subsequently
+characterised. These comprised five distinct gate geometries, with three
+nominally identical devices fabricated for each geometry. The primary
+parameter varied across the grid was the effective gate length (ranging from $10\mu m$ to $4 \mu m$ in Figure~\ref{gate-lengths-gds}), whilst all other device
+features, including epitaxial layer structure, gate width, source–drain
+spacing, and metallisation scheme, were held constant. 
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/10um-gate-length.png}
+  \hspace{5mm}
+  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/4um-gate-length.png}
+  \caption{Mask layout demonstrating the extremes of the gate length range. $10\mu m$ (Left) and $4\mu m$ (Right).}
+  \label{gate-lengths-gds}
+\end{figure}
+
+\vspace{2mm}
+
+The three repeated devices for each gate geometry were fabricated. This repetition provides a direct measure of
+device-to-device variability and fabrication repeatability, allowing both
+average behaviour and spread to be assessed during electrical analysis.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
+  \hspace{5mm}
+  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/gate_formation.jpg}
+  \caption{Final Fabricated HEMT Device with Gate Length $2\mu m$ (Left). Array of fabricated depletion-mode GaAs/AlGaAs HEMT devices (Right).}
+  \label{fig:hemt_array}
+\end{figure}
+
+\vspace{2mm}
+
+This device set forms a well-controlled baseline. The
+electrical characterisation presented in Chapter~4 serves not only
+to assess individual depletion-mode device performance, but also to validate
+the suitability of the unrecessed process as a reference for subsequent
+enhancement-mode device fabrication via controlled gate recession.
