@@ -47,7 +47,7 @@ longest gate-length devices.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.75\linewidth]{figures/electrical_analysis/col1_vs_col5_ID.png}
+  \includegraphics[width=0.75\linewidth]{figures/electrical_analysis/L10um_vs_L4um_ID.png}
   \caption{Measured output characteristics ($I_D$--$V_{DS}$) of the fabricated
     depletion-mode GaAs/AlGaAs HEMTs. Curves show averaged responses for each
     gate length, with comparison between the shortest (Orange) and longest (Blue) gate
@@ -91,7 +91,7 @@ depletion-mode fabrication process and establish a reliable reference against
 which the impact of gate recession and enhancement-mode operation can be
 assessed in later stages of this project.
 
-\section{Transfer Characteristics}
+\section{Gate Transfer Characteristics}
 
 The gate transfer characteristics were measured to evaluate electrostatic
 control of the channel, threshold behaviour, and the influence of gate length
@@ -102,7 +102,7 @@ comparison between the shortest and longest gate-length devices.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\linewidth]{figures/electrical_analysis/gate_transfer.png}
+    \includegraphics[width=0.9\linewidth]{figures/electrical_analysis/L10um_vs_L4um_id_vg.png}
     \caption{Measured transfer characteristics ($I_D$--$V_G$) of the fabricated
     depletion-mode GaAs/AlGaAs HEMTs. Curves show averaged responses for each
     gate length, with comparison between the shortest and longest gate
@@ -153,6 +153,54 @@ impact of controlled gate recession in enhancement-mode devices fabricated in
 the second phase of this project.
 
 \section{Gate Leakage Behaviour}
+
+Gate leakage measurements were performed to assess the integrity of the
+Schottky gate contact and to identify any dependence of leakage behaviour on
+gate length. Figure~\ref{fig:ig_vds} presents the measured gate current as a
+function of drain--source voltage, shown as averaged responses for each gate
+geometry together with a direct comparison between the shortest and longest
+gate-length devices.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/electrical_analysis/L10um_vs_L4um_IG.png}
+    \caption{Measured gate leakage characteristics of the fabricated
+    depletion-mode GaAs/AlGaAs HEMTs. Curves show averaged responses for each
+    gate length, with comparison between the shortest and longest gate
+    geometries highlighted.}
+    \label{fig:ig_vds}
+\end{figure}
+
+Across all devices, the measured gate currents remain low over the full range
+of applied drain bias, indicating the formation of a high-quality Schottky
+barrier and good isolation between the gate electrode and the channel. The
+absence of abrupt increases in gate current suggests that gate metallisation
+and lift-off were successful, with no evidence of widespread gate shorts or
+catastrophic edge defects.
+
+A weak dependence of gate leakage on gate length is observed, with shorter
+gate devices exhibiting slightly higher leakage currents. This trend is
+consistent with increased electric-field crowding at the gate edges as the
+lateral dimensions are reduced, rather than a degradation of the Schottky
+barrier itself. Importantly, the magnitude of the leakage remains sufficiently
+small that it does not measurably influence the transfer or output
+characteristics discussed in the preceding sections.
+
+Repeatability across the three nominally identical devices for each geometry
+is high, with minimal spread in leakage behaviour observed within each gate
+length. This consistency indicates that gate leakage is governed primarily by
+systematic geometric effects rather than random process-induced defects or
+localised surface damage.
+
+From a process perspective, the low and repeatable gate leakage observed in
+the unrecessed devices provides confidence in the quality of the gate
+formation step. However, the modest increase in leakage for shorter gates
+highlights a potential sensitivity to electric-field enhancement that will
+become more pronounced as the gate-to-channel separation is reduced during
+gate recession. As such, gate leakage represents a key constraint that must
+be monitored carefully in the development of enhancement-mode devices in the
+second phase of this project.
+
 
 \section{Threshold-Voltage Extraction}
 
