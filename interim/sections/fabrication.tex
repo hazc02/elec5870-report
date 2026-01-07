@@ -13,7 +13,7 @@ through this workflow provide a necessary baseline; they allow for a reliable
 comparison against which the behaviour of e-mode devices with different structures 
 and dimensions can be evaluated later in this project.
 
-\vspace{2mm}
+\vspace{1mm}
 
 \input{figures/fig-training-timeline.tex}
 
@@ -42,10 +42,10 @@ Maskless Aligner (MLA) \cite{leedscleanroom_equipment}.
   \label{fig:mesa_mask}
 \end{figure}
 
-Following exposure, the sample was immersed in a caustic Microposit developer 
-solution for 45 seconds, followed by a thorough two-stage deionised (DI) water 
+Following exposure, the sample was immersed in solution of MF-351 developer diluted with DI (Ratio 1 : 3.5)
+for 45 seconds, followed by a thorough two-stage deionised (DI) water 
 rinse and nitrogen blow-dry to reveal the mesa patterns. The mesa pattern was 
-then transferred into the wafer using a wet-etch solution of sulfuric acid, 
+then transferred into the wafer using a wet-etch solution of sulphuric acid, 
 hydrogen peroxide, and water ($H_2SO_4$:$H_2O_2$:$H_2O$ in a 1:8:160 ratio).
 
 \vspace{1mm}
@@ -59,7 +59,7 @@ isolation.
 \vspace{1mm}
 
 To calibrate the process, an initial 30-second pilot etch was performed. 
-Subsequent measurement with an Alpha-Step profilometer showed an etch depth of 
+Subsequent measurement with an Alpha-Step profiler showed an etch depth of 
 114 nm, indicating an initial rate of 3.8 nm/s. To achieve the target depth of 
 200 nm, an additional 86 nm of material needed removal. Assuming a constant 
 etch rate, a second etch of 22 seconds was calculated and carried out. However, 
@@ -159,7 +159,7 @@ the drain and source electrically to the 2DEG.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
    \vspace{5pt}
   \caption{Ohmic contacts under x5 microscopy following lift-off.}
   \label{fig:ohmic_contacts}
@@ -198,7 +198,7 @@ electrical short circuits, particularly around the sensitive gate edges.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/poor_lift_off.jpg}
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/poor_lift_off.jpg}
    \vspace{5pt}
   \caption{Lift-off defects (circled) observed on completed devices prior to ultrasonic cleaning.}
   \label{fig:poor_lift_off}
@@ -217,19 +217,53 @@ suitable for subsequent electrical characterisation.
 
 \section{Summary of Fabricated Device Set}
 
-The fabrication process described in this chapter yielded a structured array
-of depletion-mode GaAs/AlGaAs HEMT devices. Devices were arranged in a regular grid across the wafer,
-allowing multiple transistors with differing geometries to be fabricated
-simultaneously under identical process conditions.
+The fabrication process yielded a structured array
+of depletion-mode GaAs/AlGaAs HEMT devices arranged in a grid across
+the wafer. This enabled multiple device geometries to be fabricated
+simultaneously under identical process conditions, facilitating systematic
+electrical characterisation while minimising process-induced variation.
 
 \vspace{2mm}
 
-In total, fifteen HEMT devices were produced and subsequently
-characterised. These comprised five distinct gate geometries, with three
-nominally identical devices fabricated for each geometry. The primary
-parameter varied across the grid was the effective gate length (ranging from $10\mu m$ to $4 \mu m$ in Figure~\ref{gate-lengths-gds}), whilst all other device
-features, including epitaxial layer structure, gate width, source–drain
-spacing, and metallisation scheme, were held constant. 
+In total, fifteen HEMT devices were fabricated and subsequently characterised.
+The array comprises five distinct columns, each containing three nominally
+identical devices. Each column corresponds to a specific lateral device
+geometry defined by a combination of gate length and source--drain separation, outlined in Table~{\ref{tab:device_geometries}}.
+
+\vspace{2mm}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Summary of fabricated HEMT device geometries by column}
+    \vspace{4pt}
+    \label{tab:device_geometries}
+    \small
+    \begin{tabular}{l c c c c c}
+        \hline
+        \textbf{Parameter} 
+        & \textbf{Col 1} 
+        & \textbf{Col 2} 
+        & \textbf{Col 3} 
+        & \textbf{Col 4} 
+        & \textbf{Col 5} \\
+        \hline
+        Gate length (\si{\micro\metre}) 
+        & 10 & 8 & 6 & 4 & 4 \\
+        Ohmic separation (\si{\micro\metre}) 
+        & 40 & 32 & 28 & 20 & 20 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\vspace{2mm}
+
+Across the array, the gate length was reduced from \SI{10}{\micro\metre} to
+\SI{4}{\micro\metre}. In parallel, the lateral separation between the ohmic
+contacts was also scaled between columns. The quoted source--drain separation
+refers to the combined distance between ohmic contacts in the double-gate
+layout; for example, a separation of \SI{40}{\micro\metre} corresponds to two
+\SI{20}{\micro\metre} access regions between the source and each drain, with
+the gate located centrally between the contacts. Demonstrated in Figure~\ref{gate-lengths-gds}.
 
 \vspace{2mm}
 
@@ -238,15 +272,20 @@ spacing, and metallisation scheme, were held constant.
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/10um-gate-length.png}
   \hspace{5mm}
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/4um-gate-length.png}
-  \caption{Mask layout demonstrating the extremes of the gate length range. $10\mu m$ (Left) and $4\mu m$ (Right).}
+  \caption{Mask layouts illustrating the extremes of the fabricated device
+  geometries: gate length \SI{10}{\micro\metre} with ohmic separation
+  \SI{40}{\micro\metre} (left) and gate length \SI{4}{\micro\metre} with ohmic
+  separation \SI{20}{\micro\metre} (right).}
   \label{gate-lengths-gds}
 \end{figure}
 
 \vspace{2mm}
 
-The three repeated devices for each gate geometry were fabricated. This repetition provides a direct measure of
-device-to-device variability and fabrication repeatability, allowing both
-average behaviour and spread to be assessed during electrical analysis.
+Notably, the final two columns share the same nominal gate length of
+\SI{4}{\micro\metre} but differ in source--drain separation. This design choice
+allows the influence of lateral access resistance and transport effects to be
+assessed independently of gate-controlled electrostatics during electrical
+analysis.
 
 \vspace{2mm}
 
@@ -255,14 +294,17 @@ average behaviour and spread to be assessed during electrical analysis.
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
   \hspace{5mm}
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gate_formation.jpg}
-  \caption{Final Fabricated HEMT Device with Gate Length $2\mu m$ (Left). Array of fabricated depletion-mode GaAs/AlGaAs HEMT devices (Right).}
+  \caption{Final fabricated depletion-mode GaAs/AlGaAs HEMT device (left) and
+  array of fabricated devices across the wafer (right).}
   \label{fig:hemt_array}
 \end{figure}
 
-\vspace{2mm}
+\FloatBarrier
 
-This device set forms a well-controlled baseline. The
-electrical characterisation presented in Chapter~4 serves not only
-to assess individual depletion-mode device performance, but also to validate
-the suitability of the unrecessed process as a reference for subsequent
-enhancement-mode device fabrication via controlled gate recession.
+The three nominally identical devices within each column provide a direct
+measure of device-to-device variability and fabrication repeatability for a
+given geometry. This device set therefore establishes a well-controlled
+baseline. The electrical characterisation presented in Chapter~4 uses this
+baseline to assess depletion-mode device behaviour and to validate the
+unrecessed fabrication process as a reference for subsequent enhancement-mode
+development via controlled gate recession.

@@ -1,2 +1,4 @@
 {"rule":"THE_NN_AND_THE_NN","sentence":"^\\QAs a result, the effective distance between the gate and the channel is increased, motivating the refined charge-control model proposed by Lee et al. \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"CLOSE_SCRUTINY","sentence":"^\\QThe three repeated devices for each gate geometry were positioned in close proximity within the grid to reduce the impact of large-scale wafer non-uniformity.\\E$"}
+{"rule":"A_INFINITIVE","sentence":"^\\QSubsequent measurement with an Alpha-Step profiler showed an etch depth of 114 nm, indicating an initial rate of 3.8 nm/s.\\E$"}
+{"rule":"ADMIT_ENJOY_VB","sentence":"^\\QIn GaAs/AlGaAs HEMT structures, Schottky contacts formed on AlGaAs are commonly reported to exhibit increased gate leakage compared to GaAs-based interfaces, reflecting the closer proximity of the donor layer to the gate, a reduced effective barrier width, and enhanced tunnelling currents \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
