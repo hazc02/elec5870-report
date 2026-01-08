@@ -1,1 +1,10 @@
 \chapter{Additional Figures}
+\label{app:additional_figures}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{figures/gate_recession/top_mask.png}
+  \vspace{5pt}
+  \caption{Finalised enhancement-mode HEMT mask layout, showing all four quadrants with interleaved recess depths}
+  \label{fig:enhancement_mode_mask}
+\end{figure}

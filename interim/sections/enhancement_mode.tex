@@ -1,14 +1,282 @@
-\chapter{Exploration of Enhancement-Mode HEMT Devices}
+\chapter{Exploration of Enhancement-Mode HEMT Fabrication (Semester~2 Aims)}
 
-\section{Motivation for Enhancement-Mode Operation}
+\section{Experimental Objective}
 
-\section{Mechanisms for Achieving Enhancement Mode}
+Building on the theoretical framework established in Chapter~2 and the
+baseline depletion-mode devices fabricated and characterised in
+Chapters~3 and~4, the aim of the second phase of this project is to
+experimentally investigate the relationship between gate recess depth
+and threshold voltage. Chapter~4 demonstrated that threshold voltage is
+independent of lateral device geometry, confirming that
+threshold-voltage engineering must be achieved through controlled
+modification of the vertical electrostatics beneath the gate.
 
-\section{Challenges of Gate Recessing Without an Etch-Stop Layer}
+\vspace{2mm}
 
-\section{Proposed Fabrication Strategy for Semester Two}
+To isolate this dependence, a set of devices will be fabricated in
+which all physical parameters are held constant, with the exception of
+the gate recess depth being varied across devices. This controlled
+approach enables an empirical relationship between gate recession and
+threshold voltage to be established.
 
-\section{Ideal Outcomes and Target Behaviour}
+\section{Gate Recession Process and Etch Technique Selection}
 
-\section{Logic Motivation and Stretch Goal}
+The fabrication workflow described in Chapter~3 is retained without
+modification, with the exception of the introduction of a gate recess
+etching step prior to Schottky gate metallisation. This additional etch
+locally thins the AlGaAs donor layer beneath the gate, reducing the
+effective gate-to-channel separation and modifying the electrostatic
+condition required to fully deplete the two-dimensional electron gas at
+$V_G = 0\,\mathrm{V}$.
 
+\vspace{2mm}
+
+Several etching techniques may be employed to implement this recess,
+most notably dry plasma etching and wet chemical etching. Dry etching
+offers superior depth control and repeatability; \todobib however, it
+introduces increased process complexity, longer development times, and
+the risk of plasma-induced surface damage, which may degrade the
+gate--semiconductor interface and complicate interpretation of
+electrical results. \todobib Given the exploratory and depth-swept
+nature of this study, an etch process providing a wide and forgiving
+process window is preferred.
+
+\vspace{2mm}
+
+For this reason, a wet chemical etch was selected. In particular, a
+dilute sulphuric acid based solution was chosen to achieve relatively
+slow and controllable etch rates, ensuring that nanometre-scale timing
+errors do not translate directly into large variations in recess depth
+and threshold voltage. The selected chemistry is a
+H$_2$SO$_4$ : H$_2$O$_2$ : H$_2$O mixture in the ratio 1 : 1 : 250, which
+is reported in the literature to provide low etch rates in both GaAs
+and AlGaAs, making it well suited to time-controlled recessing of the
+donor layer.
+
+\vspace{2mm}
+
+Preliminary etch trials were conducted using this solution to verify
+its suitability for controlled gate recession. Measured etch rates of
+$0.373\,\mathrm{nm\,s^{-1}}$ in GaAs and
+$0.161\,\mathrm{nm\,s^{-1}}$ in AlGaAs were obtained. These values are
+in close agreement with representative literature data for the same
+etch chemistry, as summarised in
+Table~\ref{tab:gate_recess_etch_rates}. The close correspondence,
+particularly for AlGaAs, demonstrates that this dilute etch provides a
+stable and predictable process window appropriate for systematic
+variation of recess depth.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of literature and experimentally measured etch
+rates for the H$_2$SO$_4$ : H$_2$O$_2$ : H$_2$O = 1 : 1 : 250 wet etch.
+Literature values are taken from reported etch-rate data for GaAs and
+AlGaAs under comparable conditions.}
+\label{tab:gate_recess_etch_rates}
+\begin{tabular}{lcc}
+\hline
+Material & Literature (\AA/s) & Measured (\AA/s) \\
+\hline
+GaAs   & 4.52 & 3.73 \\
+AlGaAs & 1.77 & 1.61 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{2mm}
+
+Although the measured GaAs etch rate is modestly lower than the
+literature value, this is plausibly attributable to surface oxides at the beginning of the etch.
+Crucially, the slow etch rates and strong GaAs to AlGaAs selectivity provide sufficient
+control to enable reproducible, time-based definition of recess depth,
+making this chemistry well suited to an empirical investigation of
+threshold-voltage sensitivity.
+
+\subsection{Surface Oxidation Issues and Mitigation}
+
+A key challenge associated with wet etching of the AlGaAs donor layer
+is rapid surface oxidation. Aluminium-rich layers readily form stable
+native oxides upon exposure to air \todobib, leading to non-linear etch
+behaviour (Section~\ref{subsection:AlGaAs_oxidation}) and, if left
+unaddressed, degradation of the Schottky gate interface. This issue is
+particularly critical for enhancement-mode devices, where
+nanometre-scale variations in the effective gate-to-channel separation
+can produce large shifts in threshold voltage.
+
+To mitigate these effects, a method involving a brief hydrochloric
+acid (HCl) dip immediately prior to gate metallisation will be explored
+in Semester~2 as a means of removing the native oxide layer. Minimising
+the delay between oxide removal and gate metal deposition is expected
+to suppress re-oxidation and improve reproducibility of gate behaviour
+across the device set.
+
+\subsection{Surface Oxidation Issues and Mitigation}
+
+A key challenge associated with wet etching of the AlGaAs donor layer
+is rapid surface oxidation. Al-rich layers readily form stable native
+oxides upon exposure to air \todobib, leading to non-linear etch
+behaviour (Section~\ref{subsection:AlGaAs_oxidation}) and, if left
+unaddressed, degradation of the Schottky gate interface. This issue is
+particularly critical for enhancement-mode devices, where
+nanometre-scale variations in the effective gate-to-channel separation
+can produce large shifts in threshold voltage.
+
+To mitigate these effects, a method involving a brief hydrochloric
+acid (HCl) dip immediately prior to gate metallisation will be explored
+in Semester~2 as a means of removing the native oxide layer. Minimising
+the delay between oxide removal and gate metal deposition is expected
+to suppress re-oxidation and improve reproducibility of gate behaviour
+across the device set.
+
+\section{Experiment and Device Mask Design}
+
+\subsection{Mask Design Rationale}
+
+In the device mask, eight distinct sets of devices will be fabricated
+with targeted gate recess depths ranging from 10~nm to 45~nm in
+increments of 5~nm. This range spans the full thickness of the donor
+layer, from shallow recesses expected to have minimal influence on
+threshold voltage by removing only the GaAs cap, to deeper recesses
+anticipated to induce enhancement-mode behaviour. Literature reviewed
+in Chapter~2 suggests that normally-off operation should emerge once
+approximately 25~nm of the donor layer has been removed; this informs
+the decision to extend the depth sweep beyond this threshold.
+
+\vspace{2mm}
+
+The devices will be produced across two separate samples processed in
+parallel, with each sample divided into four quadrants. Within each
+quadrant, five recessed devices share a common target recess depth,
+alongside an unrecessed control device. The control devices provide an
+internal reference against the depletion-mode baseline established in
+Chapter~4, allowing unintended global process variations to be
+identified during electrical characterisation.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.76\linewidth]{figures/gate_recession/quad_mask.png}
+  \caption{(1/8) Quadrant of enhancement-mode HEMT devices.}
+  \label{fig:enhancement_mode_mask_quad}
+\end{figure}
+
+\vspace{2mm}
+
+Across the two samples, recess depths are interleaved between
+quadrants. This layout ensures that, in the event of partial sample
+failure or localised processing defects, data spanning the full range
+of recess depths may still be obtained. The quadrant-based organisation
+also simplifies device identification during probing and enables
+straightforward correlation between electrical behaviour and intended
+recess depth.
+
+\vspace{4mm}
+
+\input{figures/fig-interleaved-quadrants.tex}
+
+\subsection{KLayout Implementation and Fabrication Implications}
+
+The mask was implemented in KLayout, following the same design rules as
+the depletion-mode devices, with the addition of a dedicated gate
+recess etch layer. Figure~\ref{fig:enhancement_mode_device} shows the
+complete device layout and a magnified view of the gate region,
+highlighting the recess mask relative to the Schottky gate.
+
+\vspace{2mm}
+
+The mask layout directly informs the fabrication timeline. Each sample
+requires four lithography and etching steps to realise the full set of
+recess depths, with the two samples processed in parallel to maximise
+cleanroom efficiency. By encoding the experimental design into the
+mask itself, the transition from fabrication to characterisation is
+simplified, and the risk of ambiguity in recess depth assignment is
+minimised. This mask therefore represents the final preparatory stage
+of Semester~1, providing a robust and experimentally efficient
+framework for enhancement-mode fabrication and characterisation during
+Semester~2.
+
+\vspace{4mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.3\linewidth]{figures/gate_recession/device_mask.png}
+  \hspace{2mm}
+  \includegraphics[width=0.45\linewidth]{figures/gate_recession/gate_mask.png}
+  \caption{Enhancement-mode HEMT mask layout, showing (left) the
+  individual device mask including source/drain contacts, mesa etch and
+  gate recess etch; and (right) a zoomed view of the gate region,
+  highlighting the recess mask (green).}
+  \label{fig:enhancement_mode_device}
+\end{figure}
+
+\section{Semester~2 Fabrication Timeline}
+
+The Semester~2 fabrication and characterisation work is planned around
+one full cleanroom session per week. The timeline prioritises
+completion of a robust enhancement-mode device set using a controlled
+gate recess process, with stretch objectives included where time and
+process stability permit. The core sequence is designed to complete in
+seven cleanroom days, leaving margin for minor rework or iteration.
+
+\vspace{2mm}
+
+Figure~\ref{fig:semester2_gantt} presents a Gantt-style overview of the
+planned workflow. The sequence follows the standard device process
+established earlier in the project, with additional sessions allocated
+to recess calibration and quadrant-based gate recessing. Electrical
+testing and characterisation are included as core activities, while
+wire bonding, packaging, and scanning electron microscopy are treated
+as stretch goals contingent on progress.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{ganttchart}[
+    x unit=0.9cm,
+    y unit chart=0.6cm,
+    vgrid,
+    hgrid,
+    title label font=\small\bfseries,
+    title label node/.append style={fill=gray!15, draw=black},
+    bar label font=\small,
+    bar label node/.append style={fill=gray!10, draw=black, inner sep=2pt, text width=6cm, align=right, anchor=east},
+    group label font=\small\bfseries,
+    group label node/.append style={fill=gray!35, draw=black, inner sep=2pt, text width=6cm, align=right, anchor=east},
+    bar height=0.5
+]{1}{9}
+\gantttitle{Semester~2 Cleanroom Sessions (1 day per week)}{9} \\
+\gantttitlelist{1,...,9}{1} \\
+
+\ganttgroup{Core Fabrication Timeline}{1}{7} \\
+
+\ganttbar{Mesa etching}{1}{1} \\
+\ganttbar{Ohmic formation}{2}{2} \\
+\ganttbar{Recess calibration + HCl oxide removal tests}{3}{3} \\
+\ganttbar{Gate recess (Quadrants 1 \& 2)}{4}{4} \\
+\ganttbar{Gate recess (Quadrants 3 \& 4)}{5}{5} \\
+\ganttbar{Gate metallisation}{6}{6} \\
+\ganttbar{Electrical testing and characterisation}{7}{7} \\
+
+\ganttgroup{Stretch Goals}{8}{9} \\
+
+\ganttbar{Wire bonding for logic circuits}{8}{8} \\
+\ganttbar{Packaging and SEM cross-section analysis}{9}{9}
+
+\end{ganttchart}
+\end{tikzpicture}
+\caption{Planned Semester~2 fabrication and characterisation timeline,
+structured around one full cleanroom session per week. The core device
+fabrication is expected to require approximately seven cleanroom days,
+with additional stretch objectives included where time permits.}
+\label{fig:semester2_gantt}
+\end{figure}
+
+\vspace{2mm}
+
+The estimated requirement of seven cleanroom sessions to complete the
+core device set is acceptable within the overall project timescale and
+allows for modest process iteration without jeopardising delivery.
+This structured timeline provides flexibility whilst maintaining a
+clear path to completion of the enhancement-mode devices central to
+the objectives of this project.
