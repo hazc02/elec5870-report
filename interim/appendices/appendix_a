@@ -3,8 +3,32 @@
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.55\linewidth]{figures/gate_recession/top_mask.png}
+  \includegraphics[width=0.75\linewidth]{figures/gate_recession/top_mask.png}
   \vspace{5pt}
   \caption{Finalised enhancement-mode HEMT mask layout, showing all four quadrants with interleaved recess depths}
   \label{fig:enhancement_mode_mask}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{figures/gate_recession/quad_mask.png}
+  \vspace{5pt}
+  \caption{Enhancement-mode HEMT mask layout, showing an individual quadrant five devices with recessed gates, and one control device}
+  \label{fig:enhancement_mode_mask_quadrants}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{figures/gate_recession/device_mask.png}
+  \vspace{5pt}
+  \caption{Enhancement-mode HEMT device mask layout, showing an individual device}
+  \label{fig:enhancement_mode_device_mask}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{figures/gate_recession/gate_mask.png}
+  \vspace{5pt}
+  \caption{Zoomed in figure of the enhancement-mode HEMT gate region, showing the gate recess and alignment marks}
+  \label{fig:enhancement_mode_gate_mask}
 \end{figure}

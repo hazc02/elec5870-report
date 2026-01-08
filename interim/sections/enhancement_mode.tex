@@ -1,4 +1,4 @@
-\chapter{Exploration of Enhancement-Mode HEMT Fabrication (Semester~2 Aims)}
+\chapter{Semester~2 Aims - Exploration of Enhancement-Mode HEMT Fabrication }
 
 \section{Experimental Objective}
 
@@ -33,11 +33,11 @@ $V_G = 0\,\mathrm{V}$.
 
 Several etching techniques may be employed to implement this recess,
 most notably dry plasma etching and wet chemical etching. Dry etching
-offers superior depth control and repeatability; \todobib however, it
+offers superior depth control and repeatability; \cite{Cadence2024} however, it
 introduces increased process complexity, longer development times, and
 the risk of plasma-induced surface damage, which may degrade the
 gate--semiconductor interface and complicate interpretation of
-electrical results. \todobib Given the exploratory and depth-swept
+electrical results. \cite{ZAPPE1993227} Given the exploratory and depth-swept
 nature of this study, an etch process providing a wide and forgiving
 process window is preferred.
 
@@ -51,20 +51,20 @@ and threshold voltage. The selected chemistry is a
 H$_2$SO$_4$ : H$_2$O$_2$ : H$_2$O mixture in the ratio 1 : 1 : 250, which
 is reported in the literature to provide low etch rates in both GaAs
 and AlGaAs, making it well suited to time-controlled recessing of the
-donor layer.
+donor layer. \cite{guan_etching}
 
 \vspace{2mm}
 
 Preliminary etch trials were conducted using this solution to verify
 its suitability for controlled gate recession. Measured etch rates of
-$0.373\,\mathrm{nm\,s^{-1}}$ in GaAs and
-$0.161\,\mathrm{nm\,s^{-1}}$ in AlGaAs were obtained. These values are
+$3.73\,\mathrm{\AA~\,s^{-1}}$ in GaAs and
+$1.61\,\mathrm{\AA~\,s^{-1}}$ in AlGaAs were obtained. These values are
 in close agreement with representative literature data for the same
 etch chemistry, as summarised in
 Table~\ref{tab:gate_recess_etch_rates}. The close correspondence,
 particularly for AlGaAs, demonstrates that this dilute etch provides a
 stable and predictable process window appropriate for systematic
-variation of recess depth.
+variation of recess depth. \cite{guan_etching}
 
 \begin{table}[htbp]
 \centering
@@ -96,25 +96,7 @@ threshold-voltage sensitivity.
 
 A key challenge associated with wet etching of the AlGaAs donor layer
 is rapid surface oxidation. Aluminium-rich layers readily form stable
-native oxides upon exposure to air \todobib, leading to non-linear etch
-behaviour (Section~\ref{subsection:AlGaAs_oxidation}) and, if left
-unaddressed, degradation of the Schottky gate interface. This issue is
-particularly critical for enhancement-mode devices, where
-nanometre-scale variations in the effective gate-to-channel separation
-can produce large shifts in threshold voltage.
-
-To mitigate these effects, a method involving a brief hydrochloric
-acid (HCl) dip immediately prior to gate metallisation will be explored
-in Semester~2 as a means of removing the native oxide layer. Minimising
-the delay between oxide removal and gate metal deposition is expected
-to suppress re-oxidation and improve reproducibility of gate behaviour
-across the device set.
-
-\subsection{Surface Oxidation Issues and Mitigation}
-
-A key challenge associated with wet etching of the AlGaAs donor layer
-is rapid surface oxidation. Al-rich layers readily form stable native
-oxides upon exposure to air \todobib, leading to non-linear etch
+native oxides upon exposure to air \cite{moriarty1992preliminary}, leading to non-linear etch
 behaviour (Section~\ref{subsection:AlGaAs_oxidation}) and, if left
 unaddressed, degradation of the Schottky gate interface. This issue is
 particularly critical for enhancement-mode devices, where
@@ -203,10 +185,10 @@ Semester~2.
   \includegraphics[width=0.3\linewidth]{figures/gate_recession/device_mask.png}
   \hspace{2mm}
   \includegraphics[width=0.45\linewidth]{figures/gate_recession/gate_mask.png}
-  \caption{Enhancement-mode HEMT mask layout, showing (left) the
-  individual device mask including source/drain contacts, mesa etch and
-  gate recess etch; and (right) a zoomed view of the gate region,
-  highlighting the recess mask (green).}
+  \caption{Enhancement-mode HEMT mask layout: (left) the complete device mask 
+  showing source and drain contacts, mesa definition, and gate-recess etch regions; 
+  and (right) a magnified view of the gate region highlighting the gate-recess mask 
+  (green)}
   \label{fig:enhancement_mode_device}
 \end{figure}
 
@@ -233,37 +215,84 @@ as stretch goals contingent on progress.
 \centering
 \begin{tikzpicture}
 \begin{ganttchart}[
-    x unit=0.9cm,
+    x unit=0.73cm,
     y unit chart=0.6cm,
-    vgrid,
-    hgrid,
-    title label font=\small\bfseries,
-    title label node/.append style={fill=gray!15, draw=black},
-    bar label font=\small,
-    bar label node/.append style={fill=gray!10, draw=black, inner sep=2pt, text width=6cm, align=right, anchor=east},
-    group label font=\small\bfseries,
-    group label node/.append style={fill=gray!35, draw=black, inner sep=2pt, text width=6cm, align=right, anchor=east},
-    bar height=0.5
+    y unit title=0.6cm,
+    vgrid={draw=black!30, densely dotted},
+    hgrid={draw=black!30, densely dotted},
+    title/.style={shape=rectangle, inner sep=0pt, draw=black, fill=gray!12, line width=0.35pt},
+    title label font=\footnotesize\bfseries,
+    title label node/.append style={inner sep=0pt},
+    title height=1,
+    title top shift=0,
+    title left shift=0,
+    title right shift=0,
+    bar label font=\footnotesize,
+    bar label node/.append style={
+        fill=gray!10,
+        draw=black,
+        inner xsep=3pt,
+        inner ysep=1pt,
+        text width=7.2cm,
+        align=right,
+        anchor=east,
+        minimum height=0.6cm,
+        yshift=-0.12cm
+    },
+    group label font=\footnotesize\bfseries,
+    group label node/.append style={
+        fill=gray!25,
+        draw=black,
+        inner xsep=3pt,
+        inner ysep=1pt,
+        text width=7.2cm,
+        align=right,
+        anchor=east,
+        minimum height=0.6cm,
+        yshift=-0.12cm
+    },
+    bar top shift=0,
+    group top shift=0,
+    bar height=0.6,
+    group height=0.6
 ]{1}{9}
-\gantttitle{Semester~2 Cleanroom Sessions (1 day per week)}{9} \\
 \gantttitlelist{1,...,9}{1} \\
 
 \ganttgroup{Core Fabrication Timeline}{1}{7} \\
 
-\ganttbar{Mesa etching}{1}{1} \\
-\ganttbar{Ohmic formation}{2}{2} \\
-\ganttbar{Recess calibration + HCl oxide removal tests}{3}{3} \\
-\ganttbar{Gate recess (Quadrants 1 \& 2)}{4}{4} \\
-\ganttbar{Gate recess (Quadrants 3 \& 4)}{5}{5} \\
-\ganttbar{Gate metallisation}{6}{6} \\
-\ganttbar{Electrical testing and characterisation}{7}{7} \\
+\ganttbar{Mesa Etching}{1}{1} \\
+\ganttbar{Ohmic Formation}{2}{2} \\
+\ganttbar{Recess Calibration + HCl Oxide Removal Tests}{3}{3} \\
+\ganttbar{Gate Recessing (Quadrants 1 \& 2)}{4}{4} \\
+\ganttbar{Gate Recessing (Quadrants 3 \& 4)}{5}{5} \\
+\ganttbar{Gate Metallisation}{6}{6} \\
+\ganttbar{Electrical Testing and Characterisation}{7}{7} \\
 
 \ganttgroup{Stretch Goals}{8}{9} \\
 
-\ganttbar{Wire bonding for logic circuits}{8}{8} \\
-\ganttbar{Packaging and SEM cross-section analysis}{9}{9}
+\ganttbar{Wire Bonding for LogicCircuits}{8}{8} \\
+\ganttbar{Packaging and SEM Cross-Section Analysis}{9}{9}
 
 \end{ganttchart}
+\node[
+  draw=black,
+  fill=gray!15,
+  font=\small\bfseries,
+  align=center,
+  inner xsep=0pt,
+  inner ysep=4pt,
+  minimum height=0.75cm,
+  fit=(current bounding box.north west) (current bounding box.north east),
+  yshift=3mm
+] {Semester~2 Cleanroom Sessions (1 day per week)};
+\begin{pgfonlayer}{background}
+  \node[
+    draw=black,
+    line width=0.35pt,
+    inner sep=0pt,
+    fit=(current bounding box.north west) (current bounding box.south east)
+  ] {};
+\end{pgfonlayer}
 \end{tikzpicture}
 \caption{Planned Semester~2 fabrication and characterisation timeline,
 structured around one full cleanroom session per week. The core device
@@ -274,9 +303,8 @@ with additional stretch objectives included where time permits.}
 
 \vspace{2mm}
 
+\FloatBarrier
+
 The estimated requirement of seven cleanroom sessions to complete the
-core device set is acceptable within the overall project timescale and
-allows for modest process iteration without jeopardising delivery.
-This structured timeline provides flexibility whilst maintaining a
-clear path to completion of the enhancement-mode devices central to
-the objectives of this project.
+core device set is acceptable within the overall project timescale and 
+allows plenty of time to conclude the project.
