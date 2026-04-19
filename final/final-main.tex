@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{extreport}
+
+% Shared packages and commands
+\input{settings/packages}
+\input{settings/commands}
+
+\begin{document}
+
+% Front matter
+\input{settings/titlepage}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{sections/abstract}
+\input{sections/acknowledgements}
+\input{sections/abbreviations}
+
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoftables
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Main chapters
+\input{sections/introduction}           % Ch 1
+\input{sections/technical_background}   % Ch 2
+\input{sections/baseline_process_development}   % Ch 3
+\input{sections/baseline_characterisation}      % Ch 4
+\input{sections/gate_recess_process}    % Ch 5
+\input{sections/iteration_1}            % Ch 6
+\input{sections/iteration_2}            % Ch 7
+\input{sections/iteration_3}            % Ch 8
+\input{sections/discussion_and_failure_analysis} % Ch 9
+\input{sections/conclusions}            % Ch 10
+
+% References
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{ieeetr}
+\bibliography{references.bib}
+
+% Appendices
+\cleardoublepage
+\appendix
+\input{appendices/appendix_a}
+
+\end{document}

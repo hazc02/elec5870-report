@@ -1,0 +1,94 @@
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{comment}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{backgrounds,fit,positioning}
+\usepackage{placeins} % allow FloatBarrier to flush queued floats
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{pgfgantt}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{bibentry}
+\usepackage{siunitx}
+% Microtype removed to avoid noisy patch warnings; re-enable later if desired.
+% \usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{tocloft}
+
+\onehalfspacing
+
+% Document-wide numbering depth
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+% Hyperlink styling for print-friendly output
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  pdfauthor={Harry Carless},
+  pdftitle={ELEC5870M Final Report}
+}
+
+% Tighter, consistent list spacing
+\setlist[itemize]{topsep=4pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{topsep=4pt,itemsep=2pt,parsep=0pt}
+
+% Figure and table caption style and tighter float spacing
+\captionsetup{font=small,labelfont=bf}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt} % text to top/bottom floats
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}    % float to float
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}   % inline (e.g., [H]) floats
+\setlength{\abovecaptionskip}{4pt}               % space above caption
+\setlength{\belowcaptionskip}{4pt}               % space below caption
+
+% Chapter and section heading layout
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\huge}
+  {\MakeUppercase{\chaptertitlename}\ \thechapter}
+  {1ex}
+  {\titlerule\vspace{1ex}}
+\titlespacing*{\chapter}{0pt}{-8pt}{18pt}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\titleformat{\section}{\normalfont\large\bfseries\raggedright}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% Header and footer styling
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+% One-sided header setup to avoid 'E' option warnings
+\fancyhead[R]{\thepage}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\quad #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+
+% Relax paragraph breaking to avoid minor overfull boxes in drafting
+\emergencystretch=3em
+\raggedbottom
