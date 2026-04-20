@@ -1,24 +1,263 @@
 \chapter{Technical Background}
 \label{ch:technical-background}
 
-This chapter will consolidate the theoretical material that links heterostructure
-design, carrier transport, and threshold voltage control. Existing text from the
-interim report can be merged with new literature covering oxide removal,
-alternative recess approaches, and reliability considerations.
+\section{Overview of GaAs/AlGaAs HEMTs}
 
-\section{GaAs/AlGaAs Heterostructure Overview}
-Outline the epitaxial stack, highlighting how the cap, donor, spacer, and
-channel layers determine sheet charge density and gate control.
+In GaAs/AlGaAs high-electron-mobility transistors (HEMTs), the interface
+between the GaAs channel layer and the overlying AlGaAs barrier produces
+a discontinuity in the conduction band due to the differing bandgaps of
+the two materials. This offset creates a potential well on the GaAs side
+of the junction, as illustrated in Figure~\ref{fig:band_bending}, which
+confines electrons to the heterointerface and enables the formation of a
+two-dimensional electron gas (2DEG).
 
-\section{Charge Control and Threshold Voltage Models}
-Discuss parallel-plate approximations, quantum corrections, and the analytic
-relationship between donor thickness and threshold voltage. This section sets
-the theoretical expectations for the recess experiments.
+Silicon donors in the AlGaAs layer ionise and release electrons, which
+transfer across the heterointerface and accumulate in the potential
+well on the GaAs side. This modulation-doping scheme leaves the
+ionised donors in the AlGaAs while the mobile carriers reside in the
+undoped GaAs channel, spatially separating the two. The resulting
+suppression of ionised-impurity scattering yields the exceptionally
+high electron mobility, high cut-off frequencies, low noise, and
+strong transconductance that distinguish HEMTs from bulk-channel
+field-effect transistors. \cite{liu1999}
 
-\section{Gate Recess Strategies in Literature}
-Compare wet versus dry etching, oxide mitigation strategies, and prior reports
-of enhancement-mode GaAs HEMTs to justify the selected process window.
+\input{figures/fig-band-bending.tex}
 
-\section{Measurement Fundamentals}
-Summarise the electrical metrics of interest (ID--VDS, ID--VG, gm, leakage)
-and how they relate to the physics described above.
+\section{The GaAs/AlGaAs Heterostructure}
+
+The devices investigated in this project employ a conventional
+GaAs/AlGaAs heterostructure in which a sequence of epitaxial layers is
+engineered to create and control a 2DEG. A schematic cross-section of
+the structure is shown in Figure~\ref{fig:layer_structure}, highlighting
+the cap, donor, spacer, and channel layers whose thicknesses and
+compositions govern the electrostatic control and transport behaviour of
+the device.
+
+\input{figures/fig-layer-structure.tex}
+
+At the surface of the structure lies a $10~\text{nm}$ thick, highly doped
+GaAs cap layer. This cap provides a chemically stable surface for forming
+the Schottky gate contact whilst protecting the underlying AlGaAs from oxidation. Its
+high conductivity reduces series resistance in the access regions adjacent
+to the source and drain contacts, improving carrier injection into the
+channel.
+
+Beneath the cap layer is a $40~\text{nm}$ thick silicon-doped AlGaAs
+donor layer. Silicon donors act as electron suppliers, with carriers
+transferring into the GaAs channel as a result of the conduction band
+discontinuity at the heterointerface. This modulation-doping strategy
+spatially separates the ionised dopants from the conducting channel.
+Both the donor concentration and its thickness strongly influence the
+resulting sheet carrier density of the 2DEG and therefore the threshold
+voltage and maximum drain current of the device.
+
+A $20~\text{nm}$ thick undoped AlGaAs spacer layer separates the donor
+layer from the GaAs channel. This spacer suppresses Coulomb scattering
+by physically isolating the 2DEG from ionised impurities, enabling
+exceptionally high electron mobility. \cite{Hirakawa1986} The benefit is
+particularly pronounced in HEMT devices operating at cryogenic
+temperatures, where phonon scattering is reduced and impurity scattering
+would otherwise dominate transport behaviour. \cite{Pfeiffer1989}
+Increasing the spacer thickness improves mobility but weakens
+electrostatic coupling between the gate and the channel; this trade-off
+is a fundamental consideration in heterostructure design.
+
+In this project, the thickness of the doped AlGaAs donor layer beneath
+the gate represents the primary controllable parameter through which the
+threshold voltage may be engineered.
+
+\section{The Recessed-Gate Architecture}
+
+In a typical HEMT device shown in Figure~\ref{fig:layer_structure}, the gate
+is deposited directly onto the GaAs cap with the full donor layer intact beneath it.
+The resulting threshold voltage is strongly negative, placing the device in depletion
+mode. A method of realising enhancement-mode operation, is to thin the donor layer by 
+etching away the cap and penetrating a controlled depth into the AlGaAs, a process known as gate recession.
+
+Figure~\ref{fig:recessed_gate} shows the resulting cross-section. The
+etch opens a trench through the cap and into the donor layer, into which
+the Schottky gate is deposited; the gate metal coats the walls of the trench and
+rests on the cap surface either side of the trench, whilst the source and drain
+contacts remain on the original surface, preserving low-resistance access
+to the channel. The thickness of donor remaining beneath the gate, $d_d$,
+is the critical process parameter: once it is reduced below a threshold
+value, the zero-bias depletion region extends to the 2DEG and the device
+switches to enhancement mode. 
+
+\input{figures/fig-recessed-gate.tex}
+
+\section{Gate Control of Channel Charge and Threshold Voltage}
+
+The electrical behaviour of the GaAs/AlGaAs HEMT is governed by the
+field-effect interaction between the Schottky gate and the 2DEG. When a
+metal gate is deposited onto the semiconductor surface, a depletion
+region forms beneath it; the depth of this region is modulated by the
+applied gate voltage ($V_G$). This modulation controls the sheet carrier
+density ($n_s$) in the channel and, consequently, the drain current.
+\cite{sze2021}
+
+\subsection{Threshold Voltage and Required Recess Depth}
+\label{sec:threshold-voltage}
+
+The distinction between depletion-mode and enhancement-mode operation
+is governed by the threshold voltage $V_{off}$. Within the analytical
+framework of Lee \textit{et al.}~\cite{ivcv-hemt}:
+
+\begin{equation}
+    V_{off} = \phi_b - \Delta E_c - \frac{q N_d d_d^2}{2\varepsilon}
+    \label{eq:threshold_voltage}
+\end{equation}
+
+\begin{quote}
+    \footnotesize
+    \textit{$\phi_b$: Schottky barrier height;
+    $\Delta E_c$: conduction band offset;
+    $N_d$: donor concentration;
+    $d_d$: donor layer thickness;
+    $\varepsilon$: permittivity of the AlGaAs barrier.}
+\end{quote}
+
+In the unrecessed device, $d_d = 40~\text{nm}$ and the quadratic term
+in Equation~\ref{eq:threshold_voltage} dominates, yielding negative $V_{off}$ values;
+the device is normally on and requires a negative gate bias to deplete the
+channel. \cite{Mimura1980} Enhancement-mode operation requires $d_d$ to be
+reduced until $V_{off}$ becomes positive.  
+
+A critical donor layer thickness is derived by setting $V_{off} = 0$ and solving 
+for $d_d$ in Equation~\ref{eq:threshold_voltage}.
+
+\begin{equation}
+    d_{d,\text{crit}} = \sqrt{\frac{2\varepsilon
+    \left(\phi_b - \Delta E_c\right)}{q N_d}}
+    \label{eq:crit_donor}
+\end{equation}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{llll}
+        \toprule
+        Parameter               & Symbol           & Value                                    & Source              \\
+        \midrule
+        Schottky barrier height & $\phi_b$         & $0.80~\text{V}$                          & \cite{ivcv-hemt}    \\
+        Conduction band offset  & $\Delta E_c$     & $0.23~\text{eV}$                         & \cite{liu1999}      \\
+        Relative permittivity   & $\varepsilon_r$  & $12.2$                                   & \cite{liu1999}      \\
+        Vacuum permittivity     & $\varepsilon_0$  & $8.854\times10^{-12}~\text{F\,m}^{-1}$  & Physical constant   \\
+        Donor concentration     & $N_d$            & $1\times10^{18}~\text{cm}^{-3}$          & Wafer specification \\
+        \bottomrule
+    \end{tabular}
+    \caption{Material parameters used to evaluate the critical donor
+    thickness for the Al$_{0.3}$Ga$_{0.7}$As/GaAs heterostructure.}
+    \label{tab:threshold_params}
+\end{table}
+
+\begin{equation}
+    d_{d,\text{crit}} =
+    \sqrt{\frac{2 \times 12.2 \times 8.854\times10^{-12} \times
+    (0.80 - 0.23)}{1.6\times10^{-19} \times (1\times10^{18}) \times 10^{6}}}
+    = \sqrt{7.70\times10^{-16}}
+    \approx 28~\text{nm}
+    \label{eq:crit_donor_eval}
+\end{equation}
+
+This is consistent with the $\sim\!25~\text{nm}$ quoted by Lee
+\textit{et al.}~\cite{ivcv-hemt} for a similar heterostructure, with
+the small difference attributable to the parameter values used.
+The required total etch depth is:
+
+\begin{equation}
+    \text{Recess Depth} = d_{\text{cap}} +
+    \left(d_{\text{donor}} - d_{d,\text{crit}}\right)
+    = 10 + (40 - 28) = 22~\text{nm}
+    \label{eq:recess_depth}
+\end{equation}
+
+The value of $22~\text{nm}$ serves as a theoretical reference rather
+than a precise process target. In this project, multiple device sets are
+fabricated with recess depths spanning approximately $10\text{--}30~\text{nm}$,
+sweeping through the predicted threshold condition. Devices etched below
+$22~\text{nm}$ are expected to exhibit progressively less negative $V_{off}$
+as $d_d$ decreases; those etched beyond $22~\text{nm}$ should cross into
+enhancement mode. This systematic variation allows the dependence of
+threshold voltage on recess depth to be characterised
+empirically, as well as any other affected characteristics such as
+transconductance and drain current. As Equation~\ref{eq:crit_donor} is evaluated using literature
+parameter values rather than direct measurement on these wafers, measurements of fabricated devices
+will enable the validation of the theoretical prediction and
+identify the true threshold depth for this specific heterostructure.
+
+\subsection{Charge Distribution and Effective Gate Separation}
+
+The threshold calculation above treats the 2DEG as a sheet of charge
+located exactly at the GaAs/AlGaAs heterointerface. In the charge-control
+model, the gate metal and 2DEG are treated as the two plates of a
+parallel-plate capacitor, separated by the total gate-to-channel distance
+$d$; the capacitive coupling arises through the depleted AlGaAs barrier
+stack, with the gate voltage modulating the extent of the depletion
+region and the model assigning a uniform permittivity $\varepsilon$ to
+this region. \cite{ivcv-hemt}
+
+In practice, electrons forming the 2DEG occupy a quantised triangular
+potential well on the GaAs side of the heterointerface; the charge
+distribution has finite thickness and its centroid is displaced into the
+GaAs. Lee \textit{et al.} account for this by introducing an effective
+gate-to-channel separation of $d + \Delta d$, where
+$\Delta d \approx 80~\text{\AA}$ is a quantum-mechanical correction
+associated with the spatial extent of the electron wavefunction.
+\cite{ivcv-hemt} This correction enters the transconductance
+parameter $\beta$:
+
+\begin{equation}
+    \beta = \frac{\varepsilon \mu W}{(d + \Delta d)L}
+    \label{eq:beta}
+\end{equation}
+
+\begin{quote}
+    \footnotesize
+    \textit{$\varepsilon$: Permittivity of the barrier; $\mu$: Electron
+    mobility; $W$, $L$: Gate width and length; $d$: Physical
+    gate-to-channel separation; $\Delta d$: Effective charge-centroid
+    offset.}
+\end{quote}
+
+The physical separation $d$ comprises the residual donor layer and the
+spacer. For the unrecessed device, $d$ spans the full epitaxial stack
+above the 2DEG:
+\begin{equation*}
+    d_{\text{unrecessed}} = d_{\text{cap}} + d_{\text{donor}} +
+    d_{\text{spacer}} = 10 + 40 + 20 = 70~\text{nm}
+\end{equation*}
+After recessing to the threshold condition
+(Equation~\ref{eq:crit_donor_eval}), the cap is fully removed, the donor
+is thinned to $d_{d,\text{crit}} = 28~\text{nm}$, and the spacer remains
+intact:
+\begin{equation*}
+    d_{\text{recessed}} = d_{d,\text{crit}} + d_{\text{spacer}}
+    = 28 + 20 = 48~\text{nm}
+\end{equation*}
+
+The significance of $\Delta d$ in each configuration is therefore:
+
+\begin{itemize}
+    \item \textbf{Unrecessed Gate:} $d_{\text{eff}} = 70 + 8 = 78~\text{nm}$;
+          the correction represents $8/78 \approx 10\%$ of the effective
+          separation.
+    \item \textbf{Recessed Gate:}
+          $d_{\text{eff}} = 48 + 8 = 56~\text{nm}$;
+          the correction represents $8/56 \approx 14\%$ of the effective
+          separation.
+\end{itemize}
+
+The relevance of $\Delta d$ to this project is its effect on $\beta$.
+The correction arises from quantum confinement at the heterointerface:
+2DEG electrons do not sit precisely at the interface but are distributed
+into the GaAs in a triangular potential well, so the effective charge
+centroid lies $\approx 8~\text{nm}$ deeper than the physical boundary.
+This offset is independent of gate position --- recessing the gate brings
+the metal closer to the interface, but it does not alter where the 2DEG
+charge sits. As $d$ decreases with etching, $\Delta d$ therefore
+represents a growing share of $d_\text{eff}$: a minor $10\%$ correction
+in the unrecessed device, rising to $14\%$ at the threshold recess depth.
+A model using physical geometry alone would overestimate $\beta$ and
+transconductance by this margin, so the correction must be included when
+comparing measured device characteristics against theoretical predictions.

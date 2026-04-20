@@ -1,23 +1,312 @@
-\chapter{Baseline Process Development}
-\label{ch:baseline-process}
+\chapter{Fabrication of Depletion-Mode HEMT Devices}
 
-This chapter will expand on the Semester 1 fabrication work, documenting all
-process parameters needed to reproduce the depletion-mode GaAs/AlGaAs HEMT
-array. The narrative should emphasise learning outcomes, yield, and open
-issues that informed Semester 2 planning.
+\section{Overview of the Fabrication Workflow}
 
-\section{Mesa Definition and Isolation}
-Include lithography settings, etch chemistry, profilometry data, and lessons
-on etch-rate discrepancies.
+The depletion-mode HEMTs characterised in this report were fabricated using 
+the standard III-V device process established within the Leeds Nanotechnology 
+Cleanroom. This workflow follows the routine sequence used for 
+GaAs/AlGaAs transistors in this facility: it consists of 3 main stages: mesa definition, 
+ohmic contact formation, and gate formation. 
+This well-established procedure was followed without modification and carried 
+out over four full-day laboratory sessions. The devices produced 
+through this workflow provide a necessary baseline; they allow for a reliable 
+comparison against which the behaviour of e-mode devices with different structures 
+and dimensions can be evaluated later in this project.
 
+\vspace{1mm}
+
+\input{figures/fig-training-timeline.tex}
+
+\section{Mesa Definition and Isolation Etch}
+
+The fabrication process began with the electrical isolation of individual 
+device regions through mesa etching. Prior to lithography, the 
+GaAs wafer was cleaned sequentially in acetone, isopropanol (IPA), and 
+deionised water (DI) to remove organic residues and ensure sufficient 
+photoresist adhesion. To further enhance the bonding interface 
+between the substrate and the resist, a Surpass primer was spun onto the 
+wafer. This priming step is critical for wet-etching applications: it 
+modifies the surface tension to prevent the etchant from penetrating under 
+the resist edges which would otherwise 
+lead to the delamination of the mask. A positive photoresist (S1803) was 
+then spun onto the sample at 3000\,rpm, soft-baked on a hot-plate at 115\,$^{\circ}$C, 
+and subsequently patterned with exposure from the Heidelberg MLA 150 
+Maskless Aligner (MLA) \cite{leedscleanroom_equipment}.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.25\linewidth]{figures/fabrication_images/mesa_mask.jpg}
+  \vspace{3pt}
+  \caption{Mesa lithography mask used for defining isolated device regions (Post-Development).}
+  \label{fig:mesa_mask}
+\end{figure}
+
+Following exposure, the sample was immersed in solution of MF-351 developer diluted with DI (Ratio 1 : 3.5)
+for 45 seconds, followed by a thorough two-stage deionised (DI) water 
+rinse and nitrogen blow-dry to reveal the mesa patterns. The mesa pattern was 
+then transferred into the wafer using a wet-etch solution of sulphuric acid, 
+hydrogen peroxide, and water ($H_2SO_4$:$H_2O_2$:$H_2O$ in a 1:8:160 ratio).
+
+\vspace{1mm}
+
+This etchant is well-suited for GaAs/AlGaAs mesa formation, as it provides a 
+controllable, moderately fast isotropic etch that removes the active layers 
+uniformly~\cite{notten1991mechanism}. The etch rate is slow enough for precise 
+timing of a shallow $\approx$200 nm recess, yet fast enough for routine device 
+isolation.
+
+\vspace{1mm}
+
+To calibrate the process, an initial 30-second pilot etch was performed. 
+Subsequent measurement with an Alpha-Step profiler showed an etch depth of 
+114 nm, indicating an initial rate of 3.8 nm/s. To achieve the target depth of 
+200 nm, an additional 86 nm of material needed removal. Assuming a constant 
+etch rate, a second etch of 22 seconds was calculated and carried out. However, 
+the final measured depth was only 177 nm, meaning the second etch removed just 
+63 nm at a reduced effective rate of approximately 2.9 nm/s. Although 177 nm is 
+adequate for device isolation, successfully penetrating the active GaAs/AlGaAs 
+heterostructure layers, the rate discrepancy underscores the sensitivity of the 
+wet-etch chemistry.
+
+\vspace{1mm}
+
+\subsection{Analysis of Etch Rate Discrepancy}
+The main hypothesis for the reduced average etch rate in the second step is the 
+formation of a native oxide layer on the GaAs surface during the interval when 
+the sample was removed for profilometry. This oxide creates an ``incubation 
+period'' at the start of the second etch, delaying material removal while the 
+etchant penetrates the oxide to reach the underlying semiconductor. Since the 
+second etch (22 seconds) was shorter than the first (30 seconds), this 
+non-productive period accounted for a larger fraction of the total time, 
+lowering the overall average rate.
+
+\vspace{1mm}
+
+A more specific attribution points to rapid oxidation of the AlGaAs donor layer 
+surface during the profilometry interval. Unlike pure GaAs, which forms 
+relatively unstable oxides, AlGaAs reacts with atmospheric oxygen to create a 
+robust native oxide layer primarily composed of thermodynamically stable 
+aluminium oxide (Al$_2$O$_3$), along with Ga$_2$O$_3$ and 
+As$_2$O$_3$~\cite{Passlack, bessolov1998chalcogenide}.
+
+\vspace{2mm}
+
+The $H_2SO_4$:$H_2O_2$:$H_2O$ wet-etch mechanism involves a continuous cycle: 
+surface oxidation by the peroxide, followed by acid dissolution of the resulting 
+oxide~\cite{notten1991mechanism}. However, the air-grown, Al-rich passivation 
+layer dissolves much more slowly than the transient, Al-poor oxides formed in 
+situ during steady-state etching~\cite{bessolov1998chalcogenide}. As a result, 
+the second etch step includes a substantial incubation period to breach this 
+stable Al$_2$O$_3$ cap before resuming the intrinsic etch rate of 3.8 nm/s. In 
+a brief 22-second etch, this nonlinear delay constitutes a significant portion 
+of the process, reducing the calculated average rate.
+\label{subsection:AlGaAs_oxidation}
 \section{Ohmic Contact Formation}
-Detail the dual-layer resist scheme, metallisation stack, RTA profile, and
-contact resistance characterisation.
 
-\section{Gate Metallisation}
-Summarise alignment strategy, Ti/Au deposition, lift-off cleaning, and quality
-control images.
+The formation of low-resistance Ohmic contacts is a critical prerequisite for 
+accessing the two-dimensional electron gas (2DEG) within the heterostructure. 
+When metal is deposited directly onto the GaAs cap, the interface naturally 
+forms a Schottky barrier due to Fermi-level pinning at the surface states: 
+this creates a rectifying junction that restricts carrier injection. To 
+overcome this, a specific metallisation scheme and thermal processing step are 
+required to facilitate field-emission (tunnelling) conduction. The objective 
+is to create a heavily doped $n^{+}$ region beneath the contact pads that 
+extends down towards the channel; this high doping density significantly 
+narrows the depletion width of the barrier, allowing electrons to tunnel 
+freely between the metal and the semiconductor with linear $I-V$ 
+characteristics.
 
-\section{Baseline Device Inventory}
-Provide tables of geometries, wafer layout diagrams, and discussion of
-process repeatability across the fifteen devices.
+\vspace{1mm}
+
+To define these contacts, a dual-layer photoresist stack comprising 
+Lift-Off-Resist (LOR) beneath S1803 was employed. A single photoresist 
+layer typically develops near-vertical sidewalls: this causes the evaporated 
+metal to form a continuous film across both the wafer surface and the 
+photoresist edges, making lift-off unreliable and often leaving metallic 
+"fences" around the contact perimeter. The dual-layer stack mitigates this by 
+exploiting the higher developer solubility of the LOR base layer. During 
+development, the LOR recedes laterally more than the S1803 above it, 
+producing a distinct undercut profile. This physical overhang breaks the 
+continuity of the deposited metal film, ensuring that the metal on top of 
+the photoresist is electrically and mechanically separated from the device 
+contacts. Consequently, solvent-based lift-off yields sharply defined 
+openings free of edge defects.
+
+\vspace{1mm}
+
+\input{figures/fig-lift-off-stack.tex}
+
+\vspace{1mm}
+
+Following lithography, the Ohmic contacts were formed by thermally evaporating 
+a AuGeNi eutectic pellet. This alloy is commonly used for n-type 
+GaAs Ohmic contacts because each element plays a specific role during annealing. 
+Germanium diffuses into the GaAs and acts as a donor, creating a highly doped 
+region beneath the contact. Nickel improves the uniformity and adhesion of the 
+metal film and supports the diffusion process, whilst gold provides a low-resistance 
+conduction path between the contact pad and the semiconductor.
+
+\vspace{1mm}
+
+To activate the contacts, the sample underwent Rapid Thermal Annealing (RTA). 
+It is during this thermal cycle that the transition from rectifying to Ohmic 
+behaviour occurs. The heat drives the Germanium atoms to diffuse through the 
+AlGaAs layers and into the GaAs lattice, locally creating the 
+$n^{+}$ doped region. This effectively "thins" the potential barrier at 
+the interface, establishing a low-resistance tunnelling path that connects 
+the drain and source electrically to the 2DEG.
+
+\vspace{1mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
+   \vspace{5pt}
+  \caption{Ohmic contacts under x5 microscopy following lift-off.}
+  \label{fig:ohmic_contacts}
+\end{figure}
+
+\FloatBarrier
+
+\section{Gate Formation and Final Inspection}
+
+With the Ohmic contacts established and annealed, a third photolithography 
+step was performed to define the Schottky gate region. As with the previous stage, a 
+dual-layer resist stack was utilised to ensure a clean lift-off. The gate 
+electrode was aligned centrally between the source and drain contacts; its 
+placement is critical, as it provides the electrostatic control required to 
+modulate the carrier density within the channel.
+
+\vspace{1mm}
+
+Following development, a Ti/Au stack was evaporated to form the gate 
+electrode. In this configuration, the Titanium (Ti) layer serves as a vital 
+adhesion layer to the semiconductor surface, while the thick Gold (Au) layer 
+provides a stable Schottky barrier and minimises gate resistance. Unlike the 
+Ohmic contacts, the gate metallisation is not annealed; preserving the 
+Schottky barrier height is essential for minimising leakage current and 
+maintaining effective depletion control over the channel.
+
+\vspace{1mm}
+
+After metallisation, the resist was removed using solvent lift-off to reveal 
+the final device structure. A small-number of lift-off defects were observed under the microscope (Figure~\ref{fig:poor_lift_off}) and 
+subsequently removed using brief, gentle ultrasonic cleaning. The removal of 
+these artefacts is essential for device reliability: they can otherwise cause 
+electrical short circuits, particularly around the sensitive gate edges.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/poor_lift_off.jpg}
+   \vspace{5pt}
+  \caption{Lift-off defects (circled) observed on completed devices prior to ultrasonic cleaning.}
+  \label{fig:poor_lift_off}
+\end{figure}
+
+\vspace{2mm}
+
+The completed devices were examined using optical microscopy to ensure process 
+integrity. The mesas exhibited clean, well-defined sidewalls; the Ohmic pads 
+were properly positioned; and the gate electrodes showed sharp, uninterrupted 
+edges with no evidence of bridging or residual flakes. Overall, the 
+fabrication process yielded a high-quality array of depletion-mode HEMTs 
+suitable for subsequent electrical characterisation.
+
+\vspace{2mm}
+
+\section{Summary of Fabricated Device Set}
+
+The fabrication process yielded a structured array
+of depletion-mode GaAs/AlGaAs HEMT devices arranged in a grid across
+the wafer. This enabled multiple device geometries to be fabricated
+simultaneously under identical process conditions, facilitating systematic
+electrical characterisation while minimising process-induced variation.
+
+\vspace{2mm}
+
+In total, fifteen HEMT devices were fabricated and subsequently characterised.
+The array comprises five distinct columns, each containing three nominally
+identical devices. Each column corresponds to a specific lateral device
+geometry defined by a combination of gate length and source--drain separation, outlined in Table~{\ref{tab:device_geometries}}.
+
+\vspace{2mm}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Summary of fabricated HEMT device geometries by column}
+    \vspace{4pt}
+    \label{tab:device_geometries}
+    \small
+    \begin{tabular}{l c c c c c}
+        \hline
+        \textbf{Parameter} 
+        & \textbf{Col 1} 
+        & \textbf{Col 2} 
+        & \textbf{Col 3} 
+        & \textbf{Col 4} 
+        & \textbf{Col 5} \\
+        \hline
+        Gate length (\si{\micro\metre}) 
+        & 10 & 8 & 6 & 4 & 4 \\
+        Ohmic separation (\si{\micro\metre}) 
+        & 40 & 32 & 28 & 24 & 20 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\vspace{2mm}
+
+Across the array, the gate length was reduced from \SI{10}{\micro\metre} to
+\SI{4}{\micro\metre}. In parallel, the lateral separation between the ohmic
+contacts was also scaled between columns. The quoted source--drain separation
+refers to the combined distance between ohmic contacts in the double-gate
+layout; for example, a separation of \SI{40}{\micro\metre} corresponds to two
+\SI{20}{\micro\metre} access regions between the source and each drain, with
+the gate located centrally between the contacts. Demonstrated in Figure~\ref{gate-lengths-gds}.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/10um-gate-length.png}
+  \hspace{5mm}
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/4um-gate-length.png}
+  \caption{Mask layouts illustrating the extremes of the fabricated device
+  geometries: gate length \SI{10}{\micro\metre} with ohmic separation
+  \SI{40}{\micro\metre} (left) and gate length \SI{4}{\micro\metre} with ohmic
+  separation \SI{20}{\micro\metre} (right).}
+  \label{gate-lengths-gds}
+\end{figure}
+
+\vspace{2mm}
+
+Notably, the final two columns share the same nominal gate length of
+\SI{4}{\micro\metre} but differ in source--drain separation. This design choice
+allows the influence of lateral access resistance and transport effects to be
+assessed independently of gate-controlled electrostatics during electrical
+analysis.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
+  \hspace{5mm}
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gate_formation.jpg}
+  \caption{Final fabricated depletion-mode GaAs/AlGaAs HEMT device (left) and
+  array of fabricated devices across the wafer (right).}
+  \label{fig:hemt_array}
+\end{figure}
+
+\FloatBarrier
+
+The three nominally identical devices within each column provide a direct
+measure of device-to-device variability and fabrication repeatability for a
+given geometry. This device set therefore establishes a well-controlled
+baseline. The electrical characterisation presented in Chapter~4 uses this
+baseline to assess depletion-mode device behaviour and to validate the
+unrecessed fabrication process as a reference for subsequent enhancement-mode
+development via controlled gate recession.

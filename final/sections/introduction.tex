@@ -1,25 +1,100 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
-This chapter will concisely describe the motivation for normally-off III--V
-transistors, present the specific objectives of fabricating and benchmarking
-recessed-gate GaAs/AlGaAs HEMTs, and highlight the dual-semester workflow
-used in this project. Content migrated from the interim report will be
-reframed to emphasise how the validated depletion-mode process underpins the
-enhancement-mode experiments.
+Modern communication, sensing, and microwave systems impose increasingly
+demanding requirements on the semiconductor devices that form their
+front-end signal paths. Higher operating frequencies, tighter noise
+constraints, and strict linearity targets continue to push transistor
+technologies beyond the capabilities of many silicon-based platforms.
+\cite{chaturvedi2021} Although silicon processes have made notable progress
+in recent years, they often fall short in providing the necessary electron
+mobility, noise performance, or high-frequency gain required for
+performance-critical microwave and millimetre-wave applications
+(e.g.\ silicon's 1200~cm\textsuperscript{2}/Vs compared to GaAs's
+6500~cm\textsuperscript{2}/Vs in transistors for MMICs). \cite{chaturvedi2021}
 
-\section{Motivation for Enhancement-Mode GaAs HEMTs}
-Future iterations should summarise the limitations of depletion-mode devices
-for RF and power electronics, including the need for negative gate drive rails
-and shoot-through risks, and explain why GaAs remains a useful research
-platform despite the popularity of GaN.
+III--V High--Electron--Mobility Transistors (HEMTs) play a central role in
+addressing these challenges. Their heterostructure-based design creates a
+highly conductive channel at the interface between two semiconductor layers
+with different bandgaps. At this interface a two-dimensional electron gas
+(2DEG) forms, supporting exceptionally high carrier mobility. The resulting
+strong transconductance, stable high-frequency behaviour, and low-noise
+performance have firmly established HEMTs as core devices throughout
+microwave and millimetre-wave circuit design. \cite{mishra2002}
 
-\section{Project Objectives and Scope}
-This section will define the quantitative goals for threshold voltage shift,
-process reproducibility, and electrical benchmarking. It will also introduce
-the comparative methodology between baseline and recessed devices.
+Research activity within the field has increasingly shifted toward gallium
+nitride (GaN) HEMTs, driven by the material properties enabled by its wide
+bandgap. GaN supports high breakdown voltages, strong power-handling
+capability, and robust operation under large electric fields, making it the
+preferred choice for many high-power and high-linearity applications.
+\cite{Mishra2008} Despite this growing dominance, gallium arsenide (GaAs)
+HEMTs remain one of the most mature and well-characterised III--V transistor
+platforms. Their stability, extensive documentation, and long industrial
+history continue to make them an invaluable system for studying the
+relationships between heterostructure design, device architecture, and
+electrical behaviour. \cite{Mimura2002,Mimura1980} For the purposes of this project, 
+GaAs presents clear practical and technical advantages. 
+The Leeds Nanotechnology Cleanroom maintains established, reliable processes 
+for GaAs/AlGaAs heterostructures, and suitable wafers are readily available 
+with reproducible epitaxial quality. \cite{leedscleanroom}
 
-\section{Report Organisation}
-A short roadmap will link each subsequent chapter to the overarching
-research questions, enabling readers to navigate fabrication, characterisation,
-and project management content efficiently.
+Standard GaAs/AlGaAs HEMTs are inherently depletion-mode devices (d-mode);
+they naturally conduct current at zero gate bias and require a negative
+voltage to switch off. \cite{Mimura1980} This `normally-on' behaviour is
+often undesirable as it necessitates complex negative-polarity power
+supplies \cite{st_d_mode} and complicates the design of direct-coupled
+logic circuits. \cite{Xie2011} Consequently, there is significant interest
+in developing enhancement-mode devices (e-mode) that are `normally-off'
+and offer reduced power consumption.
+
+One common approach to achieving e-mode operation is to recess the gate
+into the AlGaAs donor layer, thereby reducing the charge carriers available
+to form the channel and shifting the threshold voltage in the positive
+direction. \cite{Saitto2006} Achieving e-mode operation through gate
+recessing is inherently non-trivial: it requires precise and repeatable
+removal of only a few nanometres of material, with small variations in etch
+depth leading to significant changes in threshold voltage and device
+behaviour. \cite{Lanford2005}
+
+The primary objective of this project is to investigate the relationship
+between gate recess depth and threshold voltage in GaAs/AlGaAs HEMTs, with
+the aim of achieving enhancement-mode operation, and with a focus on
+understanding the practical limitations and repeatability of the fabrication
+process. This was investigated through the development and iterative
+refinement of a gate recession process in which the gate contact is recessed
+into the AlGaAs donor layer to shift the threshold voltage into the positive
+region.
+
+The work proceeds in two phases. The first phase established a validated
+depletion-mode baseline: a full set of unrecessed GaAs/AlGaAs HEMT devices
+was fabricated and electrically characterised, confirming that threshold
+voltage is governed by the vertical heterostructure and is independent of
+lateral device geometry. This baseline provides the reference against which
+all subsequent recessed devices are compared. The second phase developed a controlled gate recess etch process through
+three successive device fabrication iterations, each designed to diagnose
+and address specific failure modes identified in the previous run, including
+bypass current paths, mask design limitations, over-etching, and
+gate-semiconductor interface degradation.
+
+\section*{Report Organisation}
+\addcontentsline{toc}{section}{Report Organisation}
+
+Chapter~\ref{ch:technical-background} reviews the device physics of GaAs/AlGaAs HEMTs
+and establishes the analytical relationship between donor-layer thickness,
+the quantum-mechanical correction to the gate-to-channel separation, and
+threshold voltage. This framework is then used to predict the critical
+recess depth required for enhancement-mode operation in the specific
+heterostructure employed in this work. Chapters~\ref{ch:baseline-process}
+and~\ref{ch:baseline-electrical} document the baseline depletion-mode fabrication
+process and its electrical characterisation respectively, establishing the
+reference dataset against which all recessed devices are compared.
+Chapter~\ref{ch:gate-recess-process} develops and calibrates the gate recess
+etch process, including its chemistry, oxide-mitigation strategy, and the
+mask architecture used to sweep recess depth across multiple devices.
+Chapters~\ref{ch:iteration-1},~\ref{ch:iteration-2}, and~\ref{ch:iteration-3} each present a
+successive fabrication iteration; each was motivated by a specific failure
+mode identified in its predecessor, and together they map the practical
+boundaries of the process. Chapter~\ref{ch:discussion} consolidates these
+outcomes into a broader failure analysis and discussion of process
+limitations, and Chapter~\ref{ch:conclusions} draws conclusions and
+recommends directions for future work.

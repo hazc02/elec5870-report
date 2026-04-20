@@ -1,0 +1,93 @@
+% figures/fig-recessed-gate.tex
+\begin{figure}[H]
+    \vspace{2mm}
+    \centering
+    \begin{tikzpicture}[x=1.05cm, y=0.52cm, >=Stealth, font=\footnotesize]
+
+        \def\w{8}
+        \def\xrecL{2.4}   % trench left wall
+        \def\xrecR{5.6}   % trench right wall
+        \def\xgFL{2.2}    % gate flange left  (small overhang on cap)
+        \def\xgFR{5.8}    % gate flange right
+
+        % Bounding box
+        \path[use as bounding box] (-2.2,-0.2) rectangle (\w+2.5,9.8);
+
+        % Y-coordinates:
+        %   0.0   substrate bottom
+        %   1.5   channel bottom
+        %   3.0   spacer bottom / 2DEG
+        %   4.2   donor bottom
+        %   5.95  trench floor  (d_d remaining beneath gate)
+        %   6.7   cap bottom
+        %   7.4   cap top / original surface
+        %   7.9   gate flange top
+
+        % --- Substrate ---
+        \fill[gray!15] (0,0) rectangle (\w,1.5);
+        \draw (0,0) rectangle (\w,1.5);
+        \node at (4,0.75) {Semi-insulating GaAs substrate};
+
+        % --- Channel ---
+        \fill[blue!8] (0,1.5) rectangle (\w,3.0);
+        \draw (0,1.5) rectangle (\w,3.0);
+        \node at (4,2.25) {Undoped GaAs channel};
+
+        % --- 2DEG ---
+        \draw[blue,line width=1pt] (0,3.0) -- (\w,3.0);
+        \node[blue,anchor=west] at (\w+0.15,3.0) {2DEG};
+
+        % --- Spacer ---
+        \fill[green!8] (0,3.0) rectangle (\w,4.2);
+        \draw (0,3.0) rectangle (\w,4.2);
+        \node at (4,3.6) {Undoped AlGaAs spacer};
+
+        % --- Donor: single unified shape (U-profile) ---
+        \fill[yellow!20]
+            (0,4.2) -- (\w,4.2) -- (\w,6.7) --
+            (\xrecR,6.7) -- (\xrecR,5.95) --
+            (\xrecL,5.95) -- (\xrecL,6.7) --
+            (0,6.7) -- cycle;
+        \draw
+            (0,4.2) -- (\w,4.2) -- (\w,6.7) --
+            (\xrecR,6.7) -- (\xrecR,5.95) --
+            (\xrecL,5.95) -- (\xrecL,6.7) --
+            (0,6.7) -- cycle;
+        \node[align=center] at (6.8,5.45) {Si-doped\\AlGaAs};
+
+        % --- Cap: left of recess ---
+        \fill[red!15] (0,6.7) rectangle (\xrecL,7.4);
+        \draw (0,6.7) rectangle (\xrecL,7.4);
+
+        % --- Cap: right of recess ---
+        \fill[red!15] (\xrecR,6.7) rectangle (\w,7.4);
+        \draw (\xrecR,6.7) rectangle (\w,7.4);
+        \node[anchor=west] at (\w+0.15,7.05) {n$^{+}$ GaAs cap};
+
+        % --- Gate metal: T-shape ---
+        % Stem fills trench; small flange rests on cap surface
+        \filldraw[fill=black!80, draw=black]
+            (\xgFL,7.4) -- (\xgFL,7.9) --
+            (\xgFR,7.9) -- (\xgFR,7.4) --
+            (\xrecR,7.4) -- (\xrecR,5.95) --
+            (\xrecL,5.95) -- (\xrecL,7.4) -- cycle;
+        \node[anchor=south] at (4,7.9) {Gate};
+
+        % --- Source ---
+        \fill[black!30] (0.55,7.4) rectangle (1.25,7.95);
+        \node[anchor=south] at (0.9,7.95) {Source};
+
+        % --- Drain ---
+        \fill[black!30] (6.75,7.4) rectangle (7.45,7.95);
+        \node[anchor=south] at (7.1,7.95) {Drain};
+
+        % --- Dimension: d_d ---
+        \draw[<->] (\xrecL10,4.25) -- (\xrecL10,5.9);
+        \node[anchor=west] at (\xrecL11,5.075) {$d_d$};
+
+    \end{tikzpicture}
+    \vspace{3mm}
+    \caption{Cross-section of the recessed-gate GaAs/AlGaAs HEMT (not to
+    scale).}
+    \label{fig:recessed_gate}
+\end{figure}
