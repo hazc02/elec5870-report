@@ -73,36 +73,49 @@ wet-etch chemistry.
 \vspace{1mm}
 
 \subsection{Analysis of Etch Rate Discrepancy}
-The main hypothesis for the reduced average etch rate in the second step is the 
-formation of a native oxide layer on the GaAs surface during the interval when 
-the sample was removed for profilometry. This oxide creates an ``incubation 
-period'' at the start of the second etch, delaying material removal while the 
-etchant penetrates the oxide to reach the underlying semiconductor. Since the 
-second etch (22 seconds) was shorter than the first (30 seconds), this 
-non-productive period accounted for a larger fraction of the total time, 
-lowering the overall average rate.
+
+A plausible explanation for the reduced average etch rate observed during the
+second etch step is the formation of a native oxide layer on the exposed
+surface during the interval in which the sample was removed for profilometry.
+If such an oxide formed, the etchant would first need to dissolve this surface
+layer before resuming steady-state semiconductor removal, effectively creating
+an incubation period at the start of the second etch. Because the second etch
+lasted only 22~s, compared with 30~s for the first step, any such delay would
+account for a larger fraction of the total etch time and therefore reduce the
+measured average rate.
 
 \vspace{1mm}
 
-A more specific attribution points to rapid oxidation of the AlGaAs donor layer 
-surface during the profilometry interval. Unlike pure GaAs, which forms 
-relatively unstable oxides, AlGaAs reacts with atmospheric oxygen to create a 
-robust native oxide layer primarily composed of thermodynamically stable 
-aluminium oxide (Al$_2$O$_3$), along with Ga$_2$O$_3$ and 
-As$_2$O$_3$~\cite{Passlack, bessolov1998chalcogenide}.
+A likely contributor to this behaviour is oxidation of the AlGaAs donor-layer
+surface during exposure to air. Unlike pure GaAs, which forms relatively less
+stable native oxides, AlGaAs can form a more persistent oxide containing
+Al$_2$O$_3$, together with Ga$_2$O$_3$ and
+As$_2$O$_3$~\cite{Passlack,bessolov1998chalcogenide}. In the
+$H_2SO_4$:$H_2O_2$:$H_2O$ system, etching proceeds through a cyclic mechanism in
+which the surface is oxidised by the peroxide and the resulting oxide is then
+dissolved by the acid~\cite{notten1991mechanism}. An air-grown, Al-rich oxide
+would be expected to dissolve more slowly than the transient oxide formed
+during uninterrupted steady-state etching, and could therefore contribute to a
+lower apparent rate in a short follow-up etch.
 
-\vspace{2mm}
+\vspace{1mm}
 
-The $H_2SO_4$:$H_2O_2$:$H_2O$ wet-etch mechanism involves a continuous cycle: 
-surface oxidation by the peroxide, followed by acid dissolution of the resulting 
-oxide~\cite{notten1991mechanism}. However, the air-grown, Al-rich passivation 
-layer dissolves much more slowly than the transient, Al-poor oxides formed in 
-situ during steady-state etching~\cite{bessolov1998chalcogenide}. As a result, 
-the second etch step includes a substantial incubation period to breach this 
-stable Al$_2$O$_3$ cap before resuming the intrinsic etch rate of 3.8 nm/s. In 
-a brief 22-second etch, this nonlinear delay constitutes a significant portion 
-of the process, reducing the calculated average rate.
+However, oxide regrowth is unlikely to be the only possible explanation for the
+reduced etch rate. Variations in agitation between the two etch steps may also 
+have contributed, since the etch rate may depend not only on the surface chemistry itself, 
+but also on how effectively fresh etchant is transported to the wafer surface and dissolved reaction
+products are removed from it. \todobib If the amount of agitation
+differed between the two etches, the local chemical environment at the surface
+may also have differed, even if the etchant  composition remained
+unchanged. 
+
+In a short follow-up etch, such sensitivity could affect the
+measured average rate appreciably. The discrepancy is therefore best
+interpreted as arising from the general process sensitivity of an interrupted
+wet etch, with native-oxide formation remaining a plausible contributor rather
+than a uniquely established cause.
 \label{subsection:AlGaAs_oxidation}
+
 \section{Ohmic Contact Formation}
 
 The formation of low-resistance Ohmic contacts is critical to enable a current path  

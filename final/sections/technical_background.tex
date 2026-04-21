@@ -11,6 +11,8 @@ of the junction, as illustrated in Figure~\ref{fig:band_bending}, which
 confines electrons to the heterointerface and enables the formation of a
 two-dimensional electron gas (2DEG).
 
+\vspace{2mm}
+
 Silicon donors in the AlGaAs layer ionise and release electrons, which
 transfer across the heterointerface and accumulate in the potential
 well on the GaAs side. This modulation-doping scheme leaves the
@@ -34,7 +36,9 @@ compositions govern the electrostatic control and transport behaviour of
 the device.
 
 \input{figures/fig-layer-structure.tex}
+\vspace{2mm}
 
+\vspace{2mm}
 At the surface of the structure lies a $10~\text{nm}$ thick, highly doped
 GaAs cap layer. This cap provides a chemically stable surface for forming
 the Schottky gate contact whilst protecting the underlying AlGaAs from oxidation. Its
@@ -42,6 +46,7 @@ high conductivity reduces series resistance in the access regions adjacent
 to the source and drain contacts, improving carrier injection into the
 channel.
 
+\vspace{2mm}
 Beneath the cap layer is a $40~\text{nm}$ thick silicon-doped AlGaAs
 donor layer. Silicon donors act as electron suppliers, with carriers
 transferring into the GaAs channel as a result of the conduction band
@@ -51,6 +56,7 @@ Both the donor concentration and its thickness strongly influence the
 resulting sheet carrier density of the 2DEG and therefore the threshold
 voltage and maximum drain current of the device.
 
+\vspace{2mm}
 A $20~\text{nm}$ thick undoped AlGaAs spacer layer separates the donor
 layer from the GaAs channel. This spacer suppresses Coulomb scattering
 by physically isolating the 2DEG from ionised impurities, enabling
@@ -62,6 +68,7 @@ Increasing the spacer thickness improves mobility but weakens
 electrostatic coupling between the gate and the channel; this trade-off
 is a fundamental consideration in heterostructure design.
 
+\vspace{2mm}
 In this project, the thickness of the doped AlGaAs donor layer beneath
 the gate represents the primary controllable parameter through which the
 threshold voltage may be engineered.
@@ -74,6 +81,8 @@ The resulting threshold voltage is strongly negative, placing the device in depl
 mode. A method of realising enhancement-mode operation is to thin the donor layer by 
 etching away the cap and penetrating a controlled depth into the AlGaAs, a process known as gate recession.
 
+\vspace{2mm}
+
 Figure~\ref{fig:recessed_gate} shows the resulting cross-section. The
 etch opens a trench through the cap and into the donor layer, into which
 the Schottky gate is deposited; the gate metal coats the walls of the trench and
@@ -85,6 +94,8 @@ value, the zero-bias depletion region extends to the 2DEG and the device
 switches to enhancement mode. 
 
 \input{figures/fig-recessed-gate.tex}
+
+\vspace{2mm}
 
 \section{Gate Control of Channel Charge and Threshold Voltage}
 
@@ -190,22 +201,25 @@ identify the true threshold depth for this specific heterostructure.
 
 The threshold calculation above treats the 2DEG as a sheet of charge
 located exactly at the GaAs/AlGaAs heterointerface. In the charge-control
-model, the gate metal and 2DEG are treated as the two plates of a
+model, the gate metal and the 2DEG are treated as the two plates of a
 parallel-plate capacitor, separated by the total gate-to-channel distance
-$d$; the capacitive coupling arises through the depleted AlGaAs barrier
-stack, with the gate voltage modulating the extent of the depletion
-region and the model assigning a uniform permittivity $\varepsilon$ to
-this region. \cite{ivcv-hemt}
+$d$. The capacitive coupling is assumed to occur through the depleted
+AlGaAs barrier stack, with the gate voltage modulating the extent of the
+depletion region and the model assigning a uniform permittivity
+$\varepsilon$ to this region \cite{ivcv-hemt}.
 
-In practice, electrons forming the 2DEG occupy a quantised triangular
-potential well on the GaAs side of the heterointerface; the charge
-distribution has finite thickness and its centroid is displaced into the
-GaAs. Lee \textit{et al.} account for this by introducing an effective
+\vspace{2mm}
+
+In practice, however, the electrons forming the 2DEG occupy a quantised
+triangular potential well on the GaAs side of the heterointerface. The
+charge distribution therefore has finite thickness, and its centroid is
+displaced into the GaAs rather than lying exactly at the interface. Lee
+\textit{et al.} account for this by introducing an effective
 gate-to-channel separation of $d + \Delta d$, where
 $\Delta d \approx 80~\text{\AA}$ is a quantum-mechanical correction
-associated with the spatial extent of the electron wavefunction.
-\cite{ivcv-hemt} This correction enters the transconductance
-parameter $\beta$:
+associated with the spatial extent of the electron wavefunction
+\cite{ivcv-hemt}. This correction enters the transconductance parameter
+$\beta$ as
 
 \begin{equation}
     \beta = \frac{\varepsilon \mu W}{(d + \Delta d)L}
@@ -214,50 +228,113 @@ parameter $\beta$:
 
 \begin{quote}
     \footnotesize
-    \textit{$\varepsilon$: Permittivity of the barrier; $\mu$: Electron
-    mobility; $W$, $L$: Gate width and length; $d$: Physical
-    gate-to-channel separation; $\Delta d$: Effective charge-centroid
+    \textit{$\varepsilon$: permittivity of the barrier; $\mu$: electron
+    mobility; $W$, $L$: gate width and length; $d$: physical
+    gate-to-channel separation; $\Delta d$: effective charge-centroid
     offset.}
 \end{quote}
 
-The physical separation $d$ comprises the residual donor layer and the
-spacer. For the unrecessed device, $d$ spans the full epitaxial stack
-above the 2DEG:
+\vspace{2mm}
+
+The physical separation $d$ comprises the material lying between the gate
+metal and the 2DEG. For the unrecessed device, this spans the full
+epitaxial stack above the channel:
 \begin{equation*}
     d_{\text{unrecessed}} = d_{\text{cap}} + d_{\text{donor}} +
     d_{\text{spacer}} = 10 + 40 + 20 = 70~\text{nm}
 \end{equation*}
+
 After recessing to the threshold condition
 (Equation~\ref{eq:crit_donor_eval}), the cap is fully removed, the donor
-is thinned to $d_{d,\text{crit}} = 28~\text{nm}$, and the spacer remains
-intact:
+layer is reduced to $d_{d,\text{crit}} = 28~\text{nm}$, and the spacer
+remains intact:
 \begin{equation*}
     d_{\text{recessed}} = d_{d,\text{crit}} + d_{\text{spacer}}
     = 28 + 20 = 48~\text{nm}
 \end{equation*}
 
-The significance of $\Delta d$ in each configuration is therefore:
+Including the charge-centroid correction therefore gives:
 
 \begin{itemize}
-    \item \textbf{Unrecessed Gate:} $d_{\text{eff}} = 70 + 8 = 78~\text{nm}$;
-          the correction represents $8/78 \approx 10\%$ of the effective
-          separation.
-    \item \textbf{Recessed Gate:}
-          $d_{\text{eff}} = 48 + 8 = 56~\text{nm}$;
-          the correction represents $8/56 \approx 14\%$ of the effective
-          separation.
+    \item \textbf{Unrecessed gate:}
+          $d_{\text{eff}} = 70 + 8 = 78~\text{nm}$, so the correction
+          represents $8/78 \approx 10\%$ of the effective separation.
+    \item \textbf{Recessed gate:}
+          $d_{\text{eff}} = 48 + 8 = 56~\text{nm}$, so the correction
+          represents $8/56 \approx 14\%$ of the effective separation.
 \end{itemize}
 
-The relevance of $\Delta d$ to this project is its effect on $\beta$.
-The correction arises from quantum confinement at the heterointerface:
-2DEG electrons do not sit precisely at the interface but are distributed
-into the GaAs in a triangular potential well, so the effective charge
-centroid lies $\approx 8~\text{nm}$ deeper than the physical boundary.
-This offset is independent of gate position --- recessing the gate brings
-the metal closer to the interface, but it does not alter where the 2DEG
-charge sits. As $d$ decreases with etching, $\Delta d$ therefore
-represents a growing share of $d_\text{eff}$: a minor $10\%$ correction
-in the unrecessed device, rising to $14\%$ at the threshold recess depth.
-A model using physical geometry alone would overestimate $\beta$ and
-transconductance by this margin, so the correction must be included when
-comparing measured device characteristics against theoretical predictions.
+The main relevance of $\Delta d$ in this project is that it modifies the
+effective gate-to-channel separation entering the transconductance
+parameter $\beta$. Physically, the correction reflects the fact that the
+2DEG charge centroid lies inside the GaAs rather than exactly at the
+heterointerface. Recessing the gate reduces the physical separation $d$,
+but it does not alter the position of this charge centroid, so
+$\Delta d$ becomes a larger fraction of the total effective separation as
+the recess deepens. 
+
+\vspace{2mm}
+
+The correction is therefore relatively modest in the
+unrecessed device, but becomes more significant once the gate is brought
+closer to the channel. Although it does not change the basic
+threshold-voltage argument developed previously, it is relevant when comparing
+measured and expected transconductance, and more generally when
+interpreting how recessing alters gate control of the channel.
+
+\subsection{Gate Recess Risks and Limitations}
+
+Gate recessing offers a practical route to threshold-voltage engineering, but it
+also introduces process and device risks that must be carefully managed.
+
+\vspace{2mm}
+
+\noindent\textbf{Threshold-voltage sensitivity $(V_{off})$}
+
+\vspace{2mm}
+
+\noindent The quadratic dependence of $V_{off}$ on $d_d$
+(Equation~\ref{eq:threshold_voltage}) means that small variations in recess
+depth translate directly into shifts in threshold voltage. Near
+$d_{d,\text{crit}}$, a $\pm 2~\text{nm}$ variation in etch depth can shift
+$V_{off}$ by tens of millivolts \cite{ivcv-hemt}.
+
+\vspace{2mm}
+
+If an array of such devices were to be fabricated across an entire wafer for
+subsequent circuit integration, the recess process would need to deliver
+extremely high spatial uniformity in etch depth across the wafer, since even
+small depth variations would produce threshold-voltage mismatch between
+nominally identical transistors. An equivalent requirement would apply from
+wafer to wafer if reproducible circuit behaviour is to be achieved in
+manufacture. In logic circuits formed from multiple transistors, this
+threshold-voltage spread can disrupt switching consistency, shift logic
+thresholds, and reduce noise margins; in severe cases, the resulting mismatch
+may substantially degrade circuit performance or prevent reliable operation
+altogether.
+
+\vspace{4mm}
+
+\noindent \textbf{Increased Gate Leakage Current $(I_{g})$}
+
+\noindent Gate recessing also introduces a greater risk of gate leakage current,
+$I_{g}$. By depositing the gate metal into an etched trench, the gate is
+brought into direct contact with the AlGaAs donor layer at an interface that
+may have been roughened, oxidised, or otherwise chemically degraded during the
+recess process. At the same time, reducing the effective gate-to-channel
+separation increases the electric field across the barrier for a given applied
+bias, which can promote tunnelling and elevate reverse-bias leakage currents.
+
+$I_{g}$ is therefore influenced not only by the reduced physical
+separation, but also by the quality of the recessed surface and the extent to
+which the etch preserves a clean, well-controlled metal-semiconductor
+interface.
+
+\vspace{8mm}
+
+Gate recessing is therefore most effective as a threshold-engineering tool when
+both etch-depth control and interface quality are maintained to a high
+standard. Quantifying this process sensitivity is an explicit objective of this
+work. In particular, the repeatability of the $V_{off}$ and $I_{g}$ metrics
+will be assessed across nominally identical devices on the same sample, as well
+as across different samples fabricated at different times.
