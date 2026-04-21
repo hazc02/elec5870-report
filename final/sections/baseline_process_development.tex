@@ -1,11 +1,12 @@
 \chapter{Fabrication of Depletion-Mode HEMT Devices}
+\label{ch:baseline-process}
 
 \section{Overview of the Fabrication Workflow}
 
 The depletion-mode HEMTs characterised in this report were fabricated using 
 the standard III-V device process established within the Leeds Nanotechnology 
 Cleanroom. This workflow follows the routine sequence used for 
-GaAs/AlGaAs transistors in this facility: it consists of 3 main stages: mesa definition, 
+GaAs/AlGaAs transistors in this facility: it consists of three main stages: mesa definition, 
 ohmic contact formation, and gate formation. 
 This well-established procedure was followed without modification and carried 
 out over four full-day laboratory sessions. The devices produced 
@@ -29,7 +30,7 @@ wafer. This priming step is critical for wet-etching applications: it
 modifies the surface tension to prevent the etchant from penetrating under 
 the resist edges which would otherwise 
 lead to the delamination of the mask. A positive photoresist (S1803) was 
-then spun onto the sample at 3000\,rpm, soft-baked on a hot-plate at 115\,$^{\circ}$C, 
+then spun onto the sample at 3000\,rpm, soft-baked on a hot-plate at 115\,$^{\circ}$C for 1 minute, 
 and subsequently patterned with exposure from the Heidelberg MLA 150 
 Maskless Aligner (MLA) \cite{leedscleanroom_equipment}.
 
@@ -42,7 +43,7 @@ Maskless Aligner (MLA) \cite{leedscleanroom_equipment}.
   \label{fig:mesa_mask}
 \end{figure}
 
-Following exposure, the sample was immersed in solution of MF-351 developer diluted with DI (Ratio 1 : 3.5)
+Following exposure, the sample was immersed in a solution of MF-351 developer diluted with DI (Ratio 1 : 3.5)
 for 45 seconds, followed by a thorough two-stage deionised (DI) water 
 rinse and nitrogen blow-dry to reveal the mesa patterns. The mesa pattern was 
 then transferred into the wafer using a wet-etch solution of sulphuric acid, 
@@ -104,8 +105,8 @@ of the process, reducing the calculated average rate.
 \label{subsection:AlGaAs_oxidation}
 \section{Ohmic Contact Formation}
 
-The formation of low-resistance Ohmic contacts is a critical prerequisite for 
-accessing the two-dimensional electron gas (2DEG) within the heterostructure. 
+The formation of low-resistance Ohmic contacts is critical to enable a current path  
+from the source / drain contacts to the two-dimensional electron gas (2DEG) within the heterostructure. 
 When metal is deposited directly onto the GaAs cap, the interface naturally 
 forms a Schottky barrier due to Fermi-level pinning at the surface states: 
 this creates a rectifying junction that restricts carrier injection. To 
@@ -149,15 +150,15 @@ conduction path between the contact pad and the semiconductor.
 
 \vspace{1mm}
 
-To activate the contacts, the sample underwent Rapid Thermal Annealing (RTA). 
-It is during this thermal cycle that the transition from rectifying to Ohmic 
-behaviour occurs. The heat drives the Germanium atoms to diffuse through the 
-AlGaAs layers and into the GaAs lattice, locally creating the 
-$n^{+}$ doped region. This effectively "thins" the potential barrier at 
-the interface, establishing a low-resistance tunnelling path that connects 
-the drain and source electrically to the 2DEG.
+To activate the contacts, the sample underwent Rapid Thermal Annealing (RTA).
+It is during this thermal cycle that the transition from rectifying to Ohmic
+behaviour occurs. The heat causes the Germanium atoms to diffuse through the
+AlGaAs layers and into the GaAs lattice, locally creating the
+$n^{+}$ doped region, as illustrated in Figure~\ref{fig:ohmic_rta}. This effectively
+``thins'' the potential barrier at the interface, establishing a low-resistance
+tunnelling path that connects the drain and source electrically to the 2DEG.
 
-\vspace{1mm}
+\input{figures/fig-ohmic-contact-rta.tex}
 
 \begin{figure}[htbp]
   \centering
@@ -191,7 +192,7 @@ maintaining effective depletion control over the channel.
 \vspace{1mm}
 
 After metallisation, the resist was removed using solvent lift-off to reveal 
-the final device structure. A small-number of lift-off defects were observed under the microscope (Figure~\ref{fig:poor_lift_off}) and 
+the final device structure. A small number of lift-off defects were observed under the microscope (Figure~\ref{fig:poor_lift_off}) and 
 subsequently removed using brief, gentle ultrasonic cleaning. The removal of 
 these artefacts is essential for device reliability: they can otherwise cause 
 electrical short circuits, particularly around the sensitive gate edges.
@@ -209,7 +210,7 @@ electrical short circuits, particularly around the sensitive gate edges.
 \vspace{2mm}
 
 The completed devices were examined using optical microscopy to ensure process 
-integrity. The mesas exhibited clean, well-defined sidewalls; the Ohmic pads 
+integrity. The mesas exhibited clean, well-defined sidewalls; the ohmic pads 
 were properly positioned; and the gate electrodes showed sharp, uninterrupted 
 edges with no evidence of bridging or residual flakes. Overall, the 
 fabrication process yielded a high-quality array of depletion-mode HEMTs 
@@ -265,7 +266,7 @@ contacts was also scaled between columns. The quoted source--drain separation
 refers to the combined distance between ohmic contacts in the double-gate
 layout; for example, a separation of \SI{40}{\micro\metre} corresponds to two
 \SI{20}{\micro\metre} access regions between the source and each drain, with
-the gate located centrally between the contacts. Demonstrated in Figure~\ref{gate-lengths-gds}.
+the gate located centrally between the contacts, as demonstrated in Figure~\ref{gate-lengths-gds}.
 
 \vspace{2mm}
 

@@ -1,22 +1,184 @@
 \chapter{Baseline Electrical Characterisation}
 \label{ch:baseline-electrical}
 
-Here we will collate all unrecessed device measurements, focusing on the
-metrics that will later be compared against recessed devices. Figures and
-statistics from the interim report can be updated with any refined analysis.
+This chapter presents the electrical characterisation of the depletion-mode
+GaAs/AlGaAs HEMT devices fabricated using the unrecessed process described
+in Chapter~\ref{ch:baseline-process}. The primary objective is to establish
+a well-understood electrical baseline for threshold voltage, transconductance,
+and gate leakage behaviour against which the effects of controlled gate
+recession may be assessed.
+
+Although devices of multiple lateral geometries were fabricated and
+characterised, these variations are not treated as primary research variables.
+The range of gate lengths and source--drain separations instead serves to
+confirm that key electrostatic parameters --- most notably threshold voltage ---
+are governed by the vertical heterostructure and Schottky gate properties
+rather than by lateral device dimensions. This distinction is central to the
+subsequent investigation of enhancement-mode operation, where threshold voltage
+is expected to be strongly dependent on recess depth.
 
 \section{Measurement Setup}
-Describe the B1500A configuration, probe station workflow, temperature
-controls, and data-processing scripts.
 
-\section{Output Characteristics}
-Summarise representative ID--VDS curves, contact resistance extraction, and
-implications for process quality.
+Electrical measurements were carried out using a Keysight B1500A semiconductor
+device parameter analyser under ambient laboratory conditions at room
+temperature (\SI{20}{\degree C}). \cite{leedscleanroom_equipment}
 
-\section{Transfer Characteristics and Threshold Extraction}
-Document VT extraction methods, gm behaviour, and variability across device
-geometries.
+Output characteristics were measured by sweeping the drain--source voltage
+($V_{DS}$) at fixed gate biases to assess channel conduction and saturation
+behaviour. Gate transfer characteristics were obtained by sweeping the
+gate--source voltage ($V_G$) at a fixed drain bias chosen to ensure operation
+within the saturation regime. From these measurements, the drain current
+($I_D$), transconductance ($g_m$), and threshold voltage were extracted.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/probing.jpg}
+  \hspace{2mm}
+  \includegraphics[width=0.45\linewidth]{figures/fabrication_images/probes.jpg}
+  \caption{Probe station setup used for electrical characterisation of
+  fabricated devices.}
+  \label{fig:probing_setup}
+\end{figure}
+
+Channel resistance was determined from the low-bias linear region of the
+output characteristics, where the device operates in the ohmic regime.
+Transconductance was calculated numerically from the measured $I_D$--$V_G$
+data using finite-difference methods. Identical biasing conditions and
+data-processing procedures were applied consistently across the full
+device set.
+
+Electrical characteristics were averaged across nominally identical devices
+within each column to obtain representative behaviour while suppressing
+device-to-device variation. The spread between repeats was retained for
+discussion of process repeatability and its implications for gate recess
+sensitivity.
+
+\section{Baseline Output Characteristics}
+
+The output characteristics of the fabricated depletion-mode GaAs/AlGaAs HEMTs
+were examined to verify ohmic contact behaviour and confirm stable channel
+conduction prior to threshold-voltage analysis.
+Figure~\ref{fig:id_vds} shows the measured $I_D$--$V_{DS}$ characteristics for
+a representative device with a gate length of \SI{6}{\micro\metre}, averaged
+across the three nominally identical devices fabricated at this geometry.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/electrical_analysis/output_characteristics.png}
+    \caption{Measured output characteristics ($I_D$--$V_{DS}$) of a
+    representative depletion-mode GaAs/AlGaAs HEMT with a \SI{6}{\micro\metre}
+    gate length. Curves are shown for multiple gate voltages, illustrating
+    linear-region conduction and current saturation.}
+    \label{fig:id_vds}
+\end{figure}
+
+At low drain--source voltages, $I_D$ exhibits a clear linear relationship
+with $V_{DS}$ for all applied gate biases, confirming ohmic conduction and
+low-resistance source and drain contacts. This indicates that the ohmic
+metallisation and annealing process was successful, and that contact
+resistance does not dominate the measured device behaviour.
+
+As $V_{DS}$ is increased, the devices transition smoothly into current
+saturation, consistent with electrostatic pinch-off of the channel near the
+drain. The systematic modulation of the saturation current with gate voltage
+demonstrates effective gate control of the 2DEG and confirms stable operation.
+
+\section{Gate Transfer Characteristics and Threshold Voltage}
+
+The primary objective of this project is to understand and control threshold
+voltage through gate recessing, so establishing the baseline threshold
+behaviour of unrecessed devices is essential.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/electrical_analysis/gate_transfer_average.png}
+    \caption{Averaged transfer characteristics ($I_D$--$V_G$) for all
+    fabricated depletion-mode HEMTs, comprising five lateral geometries with
+    three nominally identical devices per geometry.}
+    \label{fig:id_vg_all}
+\end{figure}
+
+Figure~\ref{fig:id_vg_all} shows the averaged linear-scale gate transfer
+characteristics for the full device set. Across all geometries, the transition
+from the depleted regime to strong channel conduction occurs at approximately
+the same gate voltage, yielding a threshold voltage of
+%
+\[
+V_T \approx \SI{-0.9}{\volt}.
+\]
+%
+No systematic shift in the turn-on point is observed, demonstrating that
+threshold voltage is effectively independent of lateral device geometry for
+the unrecessed devices fabricated in this work.
+
+This behaviour is consistent with Equation~\ref{eq:threshold_voltage}, in
+which $V_T$ is governed by the vertical electrostatics beneath the Schottky
+gate. With the gate formed on the GaAs cap, the depletion field must extend
+through the cap, the full AlGaAs donor layer, and the undoped spacer to fully
+deplete the 2DEG. Under these conditions $V_T$ depends on the Schottky
+barrier height, donor charge density, and donor-layer thickness, while lateral
+device dimensions do not appear in the first-order electrostatic model.
+
+Differences observed in the on-state current between devices are modest and
+are attributed to lateral transport effects, including variations in channel
+and access resistance arising from differences in gate length and
+source--drain separation. These variations influence current drive but do not
+alter the electrostatic condition required to deplete the channel.
+
+The key implication is that the baseline threshold voltage is set entirely by
+the unrecessed vertical layer stack, yielding $V_T \approx \SI{-0.9}{\volt}$
+across all fabricated geometries. This confirms that threshold-voltage
+engineering must be achieved by modifying the vertical electrostatics beneath
+the gate, and validates controlled gate recession into the AlGaAs donor layer
+as the appropriate process variable for shifting $V_T$ into the positive regime.
+
+\section{Transconductance}
+
+% TODO: Add transconductance analysis and figures (gm vs Vg for multiple
+% geometries). Key points to cover:
+%  - gm peak values and geometry dependence (shorter gate → higher gm)
+%  - comparison against beta prediction from Eq. ref{eq:beta}
+%  - variability across repeats
 
 \section{Gate Leakage Behaviour}
-Provide leakage trends, discuss interface quality, and establish the reference
-point for recessed devices.
+
+Gate leakage was examined to characterise the gate--semiconductor interface
+in the unrecessed devices and to provide a reference for comparison with
+the recessed-gate devices characterised in Chapters~\ref{ch:iteration-1}
+through~\ref{ch:iteration-3}.
+Figure~\ref{fig:ig_vds} presents the averaged gate leakage characteristics
+for all fabricated devices, spanning the full range of lateral geometries
+within the array.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/electrical_analysis/gate_leakage_average_bulb_off.png}
+    \caption{Measured gate leakage characteristics for unrecessed
+    depletion-mode GaAs/AlGaAs HEMTs, averaged across nominally identical
+    devices for each column in the array.}
+    \label{fig:ig_vds}
+\end{figure}
+
+Across the full device set, measured gate leakage currents are of similar
+order of magnitude over the applied drain-bias range, with no strong or
+systematic dependence on gate length or source--drain separation. This
+behaviour suggests that gate leakage is governed primarily by the
+gate--semiconductor interface quality rather than by lateral device dimensions.
+
+In the unrecessed geometry, the Schottky gate is formed on the GaAs cap layer,
+where a thin native oxide and associated surface states are expected to be
+present. The small spread in leakage observed between columns is therefore most
+plausibly attributed to local variations in interface quality beneath the gate.
+
+In recessed devices, the gate contacts the AlGaAs donor layer directly,
+introducing a fundamentally different interface. Schottky contacts on AlGaAs
+are commonly reported to exhibit increased leakage relative to GaAs-based
+interfaces, reflecting the closer proximity of the donor layer to the gate,
+a reduced effective barrier width, and enhanced tunnelling
+currents. \cite{Schweeger1994} These effects are further influenced by
+differences in surface-state density and band alignment at the
+metal--semiconductor interface. \cite{Schweeger1994} The leakage behaviour
+established here therefore provides a physically meaningful reference: any
+systematic increase in gate leakage observed following recession can be
+attributed to the modified interface rather than to pre-existing geometry
+effects.

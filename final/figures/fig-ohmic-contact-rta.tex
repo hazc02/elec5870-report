@@ -1,0 +1,133 @@
+% figures/fig-ohmic-contact-rta.tex
+% Cross-section showing n+ diffusion following AuGeNi RTA ohmic contact formation.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[x=1.05cm, y=0.48cm, >=Stealth, font=\footnotesize]
+
+        % Layer heights (consistent with fig-layer-structure)
+        \def\w{8}
+        \def\hcap{1}
+        \def\hdonor{2}
+        \def\hspacer{1.2}
+        \def\hchan{1.5}
+        \def\hsub{1.5}
+        % n+ zone bottom: within upper donor layer (~0.7 above donor base)
+        \def\ynplus{4.9}
+
+        % Contact x-positions (consistent with fig-layer-structure)
+        \def\xsL{0.7}   \def\xsR{1.4}
+        \def\xdL{6.6}   \def\xdR{7.3}
+
+        % Bounding box
+        \path[use as bounding box]
+            (-2.4,0) rectangle
+            (\w+2.8,\hsub+\hchan+\hspacer+\hdonor+\hcap+1.5);
+
+        %--- Semiconductor fills (drawn first so n+ overlay can cover them) ---
+        \fill[gray!15]   (0,0)
+            rectangle (\w,\hsub);
+        \fill[blue!8]    (0,\hsub)
+            rectangle (\w,\hsub+\hchan);
+        \fill[green!8]   (0,\hsub+\hchan)
+            rectangle (\w,\hsub+\hchan+\hspacer);
+        \fill[yellow!20] (0,\hsub+\hchan+\hspacer)
+            rectangle (\w,\hsub+\hchan+\hspacer+\hdonor);
+        \fill[red!15]    (0,\hsub+\hchan+\hspacer+\hdonor)
+            rectangle (\w,\hsub+\hchan+\hspacer+\hdonor+\hcap);
+
+        %--- n+ diffusion zone fills (orange overlay, after layer fills) ---
+        \fill[orange!35] (\xsL,\ynplus)
+            rectangle (\xsR,\hsub+\hchan+\hspacer+\hdonor+\hcap);
+        \fill[orange!35] (\xdL,\ynplus)
+            rectangle (\xdR,\hsub+\hchan+\hspacer+\hdonor+\hcap);
+
+        %--- Layer borders ---
+        \draw (0,0)
+            rectangle (\w,\hsub);
+        \draw (0,\hsub)
+            rectangle (\w,\hsub+\hchan);
+        \draw (0,\hsub+\hchan)
+            rectangle (\w,\hsub+\hchan+\hspacer);
+        \draw (0,\hsub+\hchan+\hspacer)
+            rectangle (\w,\hsub+\hchan+\hspacer+\hdonor);
+        \draw (0,\hsub+\hchan+\hspacer+\hdonor)
+            rectangle (\w,\hsub+\hchan+\hspacer+\hdonor+\hcap);
+
+        %--- 2DEG line ---
+        \draw[line width=1pt, blue]
+            (0,\hsub+\hchan) -- (\w,\hsub+\hchan);
+        \node[blue, anchor=west] at (\w+0.2,\hsub+\hchan) {2DEG};
+
+        %--- Dashed boundary of n+ zones (sides and bottom only) ---
+        \draw[dashed, black!65, line width=0.5pt]
+            (\xsL,\ynplus) -- (\xsL,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            (\xsR,\ynplus) -- (\xsR,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            (\xsL,\ynplus) -- (\xsR,\ynplus);
+        \draw[dashed, black!65, line width=0.5pt]
+            (\xdL,\ynplus) -- (\xdL,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            (\xdR,\ynplus) -- (\xdR,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            (\xdL,\ynplus) -- (\xdR,\ynplus);
+
+        %--- Layer text labels ---
+        \node at (\w/2,\hsub/2)
+            {Semi-insulating GaAs substrate};
+        \node at (\w/2,\hsub+\hchan/2)
+            {Undoped GaAs channel};
+        \node at (\w/2,\hsub+\hchan+\hspacer/2)
+            {Undoped AlGaAs spacer};
+        \node at (\w/2,\hsub+\hchan+\hspacer+\hdonor/2)
+            {Si-doped AlGaAs donor layer};
+        \node at (\w/2,\hsub+\hchan+\hspacer+\hdonor+\hcap/2)
+            {n$^{+}$ GaAs cap};
+
+        %--- AuGeNi metal contacts ---
+        \fill[gray!55] (\xsL,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle (\xsR,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75);
+        \draw (\xsL,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle (\xsR,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75);
+        \node[anchor=south] at
+            ({(\xsL+\xsR)/2},\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75)
+            {Source};
+
+        \fill[gray!55] (\xdL,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle (\xdR,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75);
+        \draw (\xdL,\hsub+\hchan+\hspacer+\hdonor+\hcap)
+            rectangle (\xdR,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75);
+        \node[anchor=south] at
+            ({(\xdL+\xdR)/2},\hsub+\hchan+\hspacer+\hdonor+\hcap+0.75)
+            {Drain};
+
+        %--- Ge diffusion arrows (drawn last to appear over all layers) ---
+        % Source side — two arrows, starting inside the metal
+        \draw[->, black!70, line width=0.5pt]
+            (\xsL+0.2,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.3) --
+            (\xsL+0.2,\ynplus+0.2);
+        \draw[->, black!70, line width=0.5pt]
+            (\xsR-0.2,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.3) --
+            (\xsR-0.2,\ynplus+0.2);
+        % Drain side — two arrows
+        \draw[->, black!70, line width=0.5pt]
+            (\xdL+0.2,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.3) --
+            (\xdL+0.2,\ynplus+0.2);
+        \draw[->, black!70, line width=0.5pt]
+            (\xdR-0.2,\hsub+\hchan+\hspacer+\hdonor+\hcap+0.3) --
+            (\xdR-0.2,\ynplus+0.2);
+
+        %--- Annotations ---
+        \node[anchor=west] at (\w+0.2,5.5) {$n^{+}$ doped region};
+        \draw[->, black!60, line width=0.4pt]
+            (\w+0.2,5.5) -- ({(\xdL+\xdR)/2},5.25);
+
+        \node[anchor=east] at (-0.2,6.5) {Ge diffusion};
+        \draw[->, black!60, line width=0.4pt]
+            (-0.2,6.3) -- (\xsL+0.2,5.85);
+
+    \end{tikzpicture}
+
+    \vspace{5mm}
+
+    \caption{Schematic cross-section after rapid thermal annealing (RTA) of
+    the AuGeNi ohmic contacts (not to scale).}
+    \label{fig:ohmic_rta}
+\end{figure}
