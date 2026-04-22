@@ -105,15 +105,10 @@ reduced etch rate. Variations in agitation between the two etch steps may also
 have contributed, since the etch rate may depend not only on the surface chemistry itself, 
 but also on how effectively fresh etchant is transported to the wafer surface and dissolved reaction
 products are removed from it. \todobib If the amount of agitation
-differed between the two etches, the local chemical environment at the surface
-may also have differed, even if the etchant  composition remained
+differed between the two etches, the local chemical environment at 
+the surface may also have differed, even if the etchant composition remained
 unchanged. 
 
-In a short follow-up etch, such sensitivity could affect the
-measured average rate appreciably. The discrepancy is therefore best
-interpreted as arising from the general process sensitivity of an interrupted
-wet etch, with native-oxide formation remaining a plausible contributor rather
-than a uniquely established cause.
 \label{subsection:AlGaAs_oxidation}
 
 \section{Ohmic Contact Formation}
@@ -233,20 +228,21 @@ suitable for subsequent electrical characterisation.
 
 \section{Summary of Fabricated Device Set}
 
-The fabrication process yielded a structured array
-of depletion-mode GaAs/AlGaAs HEMT devices arranged in a grid across
-the wafer. This enabled multiple device geometries to be fabricated
-simultaneously under identical process conditions, facilitating systematic
-electrical characterisation while minimising process-induced variation.
+The fabrication process yielded a structured array of depletion-mode
+GaAs/AlGaAs HEMT devices arranged in a grid across the wafer. This allowed
+multiple device geometries to be fabricated simultaneously under identical
+process conditions, enabling systematic electrical characterisation while
+reducing process-induced variation between geometries.
 
 \vspace{2mm}
 
-In total, fifteen HEMT devices were fabricated and subsequently characterised.
-The array comprises five distinct columns, each containing three nominally
-identical devices. Each column corresponds to a specific lateral device
-geometry defined by a combination of gate length and source--drain separation, outlined in Table~{\ref{tab:device_geometries}}.
+In total, fifteen HEMT devices were fabricated and subsequently
+characterised. The array comprised five columns, each containing three
+nominally identical devices. Each column corresponded to a distinct lateral
+device geometry, defined by its gate length and ohmic separation, as
+summarised in Table~\ref{tab:device_geometries}.
 
-\vspace{2mm}
+\vspace{5mm}
 
 \begin{table}[htbp]
     \centering
@@ -256,71 +252,76 @@ geometry defined by a combination of gate length and source--drain separation, o
     \small
     \begin{tabular}{l c c c c c}
         \hline
-        \textbf{Parameter} 
-        & \textbf{Col 1} 
-        & \textbf{Col 2} 
-        & \textbf{Col 3} 
-        & \textbf{Col 4} 
+        \textbf{Parameter}
+        & \textbf{Col 1}
+        & \textbf{Col 2}
+        & \textbf{Col 3}
+        & \textbf{Col 4}
         & \textbf{Col 5} \\
         \hline
-        Gate length (\si{\micro\metre}) 
+        Gate length (\si{\micro\metre})
         & 10 & 8 & 6 & 4 & 4 \\
-        Ohmic separation (\si{\micro\metre}) 
+        Ohmic separation (\si{\micro\metre})
         & 40 & 32 & 28 & 24 & 20 \\
         \hline
     \end{tabular}
 \end{table}
 
-\vspace{2mm}
+\vspace{5mm}
 
 Across the array, the gate length was reduced from \SI{10}{\micro\metre} to
-\SI{4}{\micro\metre}. In parallel, the lateral separation between the ohmic
-contacts was also scaled between columns. The quoted source--drain separation
-refers to the combined distance between ohmic contacts in the double-gate
-layout; for example, a separation of \SI{40}{\micro\metre} corresponds to two
-\SI{20}{\micro\metre} access regions between the source and each drain, with
-the gate located centrally between the contacts, as demonstrated in Figure~\ref{gate-lengths-gds}.
+\SI{4}{\micro\metre}. In parallel, the ohmic separation was also reduced
+between columns. In this double-gate layout, the quoted ohmic separation
+refers to the total lateral spacing between the two ohmic contact regions
+across the device. For example, an ohmic separation of
+\SI{40}{\micro\metre} corresponds to two \SI{20}{\micro\metre} access
+regions on either side of the centrally positioned gate, as illustrated in
+Figure~\ref{gate-lengths-gds}.
 
 \vspace{2mm}
 
-\begin{figure}[htbp]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/10um-gate-length.png}
   \hspace{5mm}
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/4um-gate-length.png}
   \caption{Mask layouts illustrating the extremes of the fabricated device
   geometries: gate length \SI{10}{\micro\metre} with ohmic separation
-  \SI{40}{\micro\metre} (left) and gate length \SI{4}{\micro\metre} with ohmic
-  separation \SI{20}{\micro\metre} (right).}
+  \SI{40}{\micro\metre} (left) and gate length \SI{4}{\micro\metre} with
+  ohmic separation \SI{20}{\micro\metre} (right).}
   \label{gate-lengths-gds}
 \end{figure}
+
+\FloatBarrier
 
 \vspace{2mm}
 
 Notably, the final two columns share the same nominal gate length of
-\SI{4}{\micro\metre} but differ in source--drain separation. This design choice
-allows the influence of lateral access resistance and transport effects to be
-assessed independently of gate-controlled electrostatics during electrical
-analysis.
+\SI{4}{\micro\metre}, but differ in ohmic separation. This allows the
+influence of lateral access resistance and transport effects to be examined
+independently of gate-length scaling during electrical analysis.
 
-\vspace{2mm}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
-  \hspace{5mm}
-  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gate_formation.jpg}
-  \caption{Final fabricated depletion-mode GaAs/AlGaAs HEMT device (left) and
-  array of fabricated devices across the wafer (right).}
-  \label{fig:hemt_array}
-\end{figure}
-
-\FloatBarrier
+\vspace{5mm}
 
 The three nominally identical devices within each column provide a direct
 measure of device-to-device variability and fabrication repeatability for a
 given geometry. This device set therefore establishes a well-controlled
 baseline. The electrical characterisation presented in Chapter~4 uses this
 baseline to assess depletion-mode device behaviour and to validate the
-unrecessed fabrication process as a reference for subsequent enhancement-mode
-development via controlled gate recession.
+unrecessed fabrication process as a reference for subsequent
+enhancement-mode development via controlled gate recession.
+
+\vspace{2mm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
+  \hspace{5mm}
+  \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gate_formation.jpg}
+  \caption{Final fabricated depletion-mode GaAs/AlGaAs HEMT device (left)
+  and array of fabricated devices across the wafer (right).}
+  \label{fig:hemt_array}
+\end{figure}
+
+
+
