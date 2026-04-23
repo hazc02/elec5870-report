@@ -19,16 +19,24 @@ is expected to be strongly dependent on recess depth.
 
 \section{Measurement Setup}
 
-Electrical measurements were carried out using a Keysight B1500A semiconductor
-device parameter analyser under ambient laboratory conditions at room
-temperature (\SI{20}{\degree C}). \cite{leedscleanroom_equipment}
+Electrical measurements were carried out using a Keysight B1500A
+semiconductor device parameter analyser under ambient laboratory conditions at
+room temperature (\SI{20}{\degree C}) \cite{leedscleanroom_equipment}.
 
 Output characteristics were measured by sweeping the drain--source voltage
-($V_{DS}$) at fixed gate biases to assess channel conduction and saturation
-behaviour. Gate transfer characteristics were obtained by sweeping the
-gate--source voltage ($V_G$) at a fixed drain bias chosen to ensure operation
-within the saturation regime. From these measurements, the drain current
-($I_D$), transconductance ($g_m$), and threshold voltage were extracted.
+$V_{DS}$ from \SI{0}{\volt} to \SI{5}{\volt} at fixed gate biases. Five curves
+were acquired for each device, corresponding to gate voltages from
+\SI{-1.2}{\volt} to \SI{0}{\volt} in \SI{0.3}{\volt} increments. These
+measurements were used to assess channel conduction, low-bias linearity, and
+current saturation behaviour.
+
+Gate transfer characteristics were obtained by sweeping the gate voltage
+$V_G$ from \SI{-3}{\volt} to \SI{0}{\volt} at a fixed drain bias of
+\SI{5}{\volt}, chosen to ensure operation in the saturation regime. From these
+measurements, the drain current $I_D$, threshold voltage $V_{th}$, and
+transconductance $g_m$ were extracted. Gate leakage was also recorded during
+the $V_{DS}$ sweeps at the same fixed gate biases used for the output
+characteristics.
 
 \begin{figure}[htbp]
   \centering
@@ -40,18 +48,28 @@ within the saturation regime. From these measurements, the drain current
   \label{fig:probing_setup}
 \end{figure}
 
-Channel resistance was determined from the low-bias linear region of the
-output characteristics, where the device operates in the ohmic regime.
-Transconductance was calculated numerically from the measured $I_D$--$V_G$
-data using finite-difference methods. Identical biasing conditions and
-data-processing procedures were applied consistently across the full
-device set.
+Transconductance was calculated numerically from the measured
+$I_D$--$V_G$ data using finite-difference differentiation. This gives the local
+slope $dI_D/dV_G$ at fixed drain bias, with central-difference estimates used
+for interior data points and one-sided differences at the ends of the sweep.
+The reported scalar transconductance metric is the maximum absolute value of
+the resulting $g_m(V_G)$ curve.
 
-Electrical characteristics were averaged across nominally identical devices
-within each column to obtain representative behaviour while suppressing
-device-to-device variation. The spread between repeats was retained for
-discussion of process repeatability and its implications for gate recess
-sensitivity.
+Threshold voltage was extracted from the transfer characteristics using a
+constant-current method. The primary threshold current was set to
+\SI{1}{\micro\ampere}, and the corresponding gate voltage was obtained by
+linear interpolation between the two data points surrounding the current
+crossing. Where no valid crossing was found at this level, a fallback criterion
+of 1\% of the maximum absolute drain current was used, again with linear
+interpolation. This procedure provided a consistent device-by-device
+threshold-voltage metric, while the averaged transfer curves were used for
+visual comparison of the overall turn-on behaviour.
+
+Electrical characteristics were averaged across the three nominally identical
+devices within each column to obtain representative behaviour for each
+geometry. Arithmetic means were used for all plotted averages, while the spread
+between repeats was retained for later discussion of device repeatability and
+its implications for recess-process sensitivity.
 
 \section{Baseline Output Characteristics}
 
