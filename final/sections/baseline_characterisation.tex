@@ -1,3 +1,4 @@
+% !TEX root = ../final-main.tex
 \chapter{Baseline Electrical Characterisation}
 \label{ch:baseline-electrical}
 
@@ -7,6 +8,8 @@ in Chapter~\ref{ch:baseline-process}. The primary objective is to establish
 a well-understood electrical baseline for threshold voltage, transconductance,
 and gate leakage behaviour against which the effects of controlled gate
 recession may be assessed.
+
+\vspace{2mm}
 
 Although devices of multiple lateral geometries were fabricated and
 characterised, these variations are not treated as primary research variables.
@@ -18,10 +21,13 @@ subsequent investigation of enhancement-mode operation, where threshold voltage
 is expected to be strongly dependent on recess depth.
 
 \section{Measurement Setup}
+\label{sec:measurement-setup}
 
 Electrical measurements were carried out using a Keysight B1500A
 semiconductor device parameter analyser under ambient laboratory conditions at
 room temperature (\SI{20}{\degree C}) \cite{leedscleanroom_equipment}.
+
+\vspace{2mm}
 
 Output characteristics were measured by sweeping the drain--source voltage
 $V_{DS}$ from \SI{0}{\volt} to \SI{5}{\volt} at fixed gate biases. Five curves
@@ -30,6 +36,8 @@ were acquired for each device, corresponding to gate voltages from
 measurements were used to assess channel conduction, low-bias linearity, and
 current saturation behaviour.
 
+\vspace{2mm}
+
 Gate transfer characteristics were obtained by sweeping the gate voltage
 $V_G$ from \SI{-3}{\volt} to \SI{0}{\volt} at a fixed drain bias of
 \SI{5}{\volt}, chosen to ensure operation in the saturation regime. From these
@@ -37,6 +45,8 @@ measurements, the drain current $I_D$, threshold voltage $V_{th}$, and
 transconductance $g_m$ were extracted. Gate leakage was also recorded during
 the $V_{DS}$ sweeps at the same fixed gate biases used for the output
 characteristics.
+
+\vspace{2mm}
 
 \begin{figure}[htbp]
   \centering
@@ -48,12 +58,16 @@ characteristics.
   \label{fig:probing_setup}
 \end{figure}
 
+\vspace{2mm}
+
 Transconductance was calculated numerically from the measured
 $I_D$--$V_G$ data using finite-difference differentiation. This gives the local
 slope $dI_D/dV_G$ at fixed drain bias, with central-difference estimates used
 for interior data points and one-sided differences at the ends of the sweep.
 The reported scalar transconductance metric is the maximum absolute value of
 the resulting $g_m(V_G)$ curve.
+
+\vspace{2mm}
 
 Threshold voltage was extracted from the transfer characteristics using a
 constant-current method. The primary threshold current was set to
@@ -65,11 +79,15 @@ interpolation. This procedure provided a consistent device-by-device
 threshold-voltage metric, while the averaged transfer curves were used for
 visual comparison of the overall turn-on behaviour.
 
+\vspace{2mm}
+
 Electrical characteristics were averaged across the three nominally identical
 devices within each column to obtain representative behaviour for each
 geometry. Arithmetic means were used for all plotted averages, while the spread
 between repeats was retained for later discussion of device repeatability and
 its implications for recess-process sensitivity.
+
+\vspace{2mm}
 
 \section{Baseline Output Characteristics}
 
@@ -79,6 +97,8 @@ conduction prior to threshold-voltage analysis.
 Figure~\ref{fig:id_vds} shows the measured $I_D$--$V_{DS}$ characteristics for
 a representative device with a gate length of \SI{6}{\micro\metre}, averaged
 across the three nominally identical devices fabricated at this geometry.
+
+\vspace{2mm}
 
 \begin{figure}[htbp]
     \centering
@@ -90,22 +110,31 @@ across the three nominally identical devices fabricated at this geometry.
     \label{fig:id_vds}
 \end{figure}
 
+\vspace{2mm}
+
 At low drain--source voltages, $I_D$ exhibits a clear linear relationship
 with $V_{DS}$ for all applied gate biases, confirming ohmic conduction and
 low-resistance source and drain contacts. This indicates that the ohmic
 metallisation and annealing process was successful, and that contact
 resistance does not dominate the measured device behaviour.
 
+\vspace{2mm}
+
 As $V_{DS}$ is increased, the devices transition smoothly into current
 saturation, consistent with electrostatic pinch-off of the channel near the
 drain. The systematic modulation of the saturation current with gate voltage
 demonstrates effective gate control of the 2DEG and confirms stable operation.
 
+\vspace{2mm}
+
 \section{Gate Transfer Characteristics and Threshold Voltage}
+\label{sec:baseline-transfer-characterstics}
 
 The primary objective of this project is to understand and control threshold
 voltage through gate recessing, so establishing the baseline threshold
 behaviour of unrecessed devices is essential.
+
+\vspace{2mm}
 
 \begin{figure}[htbp]
     \centering
@@ -115,6 +144,8 @@ behaviour of unrecessed devices is essential.
     three nominally identical devices per geometry.}
     \label{fig:id_vg_all}
 \end{figure}
+
+\vspace{2mm}
 
 Figure~\ref{fig:id_vg_all} shows the averaged linear-scale gate transfer
 characteristics for the full device set. Across all geometries, the transition
@@ -129,6 +160,8 @@ No systematic shift in the turn-on point is observed, demonstrating that
 threshold voltage is effectively independent of lateral device geometry for
 the unrecessed devices fabricated in this work.
 
+\vspace{2mm}
+
 This behaviour is consistent with Equation~\ref{eq:threshold_voltage}, in
 which $V_T$ is governed by the vertical electrostatics beneath the Schottky
 gate. With the gate formed on the GaAs cap, the depletion field must extend
@@ -137,11 +170,15 @@ deplete the 2DEG. Under these conditions $V_T$ depends on the Schottky
 barrier height, donor charge density, and donor-layer thickness, while lateral
 device dimensions do not appear in the first-order electrostatic model.
 
+\vspace{2mm}
+
 Differences observed in the on-state current between devices are modest and
 are attributed to lateral transport effects, including variations in channel
 and access resistance arising from differences in gate length and
 source--drain separation. These variations influence current drive but do not
 alter the electrostatic condition required to deplete the channel.
+
+\vspace{2mm}
 
 The key implication is that the baseline threshold voltage is set entirely by
 the unrecessed vertical layer stack, yielding $V_T \approx \SI{-0.9}{\volt}$
@@ -150,13 +187,95 @@ engineering must be achieved by modifying the vertical electrostatics beneath
 the gate, and validates controlled gate recession into the AlGaAs donor layer
 as the appropriate process variable for shifting $V_T$ into the positive regime.
 
+\vspace{2mm}
+
 \section{Transconductance}
 
-% TODO: Add transconductance analysis and figures (gm vs Vg for multiple
-% geometries). Key points to cover:
-%  - gm peak values and geometry dependence (shorter gate → higher gm)
-%  - comparison against beta prediction from Eq. ref{eq:beta}
-%  - variability across repeats
+Transconductance provides a measure of how effectively the gate modulates the
+channel current at fixed drain bias, and is defined as
+
+\vspace{2mm}
+
+\begin{equation}
+    g_m = \frac{dI_D}{dV_G}
+\end{equation}
+
+\vspace{2mm}
+
+In this work, $g_m$ was extracted numerically from the measured
+$I_D$ versus $V_G$ transfer characteristics at
+$V_{DS}=\SI{5}{\volt}$ using the finite difference method described in
+Section~\ref{sec:measurement-setup}. Figure~\ref{fig:gm_baseline} shows the
+averaged transconductance characteristics for the five unrecessed device
+geometries.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.78\linewidth]{figures/electrical_analysis/gm_baseline.png}
+  \caption{Averaged transconductance characteristics for the unrecessed
+  depletion mode GaAs/AlGaAs HEMTs, comprising five lateral geometries with
+  three nominally identical devices per column.}
+  \label{fig:gm_baseline}
+\end{figure}
+
+\vspace{2mm}
+
+Across all columns, the transconductance remains close to zero through the
+strongly pinched off region, before rising sharply as $V_G$ approaches the
+$V_T$. This behaviour is consistent with the transfer
+characteristics presented in Section~\ref{sec:baseline-transfer-characterstics}, where the
+drain current begins to increase rapidly at approximately the same gate
+voltage. The shared shape of the $g_m$ curves therefore confirms that all
+devices exhibit the same underlying depletion mode switching behaviour. The
+differences in peak magnitude, however, show that the strength of current
+modulation depends on device geometry.
+
+\vspace{2mm}
+
+A first order theoretical guide is provided by the charge control expression
+for the transconductance parameter $\beta$ introduced in Section~2.4.2:
+
+\vspace{2mm}
+
+\begin{equation*}
+    \beta = \frac{\varepsilon \mu W}{(d + \Delta d)L}
+\end{equation*}
+
+\vspace{2mm}
+
+For the unrecessed device set, the vertical layer structure is common to all
+columns, so $\varepsilon$, $\mu$, and $(d+\Delta d)$ may be treated as
+approximately fixed. Under this assumption, the model predicts that
+$\beta \propto 1/L$. Shorter gate devices would therefore be expected to
+exhibit stronger intrinsic gate control and, in turn, higher
+transconductance. 
+
+\vspace{2mm}
+
+The measured data show a clear dependence of $g_m$ on device
+geometry, but the trend is not determined by gate length alone. In particular,
+the final two columns (Red and Purple Curves on Figure~\ref{fig:gm_baseline}) share the same nominal gate length of
+\SI{4}{\micro\metre}, but exhibit different transconductance characteristics
+because their ohmic separations are different. This indicates that the
+measured transconductance is influenced not only by the intrinsic gate to
+channel coupling captured by the charge control model, but also by lateral
+access resistance and transport effects associated with the source to drain
+geometry.
+
+\vspace{2mm}
+
+The key implication is that, unlike threshold voltage, transconductance is not
+set solely by the vertical electrostatics beneath the gate. Instead, it
+reflects both the intrinsic electrostatic coupling between the gate and the
+channel, and the broader lateral transport conditions within the device.
+Establishing this baseline behaviour is important for the recessed gate study
+developed in later chapters, since any changes in transconductance must be
+interpreted in the context of both recess induced electrostatic modification
+and geometry dependent transport effects.
+
+\vspace{2mm}
 
 \section{Gate Leakage Behaviour}
 
@@ -168,6 +287,8 @@ Figure~\ref{fig:ig_vds} presents the averaged gate leakage characteristics
 for all fabricated devices, spanning the full range of lateral geometries
 within the array.
 
+\vspace{2mm}
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/electrical_analysis/gate_leakage_average_bulb_off.png}
@@ -177,16 +298,22 @@ within the array.
     \label{fig:ig_vds}
 \end{figure}
 
+\vspace{2mm}
+
 Across the full device set, measured gate leakage currents are of similar
 order of magnitude over the applied drain-bias range, with no strong or
 systematic dependence on gate length or source--drain separation. This
 behaviour suggests that gate leakage is governed primarily by the
 gate--semiconductor interface quality rather than by lateral device dimensions.
 
+\vspace{2mm}
+
 In the unrecessed geometry, the Schottky gate is formed on the GaAs cap layer,
 where a thin native oxide and associated surface states are expected to be
 present. The small spread in leakage observed between columns is therefore most
 plausibly attributed to local variations in interface quality beneath the gate.
+
+\vspace{2mm}
 
 In recessed devices, the gate contacts the AlGaAs donor layer directly,
 introducing a fundamentally different interface. Schottky contacts on AlGaAs
@@ -200,3 +327,35 @@ established here therefore provides a physically meaningful reference: any
 systematic increase in gate leakage observed following recession can be
 attributed to the modified interface rather than to pre-existing geometry
 effects.
+
+\vspace{2mm}
+
+\section{Python-Based Data Processing Workflow}
+
+As the number of electrical measurements increased throughout the project, a
+Python-based analysis workflow was developed to process the exported
+measurement files in a consistent and scalable manner. This reduced reliance
+on manual spreadsheet handling and ensured that device metrics, averaging
+procedures, and figure generation were applied uniformly across the full
+dataset.
+
+\vspace{2mm}
+
+The workflow reads CSV files exported from the Keysight B1500A and
+extracts device metadata from the filename and folder structure created during testing.
+This includes the sample identifier, column, row, recess condition,
+probe station bulb state, and measurement type. The processor was designed
+to handle gate-transfer, output-characteristic, and channel-resistance
+datasets, allowing a common analysis framework to be applied across multiple
+electrical tests.
+
+\vspace{2mm}
+
+The pipeline calculates a range of useful device metrics, including transconductance, 
+threshold voltage, and channel resistance using the extraction methods outlined earlier. 
+It also aggregates repeated  measurements to produce averaged trends for nominally identical 
+devices. In addition to analysing individual devices, the workflow supports direct comparison 
+across different geometries, samples, recess conditions, and illumination states. This 
+is particularly useful in the present study, as it provides a consistent framework 
+for analysing the unrecessed devices in this chapter and later comparing them with 
+the recessed devices introduced in subsequent chapters.
