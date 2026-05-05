@@ -112,11 +112,11 @@ density ($n_s$) in the channel and, consequently, the drain current.
 \label{sec:threshold-voltage}
 
 The distinction between depletion-mode and enhancement-mode operation
-is governed by the threshold voltage $V_{off}$. Within the analytical
+is governed by the threshold voltage $V_{th}$. Within the analytical
 framework of Lee \textit{et al.}~\cite{ivcv-hemt}:
 
 \begin{equation}
-    V_{off} = \phi_b - \Delta E_c - \frac{q N_d d_d^2}{2\varepsilon}
+    V_{th} = \phi_b - \Delta E_c - \frac{q N_d d_d^2}{2\varepsilon}
     \label{eq:threshold_voltage}
 \end{equation}
 
@@ -130,12 +130,12 @@ framework of Lee \textit{et al.}~\cite{ivcv-hemt}:
 \end{quote}
 
 In the unrecessed device, $d_d = 40~\text{nm}$ and the quadratic term
-in Equation~\ref{eq:threshold_voltage} dominates, yielding negative $V_{off}$ values;
+in Equation~\ref{eq:threshold_voltage} dominates, yielding negative $V_{th}$ values;
 the device is normally on and requires a negative gate bias to deplete the
 channel. \cite{Mimura1980} Enhancement-mode operation requires $d_d$ to be
-reduced until $V_{off}$ becomes positive.  
+reduced until $V_{th}$ becomes positive.  
 
-A critical donor layer thickness is derived by setting $V_{off} = 0$ and solving 
+A critical donor layer thickness is derived by setting $V_{th} = 0$ and solving 
 for $d_d$ in Equation~\ref{eq:threshold_voltage}.
 
 \begin{equation}
@@ -188,7 +188,7 @@ The value of $22~\text{nm}$ serves as a theoretical reference rather
 than a precise process target. In this project, multiple device sets are
 fabricated with recess depths spanning approximately $10\text{--}30~\text{nm}$,
 sweeping through the predicted threshold condition. Devices etched below
-$22~\text{nm}$ are expected to exhibit progressively less negative $V_{off}$
+$22~\text{nm}$ are expected to exhibit progressively less negative $V_{th}$
 as $d_d$ decreases; those etched beyond $22~\text{nm}$ should cross into
 enhancement mode. This systematic variation allows the dependence of
 threshold voltage on recess depth to be characterised
@@ -291,15 +291,15 @@ also introduces process and device risks that must be carefully managed.
 
 \vspace{2mm}
 
-\noindent\textbf{Threshold-voltage sensitivity $(V_{off})$}
+\noindent\textbf{Threshold-voltage sensitivity $(V_{th})$}
 
 \vspace{2mm}
 
-\noindent The quadratic dependence of $V_{off}$ on $d_d$
+\noindent The quadratic dependence of $V_{th}$ on $d_d$
 (Equation~\ref{eq:threshold_voltage}) means that small variations in recess
 depth translate directly into shifts in threshold voltage. Near
 $d_{d,\text{crit}}$, a $\pm 2~\text{nm}$ variation in etch depth can shift
-$V_{off}$ by tens of millivolts \cite{ivcv-hemt}.
+$V_{th}$ by tens of millivolts \cite{ivcv-hemt}.
 
 \vspace{2mm}
 
@@ -337,6 +337,6 @@ interface.
 Gate recessing is therefore most effective as a threshold-engineering tool when
 both etch-depth control and interface quality are maintained to a high
 standard. Quantifying this process sensitivity is an explicit objective of this
-work. In particular, the repeatability of the $V_{off}$ and $I_{g}$ metrics
+work. In particular, the repeatability of the $V_{th}$ and $I_{g}$ metrics
 will be assessed across nominally identical devices on the same sample, as well
 as across different samples fabricated at different times.

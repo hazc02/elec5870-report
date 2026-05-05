@@ -2,22 +2,229 @@
 \chapter{Gate Recess Process Engineering}
 \label{ch:gate-recess-process}
 
-This chapter will describe the Semester 2 process innovations that enabled
-precise gate recessing, including calibration structures, etch timing models,
-and oxide management.
+Building on the theoretical framework established in
+Chapter~\ref{ch:technical-background} and the baseline depletion-mode
+devices fabricated and characterised in Chapters~\ref{ch:baseline-process}
+and~\ref{ch:baseline-electrical}, the enhancement-mode phase of this
+project investigates the relationship between gate recess depth and
+threshold voltage ($V_{th}$). The analysis of Chapter~\ref{ch:baseline-electrical} demonstrated that
+$V_{th}$ was not controlled by lateral device geometry, confirming
+that $V_{th}$ engineering must instead be achieved through
+controlled modification of the vertical electrostatics beneath the gate.
 
-\section{Process Objectives}
-Define the targeted recess depths, allowable tolerances, and link to the
-threshold-voltage goals set in Chapter~\ref{ch:introduction}.
+\vspace{1mm}
+
+\section{Process Overview}
+
+The objective of the gate recess process is to fabricate devices in which
+all physical parameters are held constant except for the depth of the recess
+etched beneath the Schottky gate. This isolates the dependence of $V_{th}$ 
+on the remaining AlGaAs donor-layer thickness and enables an
+empirical relationship between recess depth and $V_{th}$ to be
+established.
+
+\vspace{1mm}
+
+The standard depletion-mode fabrication workflow is retained, with the
+addition of a gate recess etch immediately prior to Schottky gate
+metallisation. This etch selectively removes the GaAs cap and thins the AlGaAs
+donor layer beneath the gate, reducing the effective gate-to-channel
+separation and crucially, modifying the electrostatic condition required to fully
+deplete the two-dimensional electron gas at $V_G = 0\,\mathrm{V}$.
+Figure~\ref{fig:gate_recess_process_sequence} illustrates the cross-sectional
+development from the completed ohmic-contact structure, through recess
+formation, to final Schottky gate formation.
+
+\vspace{5mm}
+
+\input{figures/fig-gate-recess-process-sequence.tex}
+
+\vspace{20mm}
+
+\section{Experimental Matrix and Controls}
+
+\vspace{1mm}
+
+The enhancement-mode mask comprises multiple sets of devices, with each set
+targeting a different gate recess depth. Eight target depths were
+allocated from 10~nm to 45~nm in 5~nm increments. This range was selected to
+surround the theoretical threshold condition derived in
+Section~\ref{sec:threshold-voltage}, where the calculated reference depth of
+approximately 22~nm indicates the expected transition from depletion-mode
+towards enhancement-mode operation. Fabricating multiple targeted depths
+therefore allows the electrical behaviour to be investigated below, near, and
+above the predicted threshold condition, rather than relying on a single
+nominal recess depth.
+
+\vspace{1mm}
+
+The devices were arranged across two separate samples processed in parallel,
+with each sample divided into four quadrants. Each quadrant acts as a
+compact process unit containing a repeated device set, as shown in
+Figure~\ref{fig:enhancement_mode_mask_quad}. Within a quadrant, five
+recessed devices share a common target recess depth, alongside one
+unrecessed control device. This structure allows devices exposed to the same
+local lithography, etching, and metallisation conditions to be compared
+directly. The control device in each quadrant provides an internal reference
+against the depletion-mode baseline established in
+Chapter~\ref{ch:baseline-electrical}, allowing global process shifts to be
+separated from changes caused by the intended recess depth.
+
+\vspace{2mm}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/gate_recession/quad_mask.png}
+  \caption{One quadrant of the enhancement-mode HEMT mask, containing five
+  recessed devices and one unrecessed control device.}
+  \label{fig:enhancement_mode_mask_quad}
+\end{figure}
+
+
+Across the two samples, order of recess depths was interleaved between quadrants, as
+shown in Figure~\ref{fig:interleaved_quadrants}. This layout reduces the
+risk that partial sample failure or localised process defects remove all data
+for one region of the recess-depth range. It also simplifies device
+identification during probing and preserves a direct link between each
+measured device and its intended recess depth.
+
+\input{figures/fig-interleaved-quadrants.tex}
+
+\FloatBarrier
+
+\section{Recessed Gate Structure and Electrostatic Control}
+
+The gate recess does not only change the physical gate-to-channel separation;
+it also changes the local band structure beneath the gate. Removing part of
+the silicon-doped AlGaAs donor layer reduces the local positive donor charge
+available above the channel. Qualitatively, this raises the conduction-band
+edge in the recessed region relative to the unrecessed access regions,
+creating a local conduction-band barrier. In order for the recessed device to
+conduct under positive gate bias, the Schottky gate must therefore provide
+electrostatic control over the full recessed region and flatten this barrier
+sufficiently for carrier transport through the channel.
+
+\vspace{1mm}
+
+This requirement affects the gate geometry. If the gate metal were deposited
+only at the base of the trench, the centre of the recess would be controlled,
+but the sidewall and recess-edge regions would remain weakly coupled to the
+gate. These regions could retain residual conduction-band barriers, producing
+non-uniform channel modulation and limiting current flow into the gated
+region. The process was therefore designed so that the gate mask is wider
+than the recess mask. This intentional lateral overlap allows the gate metal
+to fill the trench and extend slightly onto the surrounding cap, producing a
+T-shaped recessed-gate cross-section. The overlap improves electrostatic
+coverage of the trench floor, sidewalls, and recess edges, and reduces
+sensitivity to lithographic misalignment between the recess and gate layers.
+
+\vspace{1mm}
+
+Figure~\ref{fig:gate_overlap_electrostatics} illustrates this design
+rationale. The band-edge sketches are qualitative rather than simulated band
+diagrams, but they show the intended physical interpretation: the
+unmetallised recess in Figure~\ref{fig:gate_overlap_electrostatics}(a)
+introduces a local barrier; the incomplete gate coverage in
+Figure~\ref{fig:gate_overlap_electrostatics}(b) lowers only the centre of
+this barrier; and the overlapping T-gate in
+Figure~\ref{fig:gate_overlap_electrostatics}(c) provides the most uniform
+electrostatic control across the recessed region.
+
+\vspace{5mm}
+
+\input{figures/fig-gate-overlap-electrostatics.tex}
+
+\vspace{1mm}
+
+The use of an overlapping gate was also a practical process requirement. A
+self-aligned gate process was not used because the Schottky gate
+metallisation required a bilayer resist stack to obtain the undercut profile
+needed for lift-off. The recess and gate were therefore patterned in separate
+lithography steps, making finite overlay error unavoidable. Designing the
+gate to be wider than the trench provides the required overlay tolerance
+while preserving the intended electrostatic function of the recessed gate.
+
+\vspace{1mm}
 
 \section{Etch Chemistry Selection and Calibration}
-Report measured etch rates, agitation schemes, and profilometry data for the
-H$_2$SO$_4$:H$_2$O$_2$:H$_2$O solution. Include lessons from calibration chips.
+
+Several etching techniques can be used to implement the gate recess, most
+notably dry plasma etching and wet chemical etching. Dry etching offers
+superior depth control and repeatability \cite{Cadence2024}; however, it
+also introduces increased process complexity, longer development times, and
+the risk of plasma-induced surface damage, which can degrade the
+gate--semiconductor interface and complicate interpretation of electrical
+results \cite{ZAPPE1993227}. Given the exploratory and depth-swept nature of
+this study, an etch process with a wide and forgiving process window was
+preferred.
+
+\vspace{1mm}
+
+For this reason, a wet chemical etch was selected. In particular, a dilute
+sulphuric-acid-based solution was chosen to achieve relatively slow and
+controllable etch rates, ensuring that nanometre-scale timing errors do not
+translate directly into large variations in recess depth and $V_{th}$.
+The selected chemistry was an H$_2$SO$_4$ : H$_2$O$_2$ : H$_2$O
+mixture in the ratio 1 : 1 : 250, which is reported in the literature to
+provide low etch rates in both GaAs and AlGaAs, making it well suited to
+time-controlled recessing of the donor layer \cite{guan_etching}.
+
+\vspace{1mm}
+
+Preliminary etch trials were conducted using this solution to verify its
+suitability for controlled gate recession. Measured etch rates of
+$3.73\,\text{\AA}\,\mathrm{s}^{-1}$ in GaAs and
+$1.61\,\text{\AA}\,\mathrm{s}^{-1}$ in AlGaAs were obtained. These values are in
+close agreement with representative literature data for the same etch
+chemistry, as summarised in Table~\ref{tab:gate_recess_etch_rates}. The
+close correspondence, particularly for AlGaAs, demonstrates that this dilute
+etch provides a stable process window appropriate for systematic variation
+of recess depth \cite{guan_etching}.
+
+\vspace{1mm}
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of literature and experimentally measured etch rates for
+the H$_2$SO$_4$ : H$_2$O$_2$ : H$_2$O = 1 : 1 : 250 wet etch. Literature
+values are taken from reported etch-rate data for GaAs and AlGaAs under
+comparable conditions.}
+\label{tab:gate_recess_etch_rates}
+\begin{tabular}{lcc}
+\toprule
+Material & Literature (\AA/s) & Measured (\AA/s) \\
+\midrule
+GaAs   & 4.52 & 3.73 \\
+AlGaAs & 1.77 & 1.61 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{1mm}
+
+Although the measured GaAs etch rate is modestly lower than the literature
+value, this is plausibly attributable to surface oxides at the beginning of
+the etch. Crucially, the slow etch rates and useful GaAs-to-AlGaAs rate
+difference provide sufficient control to enable reproducible, time-based
+definition of recess depth. This makes the chemistry suitable for an
+empirical investigation of $V_{th}$ sensitivity.
 
 \section{Native Oxide Mitigation}
-Detail the HCl dip procedure, timing constraints, and any surface-analysis
-results.
 
-\section{Mask and Layout Strategy}
-Explain the quadrant-based recess matrix, sample labelling convention, and any
-cleanroom logistics considerations.
+A key challenge associated with wet etching of the AlGaAs donor layer is
+rapid surface oxidation. Aluminium-rich layers readily form stable native
+oxides upon exposure to air \cite{moriarty1992preliminary}, leading to
+non-linear etch behaviour and, if left unaddressed, degradation of the
+Schottky gate interface. This issue is particularly critical for
+enhancement-mode devices, where nanometre-scale variations in the effective
+gate-to-channel separation can produce large shifts in $V_{th}$.
+
+\vspace{1mm}
+
+To mitigate these effects, a brief hydrochloric-acid dip was included as a
+candidate oxide-removal step immediately prior to gate metallisation.
+Minimising the delay between oxide removal and gate metal deposition is
+expected to suppress re-oxidation and improve reproducibility of gate
+behaviour across the device set. This oxide-management step also provides a
+route to separating true recess-depth effects from incubation-delay effects
+caused by native oxide removal at the start of the wet etch.

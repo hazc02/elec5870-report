@@ -1,0 +1,113 @@
+% figures/fig-gate-overlap-electrostatics.tex
+% Gate overlap rationale for electrostatic control of a recessed gate.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\linewidth}{!}{%
+  \begin{tikzpicture}[x=0.82cm, y=0.58cm, >=Stealth, font=\scriptsize]
+
+    \def\w{6.2}
+    \def\hsub{0.75}
+    \def\hchan{0.70}
+    \def\hspacer{0.55}
+    \def\hdonor{0.95}
+    \def\hcap{0.45}
+    \def\ytop{\hsub+\hchan+\hspacer+\hdonor+\hcap}
+    \def\ydonorB{\hsub+\hchan+\hspacer}
+    \def\ycapB{\hsub+\hchan+\hspacer+\hdonor}
+    \def\xrecL{2.15}
+    \def\xrecR{4.05}
+    \def\yfloor{2.55}
+    \def\panelGap{7.7}
+    \def\bandY{-3.00}
+    \def\bandH{1.35}
+    \def\headerY{5.45}
+
+    \path[use as bounding box] (-0.2,-5.05) rectangle (21.8,5.90);
+
+    \newcommand{\drawrecessbase}[1]{%
+      \begin{scope}[shift={(#1,0)}]
+        \fill[gray!15] (0,0) rectangle (\w,\hsub);
+        \fill[blue!8] (0,\hsub) rectangle (\w,\hsub+\hchan);
+        \fill[green!8] (0,\hsub+\hchan) rectangle (\w,\hsub+\hchan+\hspacer);
+        \fill[yellow!20]
+          (0,\ydonorB) -- (\w,\ydonorB) -- (\w,\ycapB) --
+          (\xrecR,\ycapB) -- (\xrecR,\yfloor) --
+          (\xrecL,\yfloor) -- (\xrecL,\ycapB) --
+          (0,\ycapB) -- cycle;
+        \fill[red!15] (0,\ycapB) rectangle (\xrecL,\ytop);
+        \fill[red!15] (\xrecR,\ycapB) rectangle (\w,\ytop);
+        \draw (0,0) rectangle (\w,\hsub);
+        \draw (0,\hsub) rectangle (\w,\hsub+\hchan);
+        \draw (0,\hsub+\hchan) rectangle (\w,\hsub+\hchan+\hspacer);
+        \draw
+          (0,\ydonorB) -- (\w,\ydonorB) -- (\w,\ycapB) --
+          (\xrecR,\ycapB) -- (\xrecR,\yfloor) --
+          (\xrecL,\yfloor) -- (\xrecL,\ycapB) --
+          (0,\ycapB) -- cycle;
+        \draw (0,\ycapB) rectangle (\xrecL,\ytop);
+        \draw (\xrecR,\ycapB) rectangle (\w,\ytop);
+        \draw[blue,line width=0.75pt] (0,\hsub+\hchan) -- (\w,\hsub+\hchan);
+      \end{scope}
+    }
+
+    \newcommand{\drawbandaxes}[1]{%
+      \begin{scope}[shift={(#1,0)}]
+        \draw[->, black!65] (0,\bandY) -- (\w+0.15,\bandY);
+        \draw[->, black!65] (0,\bandY) -- (0,\bandY+\bandH+0.1);
+        \node[anchor=east] at (-0.08,\bandY+\bandH) {$E_C$};
+        \node[anchor=north] at (\w/2,\bandY-0.12) {position across recess};
+      \end{scope}
+    }
+
+    % Column 1: unmetallised recess.
+    \drawrecessbase{0}
+    \begin{scope}[shift={(0,0)}]
+      \node[font=\bfseries] at (\w/2,\headerY) {(a)};
+      \drawbandaxes{0}
+      \draw[red!70!black, line width=0.9pt, smooth]
+        (0.15,\bandY+0.22) .. controls (1.70,\bandY+0.24) and (1.82,\bandY+1.22) ..
+        (3.10,\bandY+1.25) .. controls (4.38,\bandY+1.22) and (4.50,\bandY+0.24) ..
+        (6.05,\bandY+0.25);
+    \end{scope}
+
+    % Column 2: insufficient coverage.
+    \drawrecessbase{\panelGap}
+    \begin{scope}[shift={(\panelGap,0)}]
+      \filldraw[fill=black!80, draw=black]
+        (2.42,\yfloor) .. controls (2.70,\yfloor+0.62) and (3.50,\yfloor+0.66) ..
+        (3.78,\yfloor) -- cycle;
+      \node[anchor=south] at (3.10,\yfloor+0.58) {Gate};
+      \node[font=\bfseries] at (\w/2,\headerY) {(b)};
+      \drawbandaxes{0}
+      \draw[red!70!black, line width=0.9pt, smooth]
+        (0.15,\bandY+0.22) .. controls (1.50,\bandY+0.24) and (1.72,\bandY+1.18) ..
+        (2.35,\bandY+1.12) .. controls (2.66,\bandY+0.42) and (3.54,\bandY+0.42) ..
+        (3.85,\bandY+1.12) .. controls (4.48,\bandY+1.18) and (4.70,\bandY+0.24) ..
+        (6.05,\bandY+0.25);
+    \end{scope}
+
+    % Column 3: overlapping T-gate.
+    \drawrecessbase{2*\panelGap}
+    \begin{scope}[shift={(2*\panelGap,0)}]
+      \filldraw[fill=black!80, draw=black]
+        (\xrecL-0.28,\ytop) -- (\xrecL-0.28,\ytop+0.42) --
+        (\xrecR+0.28,\ytop+0.42) -- (\xrecR+0.28,\ytop) --
+        (\xrecR,\ytop) -- (\xrecR,\yfloor) --
+        (\xrecL,\yfloor) -- (\xrecL,\ytop) -- cycle;
+      \node[anchor=south] at (\w/2,\ytop+0.42) {Gate};
+      \node[font=\bfseries] at (\w/2,\headerY) {(c)};
+      \drawbandaxes{0}
+      \draw[red!70!black, line width=0.9pt, smooth]
+        (0.15,\bandY+0.30) .. controls (1.55,\bandY+0.32) and (2.30,\bandY+0.34) ..
+        (3.10,\bandY+0.32) .. controls (3.90,\bandY+0.34) and (4.65,\bandY+0.32) ..
+        (6.05,\bandY+0.32);
+    \end{scope}
+
+  \end{tikzpicture}%
+  }
+
+  \caption{Recessed device cross-sections with qualitative band diagrams to demonstrate how gate 
+  structure affects the electrostatics.}
+  \label{fig:gate_overlap_electrostatics}
+\end{figure}

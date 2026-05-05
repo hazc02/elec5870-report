@@ -1,0 +1,148 @@
+% figures/fig-gate-recess-process-sequence.tex
+% Cross-sectional sequence for recess formation and gate metallisation.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\linewidth}{!}{%
+  \begin{tikzpicture}[x=0.72cm, y=0.42cm, >=Stealth, font=\scriptsize]
+
+    \def\w{7.2}
+    \def\hsub{1.1}
+    \def\hchan{1.1}
+    \def\hspacer{0.85}
+    \def\hdonor{1.45}
+    \def\hcap{0.70}
+    \def\ytop{\hsub+\hchan+\hspacer+\hdonor+\hcap}
+    \def\ychan{\hsub+\hchan}
+    \def\ydonorB{\hsub+\hchan+\hspacer}
+    \def\ycapB{\hsub+\hchan+\hspacer+\hdonor}
+    \def\ynplus{3.65}
+    \def\xsL{0.65}
+    \def\xsR{1.25}
+    \def\xdL{5.95}
+    \def\xdR{6.55}
+    \def\xrecL{2.7}
+    \def\xrecR{4.5}
+    \def\yfloor{4.35}
+    \def\yfloorB{3.95}
+    \def\headerY{\ytop+2.65}
+
+    % Preserve the extra vertical clearance above the devices after resizing.
+    \path[use as bounding box] (-0.2,-0.2) rectangle (25.9,\headerY+0.4);
+
+    % Common layer stack without recess.
+    \newcommand{\drawflatstack}[1]{%
+      \begin{scope}[shift={(#1,0)}]
+        \fill[gray!15]   (0,0) rectangle (\w,\hsub);
+        \fill[blue!8]    (0,\hsub) rectangle (\w,\hsub+\hchan);
+        \fill[green!8]   (0,\hsub+\hchan) rectangle (\w,\hsub+\hchan+\hspacer);
+        \fill[yellow!20] (0,\ydonorB) rectangle (\w,\ycapB);
+        \fill[red!15]    (0,\ycapB) rectangle (\w,\ytop);
+        \fill[orange!35] (\xsL,\ynplus) rectangle (\xsR,\ytop);
+        \fill[orange!35] (\xdL,\ynplus) rectangle (\xdR,\ytop);
+        \draw (0,0) rectangle (\w,\hsub);
+        \draw (0,\hsub) rectangle (\w,\hsub+\hchan);
+        \draw (0,\hsub+\hchan) rectangle (\w,\hsub+\hchan+\hspacer);
+        \draw (0,\ydonorB) rectangle (\w,\ycapB);
+        \draw (0,\ycapB) rectangle (\w,\ytop);
+        \draw[blue,line width=0.8pt] (0,\ychan) -- (\w,\ychan);
+        \draw[dashed, black!65, line width=0.4pt]
+          (\xsL,\ynplus) -- (\xsL,\ytop)
+          (\xsR,\ynplus) -- (\xsR,\ytop)
+          (\xsL,\ynplus) -- (\xsR,\ynplus)
+          (\xdL,\ynplus) -- (\xdL,\ytop)
+          (\xdR,\ynplus) -- (\xdR,\ytop)
+          (\xdL,\ynplus) -- (\xdR,\ynplus);
+        \filldraw[fill=gray!55, draw=black] (\xsL,\ytop) rectangle (\xsR,\ytop+0.50);
+        \filldraw[fill=gray!55, draw=black] (\xdL,\ytop) rectangle (\xdR,\ytop+0.50);
+        \node[anchor=south] at ({(\xsL+\xsR)/2},\ytop+0.50) {S};
+        \node[anchor=south] at ({(\xdL+\xdR)/2},\ytop+0.50) {D};
+      \end{scope}
+    }
+
+    % Common layer stack with etched recess but no gate.
+    \newcommand{\drawrecessedstack}[2]{%
+      \begin{scope}[shift={(#1,0)}]
+        \fill[gray!15]   (0,0) rectangle (\w,\hsub);
+        \fill[blue!8]    (0,\hsub) rectangle (\w,\hsub+\hchan);
+        \fill[green!8]   (0,\hsub+\hchan) rectangle (\w,\hsub+\hchan+\hspacer);
+        \fill[yellow!20]
+          (0,\ydonorB) -- (\w,\ydonorB) -- (\w,\ycapB) --
+          (\xrecR,\ycapB) -- (\xrecR,#2) --
+          (\xrecL,#2) -- (\xrecL,\ycapB) --
+          (0,\ycapB) -- cycle;
+        \fill[red!15] (0,\ycapB) rectangle (\xrecL,\ytop);
+        \fill[red!15] (\xrecR,\ycapB) rectangle (\w,\ytop);
+        \fill[orange!35] (\xsL,\ynplus) rectangle (\xsR,\ytop);
+        \fill[orange!35] (\xdL,\ynplus) rectangle (\xdR,\ytop);
+        \draw (0,0) rectangle (\w,\hsub);
+        \draw (0,\hsub) rectangle (\w,\hsub+\hchan);
+        \draw (0,\hsub+\hchan) rectangle (\w,\hsub+\hchan+\hspacer);
+        \draw
+          (0,\ydonorB) -- (\w,\ydonorB) -- (\w,\ycapB) --
+          (\xrecR,\ycapB) -- (\xrecR,#2) --
+          (\xrecL,#2) -- (\xrecL,\ycapB) --
+          (0,\ycapB) -- cycle;
+        \draw (0,\ycapB) rectangle (\xrecL,\ytop);
+        \draw (\xrecR,\ycapB) rectangle (\w,\ytop);
+        \draw[blue,line width=0.8pt] (0,\ychan) -- (\w,\ychan);
+        \draw[dashed, black!65, line width=0.4pt]
+          (\xsL,\ynplus) -- (\xsL,\ytop)
+          (\xsR,\ynplus) -- (\xsR,\ytop)
+          (\xsL,\ynplus) -- (\xsR,\ynplus)
+          (\xdL,\ynplus) -- (\xdL,\ytop)
+          (\xdR,\ynplus) -- (\xdR,\ytop)
+          (\xdL,\ynplus) -- (\xdR,\ynplus);
+        \filldraw[fill=gray!55, draw=black] (\xsL,\ytop) rectangle (\xsR,\ytop+0.50);
+        \filldraw[fill=gray!55, draw=black] (\xdL,\ytop) rectangle (\xdR,\ytop+0.50);
+        \node[anchor=south] at ({(\xsL+\xsR)/2},\ytop+0.50) {S};
+        \node[anchor=south] at ({(\xdL+\xdR)/2},\ytop+0.50) {D};
+      \end{scope}
+    }
+
+    % Stage 1: after ohmic formation.
+    \drawflatstack{0}
+    \begin{scope}[shift={(0,0)}]
+      \node[font=\bfseries] at (\w/2,\headerY) {(a) After ohmic contact formation};
+      \node at (\w/2,\hsub/2) {GaAs substrate};
+      \node at (\w/2,\hsub+\hchan/2) {GaAs channel};
+      \node at (\w/2,\hsub+\hchan+\hspacer/2) {AlGaAs spacer};
+      \node at (\w/2,\ydonorB+\hdonor/2) {Si-doped AlGaAs donor};
+      \node at (\w/2,\ycapB+\hcap/2) {n$^{+}$ GaAs cap};
+    \end{scope}
+
+    % Stage 2: recess etched.
+    \drawrecessedstack{9.3}{\yfloorB}
+    \begin{scope}[shift={(9.3,0)}]
+      \node[font=\bfseries] at (\w/2,\headerY) {(b) Gate recess etched};
+      \node[anchor=north, fill=white, inner sep=1pt] at (\w/2,\headerY-0.45)
+        {cap removed, donor thinned};
+    \end{scope}
+
+    % Stage 3: gate metallisation.
+    \drawrecessedstack{18.6}{\yfloor}
+    \begin{scope}[shift={(18.6,0)}]
+      \filldraw[fill=black!80, draw=black]
+        (\xrecL-0.25,\ytop) -- (\xrecL-0.25,\ytop+0.55) --
+        (\xrecR+0.25,\ytop+0.55) -- (\xrecR+0.25,\ytop) --
+        (\xrecR,\ytop) -- (\xrecR,\yfloor) --
+        (\xrecL,\yfloor) -- (\xrecL,\ytop) -- cycle;
+      \node[anchor=south] at (\w/2,\ytop+0.55) {Gate};
+      \node[font=\bfseries] at (\w/2,\headerY) {(c) Schottky gate deposited};
+    \end{scope}
+
+    % Process arrows.
+    \draw[->, line width=0.7pt] (7.6,3.6) -- (8.9,3.6);
+    \node[align=center, fill=white, inner sep=1.5pt] at (8.25,4.55) {wet\\etch};
+    \draw[->, line width=0.7pt] (16.9,3.6) -- (18.2,3.6);
+    \node[align=center, fill=white, inner sep=1.5pt] at (17.55,4.55) {gate\\metal};
+
+  \end{tikzpicture}%
+  }
+
+  \caption{Cross-sectional process sequence for forming the recessed-gate
+  enhancement-mode HEMT: the completed ohmic-contact structure is locally
+  etched beneath the future gate position, after which the Schottky gate metal
+  is deposited into the recess. The schematic is not to scale.}
+  \label{fig:gate_recess_process_sequence}
+\end{figure}
