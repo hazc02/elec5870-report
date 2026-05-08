@@ -1,9 +1,9 @@
 % figures/fig-gate-recess-process-sequence.tex
 % Cross-sectional sequence for recess formation and gate metallisation.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
-  \resizebox{\linewidth}{!}{%
+  \resizebox{0.96\linewidth}{!}{%
   \begin{tikzpicture}[x=0.72cm, y=0.42cm, >=Stealth, font=\scriptsize]
 
     \def\w{7.2}
@@ -25,10 +25,10 @@
     \def\xrecR{4.5}
     \def\yfloor{4.35}
     \def\yfloorB{3.95}
-    \def\headerY{\ytop+2.65}
+    \def\headerY{\ytop+2.10}
 
     % Preserve the extra vertical clearance above the devices after resizing.
-    \path[use as bounding box] (-0.2,-0.2) rectangle (25.9,\headerY+0.4);
+    \path[use as bounding box] (-0.2,-0.2) rectangle (25.9,\headerY+0.25);
 
     % Common layer stack without recess.
     \newcommand{\drawflatstack}[1]{%
@@ -140,9 +140,8 @@
   \end{tikzpicture}%
   }
 
-  \caption{Cross-sectional process sequence for forming the recessed-gate
-  enhancement-mode HEMT: the completed ohmic-contact structure is locally
-  etched beneath the future gate position, after which the Schottky gate metal
-  is deposited into the recess. The schematic is not to scale.}
+  \vspace{1mm}
+  \caption{Cross-sectional sequence for forming the recessed-gate
+  enhancement-mode HEMT between ohmic contact and gate formation.}
   \label{fig:gate_recess_process_sequence}
 \end{figure}

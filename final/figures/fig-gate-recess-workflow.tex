@@ -1,0 +1,64 @@
+% ------------------------------------------------------------
+% File: figures/fig-gate-recess-workflow.tex
+% Simplified process-flow diagram showing insertion of gate recess etch.
+% ------------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    x=0.86cm,
+    y=0.88cm,
+    procstep/.style={
+      draw=black!65,
+      rounded corners=2pt,
+      fill=black!5,
+      line width=0.45pt,
+      minimum width=2.05cm,
+      minimum height=0.68cm,
+      align=center,
+      font=\scriptsize,
+      inner xsep=4pt
+    },
+    recess/.style={
+      draw=red!75!black,
+      rounded corners=2pt,
+      fill=red!8,
+      line width=0.8pt,
+      minimum width=2.05cm,
+      minimum height=0.68cm,
+      align=center,
+      font=\scriptsize\bfseries,
+      inner xsep=4pt
+    },
+    arr/.style={
+      -{Stealth[length=2.2mm]},
+      line width=0.55pt,
+      draw=black!60
+    }
+  ]
+    \node[procstep] (mesa) at (0,0) {Mesa\\formation};
+    \node[procstep] (ohmic) at (2.65,0) {Ohmic contact\\formation};
+    \node[recess] (recess) at (5.30,0) {Gate recess\\etch};
+    \node[procstep] (gate) at (7.95,0) {Schottky gate\\formation};
+    \node[procstep] (test) at (10.60,0) {Electrical\\testing};
+
+    \draw[arr] (mesa.east) -- (ohmic.west);
+    \draw[arr] (ohmic.east) -- (recess.west);
+    \draw[arr] (recess.east) -- (gate.west);
+    \draw[arr] (gate.east) -- (test.west);
+
+    \draw[
+      red!75!black,
+      dashed,
+      line width=0.55pt,
+      rounded corners=3pt
+    ] ($(recess.north west)+(-0.15,0.14)$)
+      rectangle
+      ($(recess.south east)+(0.15,-0.14)$);
+  \end{tikzpicture}
+
+  \vspace{1mm}
+  \caption{Simplified enhancement-mode process flow, showing the gate recess
+  etch inserted between ohmic contact and Schottky gate formation.}
+  \label{fig:gate_recess_workflow}
+\end{figure}
