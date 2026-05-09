@@ -113,7 +113,7 @@ gate. These regions could retain residual conduction-band barriers, producing
 non-uniform channel modulation and limiting current flow into the gated
 region. The process was therefore designed so that the gate mask is wider
 than the recess mask. This intentional lateral overlap allows the gate metal
-to fill the trench and extend slightly onto the surrounding cap, producing a
+to fill the trench and extend slightly onto the surrounding GaAs cap, producing a
 T-shaped recessed-gate cross-section. The overlap improves electrostatic
 coverage of the trench floor, sidewalls, and recess edges, and reduces
 sensitivity to lithographic misalignment between the recess and gate layers.
@@ -167,93 +167,117 @@ sulphuric-acid-based solution was chosen to achieve relatively slow and
 controllable etch rates, reducing the sensitivity of the process to timing
 uncertainty. The selected chemistry was an H$_2$SO$_4$ : H$_2$O$_2$ :
 H$_2$O mixture in the ratio 1 : 1 : 250, which is reported in the
-literature to provide low etch rates in both GaAs and AlGaAs, making it
-well suited to time-controlled recessing of the donor layer
-\cite{guan_etching}.
+literature to provide low etch rates in both GaAs
+($0.452\,\mathrm{nm\,s}^{-1}$) and AlGaAs
+($0.177\,\mathrm{nm\,s}^{-1}$) \cite{guan_etching}. The lower reported
+AlGaAs rate was particularly attractive because the donor layer is the
+depth-critical region of the recess; a slower AlGaAs etch was expected to
+increase the process tolerance once the GaAs cap had been removed.
 
 \vspace{1mm}
 
-To characterise the etch behaviour of this chemistry under the specific
-conditions of this work, a calibration procedure was carried out in which
-three independently processed samples were subjected to a structured sequence
-of timed etch steps of increasing duration: 5\,s, 10\,s, 15\,s, 30\,s,
-and 60\,s. The cumulative etch depth was measured by AlphaStep
-profilometry after each interval. The resulting etch curves are presented in
-Figure~\ref{fig:etch_calibration}(a). Rather than following a single
-constant-rate trajectory, the untreated samples show a clear dependence on the
-duration of each etch interval. Material removal is strongly suppressed for
-the shortest steps, before increasing as the interval duration is
-extended. This behaviour indicates that the apparent etch rate is not governed
-only by the intrinsic GaAs or AlGaAs etch rate, but also by an additional
+To characterise the etching behaviour of this chemistry, a series calibration 
+etches were carried out in which three independently processed samples were 
+subjected to a structured sequence of timed etch intervals of increasing duration: 
+5\,s, 10\,s, 15\,s, 30\,s, and 60\,s. The cumulative etch depth was measured 
+by with the Alpha-Step profiler after each interval. \cite{leedscleanroom_equipment} 
+
+\vspace{1mm}
+
+The resulting etch curves are presented in Figure~\ref{fig:etch_calibration}(a). 
+Rather than following a single constant-rate trajectory, etch rates
+demonstrated a clear dependence on the duration of each etch interval. 
+The etch rates were strongly suppressed for the shortest intervals, 
+before increasing as the interval duration is extended. This behaviour 
+indicates that the apparent etch rate governed not only by the 
+intrinsic GaAs or AlGaAs etch rate, but also by an additional
 time-dependent process at the semiconductor surface.
 
 \input{figures/fig-etch-calibration.tex}
 
-This interval dependence is shown more directly in
-Figure~\ref{fig:etch_calibration}(b), where the mean apparent etch rate is
-defined as the mean depth increment per step divided by the interval duration.
-The apparent rate rises with interval duration, from near zero at
-5\,s to approximately $0.36\,\mathrm{nm\,s}^{-1}$ at 60\,s. Even at the
+Figure~\ref{fig:etch_calibration}(b) makes this interval dependence explicit
+by plotting the mean apparent etch rate for each interval duration. The apparent
+rate rises from near zero at 5\,s to approximately
+$0.36\,\mathrm{nm\,s}^{-1}$ at 60\,s. Even at the
 longest interval tested, the measured rate remains below the reported GaAs
 rate of $0.452\,\mathrm{nm\,s}^{-1}$ for this chemistry \cite{guan_etching}.
 This provides the key calibration result: the recess depth cannot be predicted
-reliably from the nominal literature etch rate alone, particularly for the
-short etch times relevant to shallow donor recessing.
+reliably from the literature etch rate alone, particularly for the
+short etch times relevant to shallow gate-recess etching.
 
 \FloatBarrier
 
 \section{Native Oxide Incubation and Mitigation}
+\label{sec:native_oxide_mitigation}
 
-The interval dependence is attributed to native oxide incubation. Each time a
-sample is removed from solution for profilometry, the freshly etched GaAs or
-AlGaAs surface is exposed to ambient air, allowing a native oxide layer of
-approximately $2$--$3\,\mathrm{nm}$ to reform \cite{moriarty1992preliminary}.
-At the start of the next H$_2$SO$_4$ : H$_2$O$_2$ : H$_2$O etch step, this
-oxide must be dissolved before the underlying semiconductor is etched. The
-oxide-removal period therefore consumes part of the timed interval without
-producing a corresponding reduction in semiconductor thickness. This explains
-why the 5\,s intervals produce negligible measured depth, why the 10\,s
-intervals remain strongly suppressed, and why the apparent rate increases as
-the etch interval becomes longer.
+The dependence of apparent etch rate on interval duration is attributed to
+native oxide formation. Each time a sample is removed for profilometry, the
+freshly etched GaAs or AlGaAs surface is exposed to air and a native oxide can
+reform \cite{moriarty1992preliminary}. At the start of the next etch, this
+oxide must be dissolved before semiconductor removal resumes, consuming part of
+the timed interval without reducing the semiconductor thickness. This accounts
+for the negligible 5\,s depths, the suppressed 10\,s depths, and the increase
+in apparent rate at longer intervals.
+
+\vspace{1mm}
+
+This effect is more significant once the etch reaches the AlGaAs donor layer.
+AlGaAs forms more persistent native oxides than GaAs because aluminium readily
+oxidises to Al$_2$O$_3$, alongside Ga$_2$O$_3$ and
+As$_2$O$_3$~\cite{Passlack,bessolov1998chalcogenide}. The Al$_2$O$_3$
+component is more chemically stable than the oxides formed on pure GaAs. Since
+sulphuric-acid and peroxide-based etchants remove material through an
+oxidation--dissolution process, with peroxide oxidising the surface and acid
+dissolving the oxide~\cite{notten1991mechanism}, an air-grown Al-rich oxide can
+temporarily inhibit semiconductor removal and lower the apparent rate in short
+etch intervals.
 
 \vspace{1mm}
 
 To test this hypothesis, a brief hydrochloric acid pre-dip
-(HCl : H$_2$O = 1 : 5) was introduced immediately prior to each etch
-interval on two additional samples, with the aim of chemically stripping the
-native oxide before the sulphuric acid etch commenced. The effect on the
-cumulative etch depth is shown in Figure~\ref{fig:hcl_etch_calibration}(a),
-which compares the mean cumulative depth of the HCl-dipped samples ($n = 2$)
-against that of the untreated samples ($n = 3$), with shaded bands indicating
-the full inter-sample range in each case. The HCl-dipped samples display a
-more linear cumulative-depth trajectory from the earliest intervals, while the
-untreated samples retain the shallow initial response associated with oxide
-incubation. The narrower shaded band for the HCl-dipped samples also indicates
-improved uniformity between samples.
+(HCl : H$_2$O = 1 : 5) was introduced immediately before each etch interval on
+two additional samples to strip the native oxide before the sulphuric acid etch.
+Figure~\ref{fig:hcl_etch_calibration}(a) compares the mean cumulative depth of
+the HCl-dipped samples ($n = 2$) with the untreated samples ($n = 3$), with
+shaded bands showing the full inter-sample range. 
+
+\vspace{1mm}
+
+The HCl-dipped samples show a more linear etch rate from the 
+earliest intervals, whereas the untreated samples retain the initial 
+slower etch rates associated with oxide incubation. 
+The narrower shaded band also indicates improved uniformity.
 
 \input{figures/fig-hcl-etch-calibration.tex}
 
-The corresponding apparent-rate comparison is presented in
-Figure~\ref{fig:hcl_etch_calibration}(b). With the HCl pre-dip, the
-apparent rate is much less dependent on the chosen interval duration and the
-short-interval rates are substantially increased. The extracted rates approach
-the reported GaAs value despite the etch extending into AlGaAs, whose wet etch
-rate is normally reduced by oxide-mediated surface inhibition
-\cite{guan_etching}. This is consistent with the combined effect of the HCl
-pre-dip and agitation during etching: the HCl removes the native oxide before
-the timed etch begins, while agitation helps prevent oxide or reaction-product
-build-up at the surface and continually supplies fresh etchant to the recessed
-region. Under these conditions, the effective AlGaAs etch behaviour becomes
-closer to the GaAs rate than would be expected for a static, oxide-limited
-etch.
+The apparent-rate comparison in Figure~\ref{fig:hcl_etch_calibration}(b) shows
+that the HCl pre-dip reduces the dependence on interval duration and
+substantially increases the short-interval rates. 
+
+\vspace{1mm}
+
+Interestingly, it also shows that the etchant is less selective between GaAs 
+and AlGaAs than expected. Once the etching extends beyond the 10\,nm GaAs cap, 
+a reduction towards the reported AlGaAs rate of $0.177\,\mathrm{nm\,s}^{-1}$ might be expected
+\cite{guan_etching}. Instead, the rates remain closer to the reported GaAs
+value, indicating that the AlGaAs layer did not produce the anticipated rate
+reduction.
+
+\vspace{1mm}
+
+This difference is consistent with the role of agitation. The lower AlGaAs rate
+reported in the literature is associated with more stable Al-rich oxide
+formation, however, that study did not agitate the samples. In this work, consistent
+manual agitation transports fresh etchant to the surface and remove
+oxide-containing reaction products from the recessed region. This is a theory as to why the 
+HCl-treated samples remained fairly linear through the GaAs cap and into the AlGaAs donor layer, but also shows
+that depth control cannot rely on strong GaAs/AlGaAs selectivity under these
+agitation conditions.
 
 Taken together, these results justify incorporating the HCl oxide-removal step
 and controlled agitation into the gate recess process. The revised procedure
-improves the linearity of depth with etch time and reduces the sample-to-sample
-spread, both of which are essential for a depth sweep through a thin donor
-layer. The calibrated process therefore provides a more reliable basis for
-fabricating recessed-gate devices with deliberately varied threshold-voltage
-targets.
+improves depth linearity by presenting a cleaner semiconductor surface for the
+etchant to attack immediately.
 
 \vspace{1mm}
 

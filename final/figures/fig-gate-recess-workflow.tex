@@ -6,7 +6,7 @@
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[
-    x=0.86cm,
+    x=0.84cm,
     y=0.88cm,
     procstep/.style={
       draw=black!65,
@@ -37,10 +37,10 @@
     }
   ]
     \node[procstep] (mesa) at (0,0) {Mesa\\formation};
-    \node[procstep] (ohmic) at (2.65,0) {Ohmic contact\\formation};
-    \node[recess] (recess) at (5.30,0) {Gate recess\\etch};
-    \node[procstep] (gate) at (7.95,0) {Schottky gate\\formation};
-    \node[procstep] (test) at (10.60,0) {Electrical\\testing};
+    \node[procstep] (ohmic) at (3.00,0) {Ohmic contact\\formation};
+    \node[recess] (recess) at (6.00,0) {Gate recess\\etch};
+    \node[procstep] (gate) at (9.00,0) {Schottky gate\\formation};
+    \node[procstep] (test) at (12.00,0) {Electrical\\testing};
 
     \draw[arr] (mesa.east) -- (ohmic.west);
     \draw[arr] (ohmic.east) -- (recess.west);
