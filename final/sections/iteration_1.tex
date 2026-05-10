@@ -1,17 +1,298 @@
 % !TEX root = ../final-main.tex
-\chapter{Enhancement-Mode Iteration 1: Fabrication and Results}
+\chapter{Enhancement-Mode Iteration 1}
 \label{ch:iteration-1}
 
-\section{Fabrication Process}
-% Describe the Iteration 1 mask design, the recess etch step as integrated into
-% the standard workflow, and any observations during fabrication.
+\section{Iteration 1 Process Plan}
+
+Iteration 1 represented the first full device-level implementation of the
+gate-recess process developed in Chapter~\ref{ch:gate-recess-process}. The
+objective was to introduce a controlled recess beneath the Schottky gate while
+retaining the established mesa isolation, ohmic contact formation, and gate
+metallisation process used for the baseline depletion-mode devices.
+
+\vspace{1mm}
+
+The two enhancement-mode samples were initially processed together through the
+common fabrication stages of mesa definition and ohmic contact formation (Figure~\ref{fig:mesa-liftoff}). 
+This ensured that all quadrants shared an identical starting structure prior to the
+recess and gate formation stages.
+
+\vspace{1mm}
+
+Ensuring efficient use of cleanroom time; two quadrants, across the two samples were processed 
+in parallel at the same time, requiring four repeated cycles of recess lithography, recess 
+etching, gate lithography, and gate deposition to complete the full device set across eight quadrants.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{figures/fabrication_images/enhancement_mode_images/mesa_etch_2-cropped.jpg}
+  \includegraphics[width=0.48\linewidth]{figures/fabrication_images/enhancement_mode_images/ohmic_liftoff_2-cropped.jpg}
+  \vspace{3pt}
+  \caption{Mesa Formation and Ohmic Contact Development for the Enhancement
+  Mode Device Set}
+  \label{fig:mesa-liftoff}
+\end{figure}
+
+Each quadrant pair therefore represented an independent fabrication run,
+including its own recess etch, gate formation process, and subsequent
+electrical characterisation. Each quadrant pair
+required approximately two days of processing. Consequently, variation between
+quadrant pairs may reflect not only the intended recess-depth differences, but
+also small run-to-run process variations introduced during the repeated
+fabrication sequence.
+
+\vspace{1mm}
+
+This chapter focuses on the two device sets from the first
+iteration of recessed devices. These were designed with nominal recess targets
+of \SI{25}{\nano\metre} and \SI{30}{\nano\metre}, chosen to lie close to and
+above the theoretical threshold depth derived in
+Section~\ref{sec:threshold-voltage}. If the recess process behaved as intended,
+these devices were expected to show a substantial positive shift in threshold
+voltage relative to the unrecessed depletion mode devices.
+
+\vspace{2mm}
+
+\section{Mask Geometry and Intended Operation}
+
+The Iteration 1 mask introduced the gate recess etch as two narrow slit
+openings positioned between the source and drain contacts. These slits were
+placed along the direct path between source and drain, so that the
+material beneath the intended gate region could be locally recessed while
+leaving the surrounding HEMT structure unchanged.
+
+\vspace{1mm}
+
+As discussed previously, the gate mask was deliberately designed to be wider 
+than the recess etch mask, extending the mask by \SI{0.5}{\micro\metre} 
+beyond the recess opening on either side. 
+This overlap was included for the reason discussed in
+Chapter~\ref{ch:gate-recess-process}: the gate metal must cover the etched
+trench rather than sitting only on the original semiconductor surface. By
+making the gate wider than the recess slit, the process allowed for alignment
+tolerance between the recess lithography and the gate lithography while still
+ensuring that the gate covered the recessed region.
+
+\vspace{4mm}
+
+\input{figures/fig-iteration-1-mask-popout.tex}
+
+\vspace{1mm}
+
+\section{Recess Etch Measurements}
+
+After the recess etch, the etched depths were measured using the Alpha-Step
+surface profiler. The measured depths were substantially greater than the
+nominal design targets. The quadrant targeting a
+\SI{25}{\nano\metre} recess produced a measured depth of
+\SI{53}{\nano\metre}, while the quadrant targeting a
+\SI{30}{\nano\metre} recess produced a measured depth of
+\SI{65}{\nano\metre}.
+
+\vspace{2mm}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Nominal and measured recess depths for the Iteration 1 devices.}
+    \label{tab:iteration_1_recess_depths}
+    \small
+    \begin{tabular}{c c}
+        \toprule
+        Nominal target depth & Measured Alpha-Step depth \\
+        \midrule
+        \SI{25}{\nano\metre} & \SI{53}{\nano\metre} \\
+        \SI{30}{\nano\metre} & \SI{65}{\nano\metre} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\vspace{2mm}
+
+Both measured depths exceeded the theoretical recess depth of approximately
+\SI{22}{\nano\metre} calculated in Chapter~\ref{ch:technical-background}.
+The measured depths were also greater than the donor-layer thickness (\SI{40}{\nano\metre})
+remaining above the spacer. On this basis, the
+expected outcome after the Alpha-Step measurement was not simply a positive
+threshold-voltage shift, but the possibility that the active donor layer
+beneath the recessed gate had been completely removed. If this had occurred
+across the effective source--drain path, the devices were not expected to
+function.
+
+\vspace{4mm}
+\input{figures/fig-gate-recess-microscopy-popout.tex}
+
+\vspace{1mm}
+
+The measured depths also showed that the practical etch rate during Iteration 1
+was higher than expected from the preceding calibration work.
+
+\section{Gate Formation and Optical Inspection}
+Following the recess etch, the gates were fabricated using the same
+lithography and metallisation process developed for the unrecessed baseline
+devices. The only modification to the process flow was the introduction of a
+dilute HCl dip immediately prior to metal evaporation.
+
+\vspace{1mm}
+
+As discussed in Chapter~\ref{ch:gate-recess-process}, dilute HCl can be used
+to remove native oxides from semiconductor surfaces prior to processing.
+In this case, the previous recess etch step exposed the AlGaAs barrier layer within the gate
+region, upon which native oxides readily reform when exposed to air~\todobib.
+The HCl dip was therefore introduced immediately prior to gate deposition to
+improve the quality of the gate-semiconductor interface before Ti/Au evaporation.
+
+\vspace{1mm}
+
+\input{figures/fig-recessed-gate-microscopy-popout.tex}
+
+\vspace{1mm}
+
+\FloatBarrier
 
 \section{Electrical Results}
-% Present ID--VDS and ID--VG data. Key finding: device characteristics similar to
-% unrecessed baseline, with increased gate leakage. Explain the bypass current path
-% issue -- the recess trench did not span the full drain--source width, allowing
-% current to flow around the recessed region.
 
-\section{Analysis and Diagnosis}
-% Explain why the recess had no measurable effect on threshold voltage.
-% Identify the mask design flaw and motivate the changes made in Iteration 2.
+The electrical behaviour of the Iteration 1 devices was surprising
+in two different aspects. First, despite measured recess depths of \SI{53}{\nano\metre}
+and \SI{65}{\nano\metre}, the devices still functioned as transistors. This
+was already unexpected, since the etch measurements suggested that the donor
+layer beneath the intended gate region may have been removed too deeply for a
+normal conducting channel to remain.
+
+\vspace{1mm}
+
+The second, more significant surprise was that the devices did not merely
+function: they continued to behave as depletion-mode HEMTs. A recess this deep
+should have made the gate region dominate the transfer behaviour, either by
+strongly shifting the threshold voltage positive or killing the devices by preventing conduction
+through the recessed path. The persistence of normally-on behaviour therefore
+indicated that the characteristics of the HEMTs were not being dominated by the
+recessed gate region.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\hspace*{-0.04\linewidth}\includegraphics[width=0.9\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_1/65nm_gate_transfer.png}}
+  \makebox[\linewidth][c]{\hspace*{-0.04\linewidth}\includegraphics[width=0.9\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_1/65nm_output.png}}
+  \vspace{3pt}
+  \caption{Iteration 1 electrical comparison between the \SI{65}{\nano\metre}
+  recessed device and the unrecessed control device from the same quadrant.}
+  \label{fig:iteration1-analysis}
+\end{figure}
+
+Figure~\ref{fig:iteration1-analysis} compares the device recessed to
+\SI{65}{\nano\metre} with the unrecessed control device from the same
+quadrant. The immediate observation is that the recess did not produce the
+expected positive shift in threshold voltage. The recessed device still
+required negative gate bias to suppress the channel current, so it remained a
+depletion-mode device rather than becoming enhancement-mode.
+
+\vspace{1mm}
+
+The main difference introduced by the recess was instead a reduction in drain
+current. Across the measured output and transfer characteristics, the
+\SI{65}{\nano\metre} recessed device conducted substantially less current than
+the unrecessed control. From the gate-transfer curve at
+$V_{DS}=\SI{2}{\volt}$, the recessed device reached approximately
+\SI{1.6}{\milli\ampere} at $V_G=\SI{0}{\volt}$, compared with approximately
+\SI{5.8}{\milli\ampere} for the unrecessed control. This corresponds to a
+reduction of roughly \SI{70}{\percent} in the measured drain current at zero
+gate bias.
+
+The same trend is visible in the output characteristics. At
+$V_{DS}=\SI{5}{\volt}$ and $V_G=\SI{0}{\volt}$, the unrecessed control carried
+approximately \SI{5.6}{\milli\ampere}, while the recessed device carried only
+approximately \SI{1.5}{\milli\ampere}. At $V_G=\SI{-0.3}{\volt}$, the current
+was reduced from approximately \SI{3.9}{\milli\ampere} in the control device
+to approximately \SI{1.0}{\milli\ampere} in the recessed device. These
+reductions are consistent with removal of donor material from part of the
+source--drain path: reducing the available donor charge reduces the carrier
+density available for transport, lowering $I_D$ even though the overall
+threshold behaviour remains depletion-mode.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\hspace*{-0.04\linewidth}\includegraphics[width=0.9\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_1/53nm_65nm_gate_transfer.png}}
+  \caption{Iteration 1 gate-transfer comparison between the
+  \SI{53}{\nano\metre} and \SI{65}{\nano\metre} recessed devices.}
+  \label{fig:iteration1-analysis-53nm-65nm}
+\end{figure}
+
+Figure~\ref{fig:iteration1-analysis-53nm-65nm} investigates this current
+reduction further by comparing the two different recessed depths. The
+\SI{53}{\nano\metre} recessed device produced higher drain current than the
+\SI{65}{\nano\metre} recessed device, indicating that additional material
+removal did reduce the conducting charge available in the device. This trend
+supports the interpretation that the recess was electrically active and that
+the reduced current was not simply a measurement artefact.
+
+At $V_G=\SI{0}{\volt}$ and $V_{DS}=\SI{2}{\volt}$, the
+\SI{53}{\nano\metre} recessed device reached approximately
+\SI{2.2}{\milli\ampere}, whereas the \SI{65}{\nano\metre} recessed device
+reached approximately \SI{1.6}{\milli\ampere}. The shallower recess therefore
+carried around \SI{0.6}{\milli\ampere} more current, or approximately
+\SI{40}{\percent} more than the deeper recessed device at the same bias point.
+
+However, both recessed devices still showed negative threshold voltages. The
+recess depth therefore influenced the magnitude of the drain current, but the
+gate was not dominating the device characteristics in the way expected for a
+fully recessed source--drain path. The electrical data therefore created a
+clear contradiction: the recess was deep enough to reduce current, but not
+able to determine the threshold behaviour. This contradiction motivated a
+closer examination of the lateral recess geometry.
+
+\FloatBarrier
+
+\section{Iteration Failure Analysis}
+
+Although the excessive recess depth was not the intended process outcome, it
+became diagnostically useful. The measured depths suggested that the donor
+layer beneath the intended gate region may have been removed too deeply for a
+normal channel to remain. If that recessed region had controlled the complete
+source--drain path, the devices would be expected to show strongly suppressed
+conduction or fail to operate. Instead, functioning depletion-mode HEMTs were
+measured. This made clear that the current gate-recess geometry was not able
+to fully dominate the electrical characteristics of the device.
+
+The primary failure mechanism was therefore the lateral geometry of the recess
+itself. Although the recess slits were positioned between source and drain,
+they did not span the full active conduction region controlled by the gate. As
+a result, portions of the source--drain path remained unrecessed.
+
+In these unrecessed regions, the original GaAs/AlGaAs heterostructure was left
+intact. A 2DEG could therefore still form at zero gate
+bias, as in the baseline depletion-mode devices. Current was able to flow
+around the locally recessed trench through these adjacent unrecessed regions.
+Consequently, even if the material directly beneath the recess slit was
+depleted, over-etched, or otherwise electrically degraded, it did not fully
+determine the measured drain current.
+
+This current-spreading mechanism is illustrated in
+Figure~\ref{fig:iteration-1-current-bypass}, where the red arrows show
+possible lateral paths around the corners of the locally recessed trench.
+
+\input{figures/fig-current-path-bypass.tex}
+
+This bypass path explains why the devices remained depletion-mode despite the
+large measured recess depths. The gate-recess process modified only part of
+the available current path, while the remaining unrecessed regions provided a
+parallel channel that preserved normally-on conduction. The extracted
+threshold voltage therefore reflects the combined response of the recessed and
+unrecessed geometry, rather than the threshold of a uniformly recessed
+channel. For this reason, the Iteration 1 data cannot be used to extract a
+reliable relationship between recess depth and threshold voltage.
+
+\section{Iteration Conclusion}
+
+Iteration 1 demonstrated that the basic fabrication sequence for recessed-gate
+devices was feasible and could be completed. The samples were successfully processed through
+the shared mesa and ohmic-contact stages, the quadrant-specific recess and
+gate steps were carried out, and the gate metal was optically confirmed to
+cover the etched trenches as designed.
+
+However, the iteration also revealed the central limitation of this first
+design: local trench recession was insufficient unless the measured
+source--drain current was forced to pass through the recessed region. The
+over-etched devices were surprisingly useful because they exposed this geometry
+problem directly. 
