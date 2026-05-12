@@ -38,9 +38,16 @@ Maskless Aligner (MLA) \cite{leedscleanroom_equipment}.
 \vspace{2mm}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.25\linewidth]{figures/fabrication_images/mesa_mask.jpg}
+  \begin{minipage}[c]{0.49\linewidth}
+    \centering
+    \includegraphics[height=5.2cm, width=\linewidth, keepaspectratio]{figures/fabrication_images/mesa_mask.jpg}
+  \end{minipage}\hspace{0.01\linewidth}
+  \begin{minipage}[c]{0.49\linewidth}
+    \centering
+    \includegraphics[height=5.2cm, width=\linewidth, keepaspectratio]{figures/fabrication_images/sem_mesa.jpg}
+  \end{minipage}
   \vspace{3pt}
-  \caption{Mesa lithography mask used for defining isolated device regions (Post-Development).}
+  \caption{Mesa lithography mask after development, and an SEM image of the mesa profile after etching.}
   \label{fig:mesa_mask}
 \end{figure}
 
@@ -135,7 +142,7 @@ tunnelling path that connects the drain and source electrically to the 2DEG.
   \centering
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/ohmic_formation.jpg}
    \vspace{5pt}
-  \caption{Ohmic contacts under x5 microscopy following lift-off.}
+  \caption{Ohmic contacts after metal lift-off.}
   \label{fig:ohmic_contacts}
 \end{figure}
 
@@ -174,7 +181,7 @@ electrical short circuits, particularly around the sensitive gate edges.
   \centering
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/poor_lift_off.jpg}
    \vspace{5pt}
-  \caption{Lift-off defects (circled) observed on completed devices prior to ultrasonic cleaning.}
+  \caption{Lift-off defects observed before ultrasonic cleaning.}
   \label{fig:poor_lift_off}
 \end{figure}
 
@@ -207,7 +214,8 @@ summarised in Table~\ref{tab:device_geometries}.
 
 \begin{table}[htbp]
     \centering
-    \caption{Summary of fabricated HEMT device geometries by column}
+    \caption{Fabricated depletion-mode HEMT geometries used to assess
+    gate-length and ohmic-separation dependence.}
     \vspace{4pt}
     \label{tab:device_geometries}
     \small
@@ -241,15 +249,13 @@ Figure~\ref{gate-lengths-gds}.
 
 \vspace{2mm}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/10um-gate-length.png}
   \hspace{5mm}
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/4um-gate-length.png}
-  \caption{Mask layouts illustrating the extremes of the fabricated device
-  geometries: gate length \SI{10}{\micro\metre} with ohmic separation
-  \SI{40}{\micro\metre} (left) and gate length \SI{4}{\micro\metre} with
-  ohmic separation \SI{20}{\micro\metre} (right).}
+  \caption{Mask layouts for the largest and smallest fabricated device
+  geometries.}
   \label{gate-lengths-gds}
 \end{figure}
 
@@ -274,13 +280,11 @@ enhancement-mode development via controlled gate recession.
 
 \vspace{2mm}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gold_formation_zoomed.jpg}
   \hspace{5mm}
   \includegraphics[width=0.4\linewidth]{figures/fabrication_images/gate_formation.jpg}
-  \caption{Final fabricated depletion-mode GaAs/AlGaAs HEMT device (left)
-  and array of fabricated devices across the wafer (right).}
+  \caption{Fabricated depletion-mode HEMT device and wider device array.}
   \label{fig:hemt_array}
 \end{figure}
-

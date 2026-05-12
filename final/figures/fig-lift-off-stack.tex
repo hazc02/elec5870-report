@@ -28,15 +28,15 @@
     \fill[white] (\xL-\gap,\hsub) rectangle (\xR+\gap,\hsub+\hlor);
     \node[anchor=east] at (-0.2,\hsub+0.5*\hlor) {LOR (undercut)};
 
-    % S1803 with narrower opening (split to avoid outlines across the gap)
+    % S1805 with narrower opening (split to avoid outlines across the gap)
     \fill[red!15] (0,\hsub+\hlor) rectangle (\xL,\hsub+\hlor+\hs1803);
     \draw (0,\hsub+\hlor) rectangle (\xL,\hsub+\hlor+\hs1803);
     \fill[red!15] (\xR,\hsub+\hlor) rectangle (\w,\hsub+\hlor+\hs1803);
     \draw (\xR,\hsub+\hlor) rectangle (\w,\hsub+\hlor+\hs1803);
     \fill[white] (\xL,\hsub+\hlor) rectangle (\xR,\hsub+\hlor+\hs1803);
-    \node[anchor=east] at (-0.2,\hsub+\hlor+0.5*\hs1803) {S1803};
+    \node[anchor=east] at (-0.2,\hsub+\hlor+0.5*\hs1803) {S1805};
 
-    % Metal deposition: recessed metal aligned with S1803 edges
+    % Metal deposition: recessed metal aligned with S1805 edges
     \fill[gray!60] (\xL,\hsub) rectangle (\xR,\hsub+0.65);
     \draw (\xL,\hsub) rectangle (\xR,\hsub+0.65);
     \node at (3.5,\hsub+0.32) {AuGe/Ni/Au};
@@ -52,6 +52,6 @@
 
   \vspace{5mm}
 
-  \caption{Dual-layer LOR/S1803 resist stack after development showing the wider LOR opening that creates an undercut for clean metal lift-off.}
+  \caption{Dual-layer LOR/S1805 resist stack used to form a lift-off undercut.}
   \label{fig:lift_off_stack}
 \end{figure}

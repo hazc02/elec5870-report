@@ -60,8 +60,7 @@ characteristics.
   \includegraphics[width=0.45\linewidth]{figures/fabrication_images/probing.jpg}
   \hspace{2mm}
   \includegraphics[width=0.45\linewidth]{figures/fabrication_images/probes.jpg}
-  \caption{Probe station setup used for electrical characterisation of
-  fabricated devices.}
+  \caption{Probe station setup for electrical characterisation.}
   \label{fig:probing_setup}
 \end{figure}
 
@@ -101,10 +100,8 @@ across the three nominally identical devices fabricated at this geometry.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/electrical_analysis/output_characteristics.png}
-    \caption{Measured output characteristics ($I_D$--$V_{DS}$) of a
-    representative depletion-mode GaAs/AlGaAs HEMT with a \SI{6}{\micro\metre}
-    gate length. Curves are shown for multiple gate voltages, illustrating
-    linear-region conduction and current saturation.}
+    \caption{Measured output characteristics of a representative
+    depletion-mode HEMT.}
     \label{fig:id_vds}
 \end{figure}
 
@@ -137,9 +134,8 @@ behaviour of unrecessed devices is essential.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/electrical_analysis/gate_transfer_average.png}
-    \caption{Averaged transfer characteristics ($I_D$--$V_G$) for all
-    fabricated depletion-mode HEMTs, comprising five lateral geometries with
-    three nominally identical devices per geometry.}
+    \caption{Averaged transfer characteristics for the fabricated
+    depletion-mode HEMTs.}
     \label{fig:id_vg_all}
 \end{figure}
 
@@ -151,7 +147,7 @@ from the depleted regime to strong channel conduction occurs at approximately
 the same gate voltage, yielding a threshold voltage of
 %
 \[
-V_T \approx \SI{-0.9}{\volt}.
+V_{th} \approx \SI{-0.9}{\volt}.
 \]
 %
 No systematic shift in the turn-on point is observed, demonstrating that
@@ -161,10 +157,10 @@ the unrecessed devices fabricated in this work.
 \vspace{2mm}
 
 This behaviour is consistent with Equation~\ref{eq:threshold_voltage}, in
-which $V_T$ is governed by the vertical electrostatics beneath the Schottky
+which $V_{th}$ is governed by the vertical electrostatics beneath the Schottky
 gate. With the gate formed on the GaAs cap, the depletion field must extend
 through the cap, the full AlGaAs donor layer, and the undoped spacer to fully
-deplete the 2DEG. Under these conditions $V_T$ depends on the Schottky
+deplete the 2DEG. Under these conditions $V_{th}$ depends on the Schottky
 barrier height, donor charge density, and donor-layer thickness, while lateral
 device dimensions do not appear in the first-order electrostatic model.
 
@@ -179,11 +175,11 @@ alter the electrostatic condition required to deplete the channel.
 \vspace{2mm}
 
 The key implication is that the baseline threshold voltage is set entirely by
-the unrecessed vertical layer stack, yielding $V_T \approx \SI{-0.9}{\volt}$
+the unrecessed vertical layer stack, yielding $V_{th} \approx \SI{-0.9}{\volt}$
 across all fabricated geometries. This confirms that threshold-voltage
 engineering must be achieved by modifying the vertical electrostatics beneath
 the gate, and validates controlled gate recession into the AlGaAs donor layer
-as the appropriate process variable for shifting $V_T$ into the positive regime.
+as the appropriate process variable for shifting $V_{th}$ into the positive regime.
 
 \vspace{2mm}
 
@@ -202,9 +198,8 @@ within the array.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/electrical_analysis/gate_leakage_average_bulb_off.png}
-    \caption{Measured gate leakage characteristics for unrecessed
-    depletion-mode GaAs/AlGaAs HEMTs, averaged across nominally identical
-    devices for each column in the array (bulb off).}
+    \caption{Measured gate-leakage characteristics for unrecessed
+    depletion-mode HEMTs.}
     \label{fig:ig_vds}
 \end{figure}
 

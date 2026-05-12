@@ -7,9 +7,19 @@
 \begin{document}
 
 % Front matter
+\hypersetup{pageanchor=false}
 \pagenumbering{gobble}
 \input{settings/titlepage}
-\includepdf[pages=-]{ELEC5870M_Declaration_of_Academic_Integrity.pdf}
+\includepdf[
+  pages=-,
+  scale=0.8,
+  pagecommand={},
+  picturecommand*={%
+    \put(201,195){\scalebox{0.8}{\makebox[140pt][l]{\large Harry Carless}}}%
+    \put(404,195){\scalebox{0.8}{\makebox[90pt][l]{\large 12/05/2026}}}%
+  }
+]{ELEC5870M_Declaration_of_Academic_Integrity.pdf}
+\hypersetup{pageanchor=true}
 \pagenumbering{roman}
 \setcounter{page}{1}
 \input{sections/abstract}

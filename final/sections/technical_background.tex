@@ -16,7 +16,7 @@ two-dimensional electron gas (2DEG).
 
 Silicon donors in the AlGaAs layer ionise and release electrons, which
 transfer across the heterointerface and accumulate in the potential
-well on the GaAs side. This modulation-doping scheme leaves the
+well on the GaAs side. This modulation-doping leaves the
 ionised donors in the AlGaAs while the mobile carriers reside in the
 undoped GaAs channel, spatially separating the two. The resulting
 suppression of ionised-impurity scattering yields the exceptionally
@@ -63,7 +63,7 @@ layer from the GaAs channel. This spacer suppresses Coulomb scattering
 by physically isolating the 2DEG from ionised impurities, enabling
 exceptionally high electron mobility. \cite{Hirakawa1986} The benefit is
 particularly pronounced in HEMT devices operating at cryogenic
-temperatures, where phonon scattering is reduced and impurity scattering
+temperatures, where phonon scattering is reduced, and impurity scattering
 would otherwise dominate transport behaviour. \cite{Pfeiffer1989}
 Increasing the spacer thickness improves mobility but weakens
 electrostatic coupling between the gate and the channel; this trade-off
@@ -80,25 +80,26 @@ In a typical HEMT device shown in Figure~\ref{fig:layer_structure}, the gate
 is deposited directly onto the GaAs cap with the full donor layer intact beneath it.
 The resulting threshold voltage is strongly negative, placing the device in depletion
 mode. A method of realising enhancement-mode operation is to thin the donor layer by 
-etching away the cap and penetrating a controlled depth into the AlGaAs, a process known as gate recession.
+etching away the cap and removing donor material to a controlled depth into the AlGaAs, 
+a process known as gate recession.
 
 \vspace{2mm}
 
 Figure~\ref{fig:recessed_gate} shows the resulting cross-section. The
-etch opens a trench through the cap and into the donor layer, into which
+etch process opens a trench through the cap and into the donor layer, into which
 the Schottky gate is deposited; the gate metal coats the walls of the trench and
 rests on the cap surface either side of the trench, whilst the source and drain
 contacts remain on the original surface, preserving low-resistance access
-to the channel. The thickness of donor remaining beneath the gate, $d_d$,
-is the critical process parameter: once it is reduced below a threshold
-value, the zero-bias depletion region extends to the 2DEG and the device
+to the channel through ohmic contact regions. The thickness of donor remaining 
+beneath the gate, $d_d$, is the critical process parameter: once it is reduced below a threshold
+value, the zero-bias depletion region from the gate extends to the 2DEG and the device
 switches to enhancement mode. 
 
 \input{figures/fig-recessed-gate.tex}
 
 \vspace{2mm}
 
-\section{Gate Control of Channel Charge and Threshold Voltage}
+\section{Gate Control of the 2DEG and Threshold Voltage}
 
 The electrical behaviour of the GaAs/AlGaAs HEMT is governed by the
 field-effect interaction between the Schottky gate and the 2DEG. When a
@@ -158,8 +159,9 @@ for $d_d$ in Equation~\ref{eq:threshold_voltage}.
         Donor concentration     & $N_d$            & $1\times10^{18}~\text{cm}^{-3}$          & Wafer specification \\
         \bottomrule
     \end{tabular}
-    \caption{Material parameters used to evaluate the critical donor
-    thickness for the Al$_{0.3}$Ga$_{0.7}$As/GaAs heterostructure.}
+    \caption{Material parameters used to evaluate the critical donor thickness
+    required for enhancement-mode operation in the
+    Al$_{0.3}$Ga$_{0.7}$As/GaAs HEMT.}
     \label{tab:threshold_params}
 \end{table}
 
@@ -213,7 +215,7 @@ also introduces process and device risks that must be carefully managed.
 (Equation~\ref{eq:threshold_voltage}) means that small variations in recess
 depth translate directly into shifts in threshold voltage. Near
 $d_{d,\text{crit}}$, a $\pm 2~\text{nm}$ variation in etch depth can shift
-$V_{th}$ by tens of millivolts \cite{ivcv-hemt}.
+$V_{th}$ by hundreds of millivolts \cite{ivcv-hemt}.
 
 \vspace{2mm}
 
@@ -251,6 +253,4 @@ interface.
 Gate recessing is therefore most effective as a threshold-engineering tool when
 both etch-depth control and interface quality are maintained to a high
 standard. Quantifying this process sensitivity is an explicit objective of this
-work. In particular, the repeatability of the $V_{th}$ and $I_{g}$ metrics
-will be assessed across nominally identical devices on the same sample, as well
-as across different samples fabricated at different times.
+work.
