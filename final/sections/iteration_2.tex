@@ -1,16 +1,270 @@
 % !TEX root = ../final-main.tex
-\chapter{Enhancement-Mode Iteration 2: Revised Mask and Results}
+\chapter{Enhancement-Mode Iteration 2}
 \label{ch:iteration-2}
 
-\section{Fabrication Process}
-% Describe the revised mask design ensuring the recess trench fully isolates
-% drain and source. Document the fabrication process and any observations.
+\section{Iteration 2 Design Changes}
+
+The failure analysis from the first enhancement-mode devices showed that the recessed-gate
+geometry did not force the measured source--drain current through the
+recessed region. The second iteration was therefore designed to address this lateral
+geometry limitation directly.
+
+\vspace{1mm}
+
+The first design change was to adjust the recess mask. Instead of using two
+small trenches, the revised mask placed
+the recess beneath the full gate area. This was intended to remove
+the unrecessed bypass path identified in Chapter~\ref{ch:iteration-1}, so that
+all source--drain current would pass through the recessed area.
+
+\vspace{1mm}
+
+A second change was made to the gate geometry itself. In the previous design,
+part of the narrow mesa section between drain and source was not necessarily
+fully intersected by the gate, meaning that some of the conducting path could
+remain weakly modulated. The gate in this iteration was therefore redesigned so
+that it cut completely across the mesa to intersect the source and drain. This
+geometry was intended to improve electrostatic control and allow the gate to
+fully pinch off the channel in the unrecessed control devices.
+
+\vspace{4mm}
+
+\input{figures/fig-iteration-2-mask-comparison.tex}
+
+\vspace{1mm}
+
+\section{Fabrication and Optical Inspection}
+
+The mesa and ohmic-contact stages had already been completed for all quadrants.
+The Iteration 2 processing therefore implemented the adjusted gate recess and
+gate-formation steps.
+
+\vspace{2mm}
+\input{figures/fig-iteration-2-recess-comparison.tex}
+
+\vspace{1mm}
+
+Figure~\ref{fig:iteration2-recess-comparison} shows the change in the etched
+recess geometry. The two narrow Iteration 1 trenches were replaced by a larger
+recess beneath the intended gate area.
+
+\vspace{1mm}
+
+Figure~\ref{fig:iteration2-gate-popout} shows the gate formation after the
+revised recess process. Optical inspection confirmed that the gate was aligned
+to the recessed region, reached the mesa edge, and retained the intended
+\SI{0.5}{\micro\metre} overlap onto the cap layer. This alignment was observed
+across all twelve devices.
+
+\vspace{2mm}
+\input{figures/fig-iteration-2-gate-popout.tex}
+
+\vspace{20mm}
+
+\FloatBarrier
 
 \section{Electrical Results}
-% Present results: non-functional devices. Discuss the gate-source current
-% observed at 0 V VDS, suggesting a current path directly from source to gate
-% bypassing the channel.
 
-\section{Analysis and Diagnosis}
-% Diagnose the likely causes: over-etching into or through the spacer/channel,
-% and the gate-source leakage mechanism. Motivate the process changes in Iteration 3.
+The electrical measurements showed a clear difference between the unrecessed
+control devices and the recessed devices. The unrecessed controls retained
+normal depletion-mode HEMT behaviour, whereas the recessed devices did not
+function as transistors. This showed that the revised geometry allowed the
+recessed region to dominate the measured transistor characteristics.
+
+\vspace{1mm}
+
+\subsection{Recessed Device Response}
+
+Figure~\ref{fig:iteration2-recessed-control-transfer} compares the mean
+gate-transfer response of the recessed devices with the unrecessed control devices.
+The recessed devices remain close to zero drain current across the measured
+gate-voltage range, indicating that the source--drain channel was no longer
+conducting after the recess process.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\hspace*{-0.06\linewidth}\includegraphics[width=0.9\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_2/gate_transfer.png}}
+  \vspace{3pt}
+  \caption{Gate transfer comparison between the Iteration 2 recessed devices
+  and the unrecessed control devices from the same quadrant. The recessed
+  devices show no measurable drain current, while the control devices retain
+  depletion-mode gate modulation.}
+  \label{fig:iteration2-recessed-control-transfer}
+\end{figure}
+
+\vspace{2mm}
+
+\subsection{Gate Geometry Control}
+
+The control devices are important because they show that the revised gate
+layout itself was not the cause of the failure. These devices were
+processed with the same new gate geometry, but without the recess etch. Their
+transfer characteristics demonstrate depletion-mode HEMT operation, showing
+that the gate still modulates the channel when the active heterostructure is
+left intact.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \renewcommand{\thesubfigure}{\Alph{subfigure}}
+  \begin{subfigure}{1\linewidth}
+    \centering
+    \makebox[\linewidth][c]{\hspace*{-0.05\linewidth}\includegraphics[width=0.94\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_2/gate_transfer_pitch_off.png}}
+    \caption{Full gate-transfer sweep.}
+    \label{fig:iteration2-gate-geometry-pinch-off-full}
+  \end{subfigure}
+
+  \vspace{3pt}
+  \begin{subfigure}{1\linewidth}
+    \centering
+    \makebox[\linewidth][c]{\hspace*{-0.05\linewidth}\includegraphics[width=0.94\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_2/gate_transfer_pitch_off_below_vth.png}}
+    \caption{Below $V_{th}$ pinch-off region.}
+    \label{fig:iteration2-gate-geometry-pinch-off-below-vth}
+  \end{subfigure}
+  \caption{Gate transfer comparison between the unrecessed control devices from
+  Iteration 1 and Iteration 2. The full transfer curve shows the overall
+  depletion-mode behaviour, while the lower plot focuses on the below-threshold
+  region where the improved pinch-off from the revised gate geometry is most
+  visible.}
+  \label{fig:iteration2-gate-geometry-pinch-off}
+\end{figure}
+
+\vspace{30mm}
+
+Figure~\ref{fig:iteration2-gate-geometry-pinch-off} demonstrates the effect of
+the gate-geometry change by comparing the unrecessed controls from Iteration 1
+and Iteration 2. Since neither device was recessed, the difference in $I_D$ can
+be attributed to the revised gate structure. The original gate design still
+conducts at approximately \SI{0.2}{\milli\ampere} when biased below $V_{th}$,
+whereas the Iteration 2 control falls to approximately
+\SI{0}{\milli\ampere}. The below-threshold sweep in
+Figure~\ref{fig:iteration2-gate-geometry-pinch-off-below-vth} makes this
+difference clearer, confirming that extending the gate across the mesa improved
+electrostatic control and allowed full pinch-off.
+
+\subsection{Gate Leakage}
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\hspace*{-0.06\linewidth}\includegraphics[width=0.9\linewidth]{figures/electrical_analysis/enhancement_mode/iteration_2/gate_leakage.png}}
+  \vspace{3pt}
+  \caption{Gate leakage comparison for recessed and unrecessed control devices
+  as a function of $V_{DS}$ at different fixed gate biases. The recessed
+  devices show increasing gate leakage with both $V_{DS}$ and gate-bias
+  magnitude, while the unrecessed controls remain close to zero gate current.}
+  \label{fig:iteration2-gate-leakage}
+\end{figure}
+
+Figure~\ref{fig:iteration2-gate-leakage} shows an additional effect of the
+recessed structure. The unrecessed control devices remain close to zero gate
+leakage current across the measured $V_{DS}$ range, whereas the recessed
+devices show a clear increase in negative gate current as the magnitude of the
+applied gate bias is increased. This behaviour was theorised earlier in
+Chapter~\ref{ch:technical-background}: recessing changes the gate interface and
+reduces the effective gate-to-channel separation, increasing the likelihood of
+gate-current conduction through the modified barrier. This figure demonstrates
+that effect in a measured gate-recessed HEMT.
+
+\vspace{1mm}
+
+The failure of the recessed Iteration 2 devices was therefore attributed
+to the recess etch process rather than the mask geometry. The geometry change
+solved the bypass-current problem identified in Iteration 1, but the recessed channel
+was no longer able to support drain--source conduction. This points to
+excessive removal or damage of the active heterostructure beneath the gate
+region, which is examined further in the failure analysis.
+
+\section{Failure Analysis}
+
+The electrical results indicate that the primary failure mechanism in
+Iteration 2 was excessive recess depth. Unlike Iteration 1, the revised mask
+geometry no longer allowed the drain--source current to bypass a local recess
+trench. As a result, if the recess etch removed too much of the active
+heterostructure, the measured transistor behaviour would be lost completely.
+This is consistent with the recessed devices remaining non-conducting during
+electrical testing.
+
+\vspace{1mm}
+
+The recess depth was not measured using the AlphaStep during this fabrication
+run. Instead, the decision was made to assess the recess either electrically or
+by direct SEM inspection. Once the devices were found to be non-functional, the
+electrical response could only show that the channel had been removed or
+damaged; it could not determine the physical etch depth. An SEM cross-section
+was therefore the most direct method for identifying how far the recess had
+etched into the material stack.
+
+\vspace{2mm}
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    % Adjustable label position on the right-hand SEM image.
+    % Values are fractions of the right image width/height from its top-left corner.
+    \def\semHeightLabelX{0.35}
+    \def\semHeightLabelY{0.20}
+
+    \node[anchor=north west, inner sep=0pt] (semLeft) at (0,0) {
+      \includegraphics[width=0.48\linewidth]{figures/fabrication_images/enhancement_mode_images/iteration2/gate_recess_SEM.jpg}
+    };
+    \node[anchor=north west, inner sep=0pt] (semRight) at ($(semLeft.north east)+(0.02\linewidth,0)$) {
+      \includegraphics[width=0.48\linewidth]{figures/fabrication_images/enhancement_mode_images/iteration2/gate_recess_SEM_measure.jpg}
+    };
+
+    \path let \p1=(semRight.north west), \p2=(semRight.south east) in
+      coordinate (semHeightLabel) at
+      ({\x1+\semHeightLabelX*(\x2-\x1)}, {\y1+\semHeightLabelY*(\y2-\y1)});
+
+    \node[
+      anchor=center,
+      fill=black,
+      text=green!70!white,
+      inner xsep=5pt,
+      inner ysep=3pt,
+      font=\footnotesize\bfseries
+    ] at (semHeightLabel) {Height = \SI{146}{\nano\metre}};
+  \end{tikzpicture}
+  \vspace{3pt}
+  \caption{SEM cross-section of the Iteration 2 recessed gate region. The
+  measured cross-section indicates a recess depth of approximately
+  \SI{150}{\nano\metre}, substantially deeper than the intended recess target.}
+  \label{fig:iteration2-recess-sem}
+\end{figure}
+
+Figure~\ref{fig:iteration2-recess-sem} gives evidence of an etch depth of
+approximately \SI{150}{\nano\metre}. This is far beyond the intended recess
+depth and explains why the recessed devices no longer operated as transistors.
+At this depth, the etch would be expected to remove the donor and channel
+region required for drain--source conduction, rather than only shifting the
+threshold voltage towards enhancement-mode operation.
+
+\vspace{1mm}
+
+This result once again highlighted the sensitivity of the wet etch process, but
+it also revealed a key limitation in the etch curves developed in
+Chapter~\ref{ch:gate-recess-process}. The calibration was based on incremental
+etches, with depth measurements taken between steps, whereas the device recess
+was etched continuously.
+
+This difference, combined with variations in etchant mixing, agitation, timing,
+solution condition, exposed area, and sample handling, can significantly change
+the effective etch rate. The Iteration 2 result therefore showed that the
+calibrated etch curves were not necessarily transferable directly to the device
+without additional process control.
+
+\vspace{1mm}
+
+The gate leakage observed in Figure~\ref{fig:iteration2-gate-leakage} was not
+the cause of the non-functional recessed devices, but it confirms an
+important trade-off in the recess process. Moving the gate closer to the channel
+can improve electrostatic control, but it also increases the sensitivity of the
+device to gate leakage current.
+
+\vspace{1mm}
+
+The combined diagnosis is therefore that the mask redesign worked, but the
+recess-depth control did not. The new gate geometry improved pinch-off in the
+unrecessed control devices, confirming stronger electrostatic control of the
+mesa. However, the recessed devices failed because the etch was too aggressive,
+removing too much of the active material beneath the gate region.

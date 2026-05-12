@@ -5,7 +5,7 @@
 This chapter presents the electrical characterisation of the depletion-mode
 GaAs/AlGaAs HEMT devices fabricated using the unrecessed process described
 in Chapter~\ref{ch:baseline-process}. The primary objective is to establish
-a well-understood electrical baseline for threshold voltage, transconductance,
+a well-understood electrical baseline for threshold voltage, drain current,
 and gate leakage behaviour against which the effects of controlled gate
 recession may be assessed.
 
@@ -49,7 +49,7 @@ Gate transfer characteristics were obtained by sweeping the gate voltage
 $V_G$ from \SI{-3}{\volt} to \SI{0}{\volt} at a fixed drain bias of
 \SI{5}{\volt}, chosen to ensure operation in the saturation regime. From these
 measurements, the drain current $I_D$, threshold voltage $V_{th}$, and
-transconductance $g_m$ were extracted. Gate leakage was also recorded during
+gate-transfer behaviour were extracted. Gate leakage was also recorded during
 the $V_{DS}$ sweeps at the same fixed gate biases used for the output
 characteristics.
 
@@ -64,15 +64,6 @@ characteristics.
   fabricated devices.}
   \label{fig:probing_setup}
 \end{figure}
-
-\vspace{2mm}
-
-Transconductance was calculated numerically from the measured
-$I_D$--$V_G$ data using finite-difference differentiation. This gives the local
-slope $dI_D/dV_G$ at fixed drain bias, with central-difference estimates used
-for interior data points and one-sided differences at the ends of the sweep.
-The reported scalar transconductance metric is the maximum absolute value of
-the resulting $g_m(V_G)$ curve.
 
 \vspace{2mm}
 
@@ -193,94 +184,6 @@ across all fabricated geometries. This confirms that threshold-voltage
 engineering must be achieved by modifying the vertical electrostatics beneath
 the gate, and validates controlled gate recession into the AlGaAs donor layer
 as the appropriate process variable for shifting $V_T$ into the positive regime.
-
-\vspace{2mm}
-
-\section{Transconductance}
-
-Transconductance provides a measure of how effectively the gate modulates the
-channel current at fixed drain bias, and is defined as
-
-\vspace{2mm}
-
-\begin{equation}
-    g_m = \frac{dI_D}{dV_G}
-\end{equation}
-
-\vspace{2mm}
-
-In this work, $g_m$ was extracted numerically from the measured
-$I_D$ versus $V_G$ transfer characteristics at
-$V_{DS}=\SI{5}{\volt}$ using the finite difference method described in
-Section~\ref{sec:measurement-setup}. Figure~\ref{fig:gm_baseline} shows the
-averaged transconductance characteristics for the five unrecessed device
-geometries.
-
-\vspace{2mm}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.78\linewidth]{figures/electrical_analysis/gm_baseline.png}
-  \caption{Averaged transconductance characteristics for the unrecessed
-  depletion mode GaAs/AlGaAs HEMTs, comprising five lateral geometries with
-  three nominally identical devices per column.}
-  \label{fig:gm_baseline}
-\end{figure}
-
-\vspace{2mm}
-
-Across all columns, the transconductance remains close to zero through the
-strongly pinched off region, before rising sharply as $V_G$ approaches the
-$V_T$. This behaviour is consistent with the transfer
-characteristics presented in Section~\ref{sec:baseline-transfer-characterstics}, where the
-drain current begins to increase rapidly at approximately the same gate
-voltage. The shared shape of the $g_m$ curves therefore confirms that all
-devices exhibit the same underlying depletion mode switching behaviour. The
-differences in peak magnitude, however, show that the strength of current
-modulation depends on device geometry.
-
-\vspace{2mm}
-
-A first order theoretical guide is provided by the charge control expression
-for the transconductance parameter $\beta$ introduced in Section~2.4.2:
-
-\vspace{2mm}
-
-\begin{equation*}
-    \beta = \frac{\varepsilon \mu W}{(d + \Delta d)L}
-\end{equation*}
-
-\vspace{2mm}
-
-For the unrecessed device set, the vertical layer structure is common to all
-columns, so $\varepsilon$, $\mu$, and $(d+\Delta d)$ may be treated as
-approximately fixed. Under this assumption, the model predicts that
-$\beta \propto 1/L$. Shorter gate devices would therefore be expected to
-exhibit stronger intrinsic gate control and, in turn, higher
-transconductance. 
-
-\vspace{2mm}
-
-The measured data show a clear dependence of $g_m$ on device
-geometry, but the trend is not determined by gate length alone. In particular,
-the final two columns (Red and Purple Curves on Figure~\ref{fig:gm_baseline}) share the same nominal gate length of
-\SI{4}{\micro\metre}, but exhibit different transconductance characteristics
-because their ohmic separations are different. This indicates that the
-measured transconductance is influenced not only by the intrinsic gate to
-channel coupling captured by the charge control model, but also by lateral
-access resistance and transport effects associated with the source to drain
-geometry.
-
-\vspace{2mm}
-
-The key implication is that, unlike threshold voltage, transconductance is not
-set solely by the vertical electrostatics beneath the gate. Instead, it
-reflects both the intrinsic electrostatic coupling between the gate and the
-channel, and the broader lateral transport conditions within the device.
-Establishing this baseline behaviour is important for the recessed gate study
-developed in later chapters, since any changes in transconductance must be
-interpreted in the context of both recess induced electrostatic modification
-and geometry dependent transport effects.
 
 \vspace{2mm}
 

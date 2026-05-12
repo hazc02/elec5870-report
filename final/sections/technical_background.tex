@@ -193,96 +193,10 @@ as $d_d$ decreases; those etched beyond $22~\text{nm}$ should cross into
 enhancement mode. This systematic variation allows the dependence of
 threshold voltage on recess depth to be characterised
 empirically, as well as any other affected characteristics such as
-transconductance and drain current. As Equation~\ref{eq:crit_donor} is evaluated using literature
+drain current and gate leakage. As Equation~\ref{eq:crit_donor} is evaluated using literature
 parameter values rather than direct measurement on these wafers, measurements of fabricated devices
 will enable the validation of the theoretical prediction and
 identify the true threshold depth for this specific heterostructure.
-
-\subsection{Charge Distribution and Effective Gate Separation}
-\label{sec:quantum-correction}
-
-The threshold calculation above treats the 2DEG as a sheet of charge
-located exactly at the GaAs/AlGaAs heterointerface. In the charge-control
-model, the gate metal and the 2DEG are treated as the two plates of a
-parallel-plate capacitor, separated by the total gate-to-channel distance
-$d$. The capacitive coupling is assumed to occur through the depleted
-AlGaAs barrier stack, with the gate voltage modulating the extent of the
-depletion region and the model assigning a uniform permittivity
-$\varepsilon$ to this region \cite{ivcv-hemt}.
-
-\vspace{2mm}
-
-In practice, however, the electrons forming the 2DEG occupy a quantised
-triangular potential well on the GaAs side of the heterointerface. The
-charge distribution therefore has finite thickness, and its centroid is
-displaced into the GaAs rather than lying exactly at the interface. Lee
-\textit{et al.} account for this by introducing an effective
-gate-to-channel separation of $d + \Delta d$, where
-$\Delta d \approx 80~\text{\AA}$ is a quantum-mechanical correction
-associated with the spatial extent of the electron wavefunction
-\cite{ivcv-hemt}. This correction enters the transconductance parameter
-$\beta$ as
-
-\begin{equation}
-    \beta = \frac{\varepsilon \mu W}{(d + \Delta d)L}
-    \label{eq:beta}
-\end{equation}
-
-\begin{quote}
-    \footnotesize
-    \textit{$\varepsilon$: permittivity of the barrier; $\mu$: electron
-    mobility; $W$, $L$: gate width and length; $d$: physical
-    gate-to-channel separation; $\Delta d$: effective charge-centroid
-    offset.}
-\end{quote}
-
-\vspace{2mm}
-
-The physical separation $d$ comprises the material lying between the gate
-metal and the 2DEG. For the unrecessed device, this spans the full
-epitaxial stack above the channel:
-\begin{equation*}
-    d_{\text{unrecessed}} = d_{\text{cap}} + d_{\text{donor}} +
-    d_{\text{spacer}} = 10 + 40 + 20 = 70~\text{nm}
-\end{equation*}
-
-After recessing to the threshold condition
-(Equation~\ref{eq:crit_donor_eval}), the cap is fully removed, the donor
-layer is reduced to $d_{d,\text{crit}} = 28~\text{nm}$, and the spacer
-remains intact:
-\begin{equation*}
-    d_{\text{recessed}} = d_{d,\text{crit}} + d_{\text{spacer}}
-    = 28 + 20 = 48~\text{nm}
-\end{equation*}
-
-Including the charge-centroid correction therefore gives:
-
-\begin{itemize}
-    \item \textbf{Unrecessed gate:}
-          $d_{\text{eff}} = 70 + 8 = 78~\text{nm}$, so the correction
-          represents $8/78 \approx 10\%$ of the effective separation.
-    \item \textbf{Recessed gate:}
-          $d_{\text{eff}} = 48 + 8 = 56~\text{nm}$, so the correction
-          represents $8/56 \approx 14\%$ of the effective separation.
-\end{itemize}
-
-The main relevance of $\Delta d$ in this project is that it modifies the
-effective gate-to-channel separation entering the transconductance
-parameter $\beta$. Physically, the correction reflects the fact that the
-2DEG charge centroid lies inside the GaAs rather than exactly at the
-heterointerface. Recessing the gate reduces the physical separation $d$,
-but it does not alter the position of this charge centroid, so
-$\Delta d$ becomes a larger fraction of the total effective separation as
-the recess deepens. 
-
-\vspace{2mm}
-
-The correction is therefore relatively modest in the
-unrecessed device, but becomes more significant once the gate is brought
-closer to the channel. Although it does not change the basic
-threshold-voltage argument developed previously, it is relevant when comparing
-measured and expected transconductance, and more generally when
-interpreting how recessing alters gate control of the channel.
 
 \subsection{Gate Recess Risks and Limitations}
 

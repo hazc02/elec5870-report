@@ -9,12 +9,12 @@
     font=\footnotesize,
     imglabel/.style={draw, fill=white, line width=0.35pt, inner xsep=4pt,
       inner ysep=2pt, font=\small\bfseries},
-    recessbox/.style={dashed, line width=1.5pt},
+    recessbox/.style={dashed, line width=2.2pt},
     current/.style={-Latex, line width=2.5pt, rounded corners=8pt},
     blocked/.style={dashed, line width=0.9pt, opacity=0.70}
   ]
     \node[anchor=north west, inner sep=0pt] (device) at (0,0) {
-      \includegraphics[width=0.78\linewidth]{figures/fabrication_images/enhancement_mode_images/current_path_annotate.jpg}
+      \includegraphics[width=0.70\linewidth]{figures/fabrication_images/enhancement_mode_images/current_path_annotate.jpg}
     };
 
     % Manual adjustment controls. Fractions are measured from the top-left of
@@ -33,23 +33,24 @@
       coordinate (gateLabel) at ({\x1+0.50*(\x2-\x1)}, {\y1+0.60*(\y2-\y1)})
       coordinate (recessNW) at ({\x1+\recessBoxLeft*(\x2-\x1)}, {\y1+\recessBoxTop*(\y2-\y1)})
       coordinate (recessSE) at ({\x1+\recessBoxRight*(\x2-\x1)}, {\y1+\recessBoxBottom*(\y2-\y1)})
-      coordinate (leftUpperStart) at ({\x1+0.305*(\x2-\x1)}, {\y1+0.295*(\y2-\y1)})
-      coordinate (leftUpperA) at ({\x1+0.382*(\x2-\x1)}, {\y1+0.220*(\y2-\y1)})
-      coordinate (leftUpperB) at ({\x1+0.412*(\x2-\x1)}, {\y1+0.218*(\y2-\y1)})
-      coordinate (leftUpperEnd) at ({\x1+0.487*(\x2-\x1)}, {\y1+0.286*(\y2-\y1)})
-      coordinate (leftLowerStart) at ({\x1+0.305*(\x2-\x1)}, {\y1+0.400*(\y2-\y1)})
-      coordinate (leftLowerA) at ({\x1+0.375*(\x2-\x1)}, {\y1+0.455*(\y2-\y1)})
-      coordinate (leftLowerEnd) at ({\x1+0.490*(\x2-\x1)}, {\y1+0.382*(\y2-\y1)})
-      coordinate (rightUpperStart) at ({\x1+0.695*(\x2-\x1)}, {\y1+0.295*(\y2-\y1)})
-      coordinate (rightUpperA) at ({\x1+0.598*(\x2-\x1)}, {\y1+0.220*(\y2-\y1)})
-      coordinate (rightUpperB) at ({\x1+0.568*(\x2-\x1)}, {\y1+0.218*(\y2-\y1)})
-      coordinate (rightUpperEnd) at ({\x1+0.513*(\x2-\x1)}, {\y1+0.286*(\y2-\y1)})
-      coordinate (rightLowerStart) at ({\x1+0.695*(\x2-\x1)}, {\y1+0.400*(\y2-\y1)})
-      coordinate (rightLowerA) at ({\x1+0.605*(\x2-\x1)}, {\y1+0.455*(\y2-\y1)})
-      coordinate (rightLowerEnd) at ({\x1+0.510*(\x2-\x1)}, {\y1+0.382*(\y2-\y1)})
+      coordinate (leftUpperStart) at ({\x1+0.305*(\x2-\x1)}, {\y1+0.275*(\y2-\y1)})
+      coordinate (leftUpperA) at ({\x1+0.382*(\x2-\x1)}, {\y1+0.200*(\y2-\y1)})
+      coordinate (leftUpperB) at ({\x1+0.412*(\x2-\x1)}, {\y1+0.198*(\y2-\y1)})
+      coordinate (leftUpperEnd) at ({\x1+0.487*(\x2-\x1)}, {\y1+0.266*(\y2-\y1)})
+      coordinate (leftLowerStart) at ({\x1+0.305*(\x2-\x1)}, {\y1+0.380*(\y2-\y1)})
+      coordinate (leftLowerA) at ({\x1+0.375*(\x2-\x1)}, {\y1+0.435*(\y2-\y1)})
+      coordinate (leftLowerEnd) at ({\x1+0.490*(\x2-\x1)}, {\y1+0.362*(\y2-\y1)})
+      coordinate (rightUpperStart) at ({\x1+0.695*(\x2-\x1)}, {\y1+0.275*(\y2-\y1)})
+      coordinate (rightUpperA) at ({\x1+0.598*(\x2-\x1)}, {\y1+0.200*(\y2-\y1)})
+      coordinate (rightUpperB) at ({\x1+0.568*(\x2-\x1)}, {\y1+0.198*(\y2-\y1)})
+      coordinate (rightUpperEnd) at ({\x1+0.513*(\x2-\x1)}, {\y1+0.266*(\y2-\y1)})
+      coordinate (rightLowerStart) at ({\x1+0.695*(\x2-\x1)}, {\y1+0.380*(\y2-\y1)})
+      coordinate (rightLowerA) at ({\x1+0.605*(\x2-\x1)}, {\y1+0.435*(\y2-\y1)})
+      coordinate (rightLowerEnd) at ({\x1+0.510*(\x2-\x1)}, {\y1+0.362*(\y2-\y1)})
       coordinate (recessText) at ({\x1+0.49*(\x2-\x1)}, {\y1+0.305*(\y2-\y1)});
 
-    \draw[recessbox, blue!70!black] (recessNW) rectangle (recessSE);
+    \draw[recessbox, white, opacity=0.85] (recessNW) rectangle (recessSE);
+    \draw[recessbox, blue!90!black] (recessNW) rectangle (recessSE);
 
     \node[imglabel, font=\footnotesize\bfseries, align=center]
       at (recessText) {local recessed trenches};
